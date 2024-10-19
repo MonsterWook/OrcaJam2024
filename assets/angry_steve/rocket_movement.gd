@@ -48,18 +48,19 @@ func get_bullet_stats() -> Array:
 	return [spawn_point, direction_vec]
 	
 func bounce_off(bounce_amount: int):
-	var bounce_direction = Vector2(-rigid_body_2d.linear_velocity.x, 0).normalized()
+	var bounce_direction = Vector2(-rigid_body_2d.linear_velocity.x, 0)
 	rigid_body_2d.apply_force(bounce_direction*bounce_amount)
 
 func _process(delta):
 	rigid_body_2d.position.y = vertical_position
 	#print(rigid_body_2d.position)
 	if (rigid_body_2d.position.x > 550 or rigid_body_2d.position.x < -550):
-		bounce_off(30000)
+		bounce_off(100)
 		
 	#print(rigid_body_2d.linear_velocity)
 	
-
+func get_rigid_position():
+	return Vector2(0, vertical_position)
 
 func _on_timer_timeout() -> void:
 	pass # Replace with function body.
