@@ -5,8 +5,10 @@ const BOOST_SPEED: float = 300
 @onready var rigid_body_2d: RigidBody2D = $Rocket/RigidBody2D
 @onready var angry_steve: Node2D = $Rocket/RigidBody2D/AngrySteve
 @onready var rocket: Node2D = $Rocket
+@onready var bullet_spawn: Node2D = $Rocket/RigidBody2D/BulletSpawn
 
-var vertical_speed = 0
+var vertical_speed = -5
+var vertical_position = 0
 
 var max_rotation = deg_to_rad(60)
 var min_rotation = deg_to_rad(-60)
@@ -32,17 +34,17 @@ func _physics_process(delta: float) -> void:
 		
 	var direction_vec = Vector2(sin(rigid_body_2d.rotation), -cos(rigid_body_2d.rotation))
 	rigid_body_2d.apply_force(direction_vec*BOOST_SPEED)
-	rocket.position = rigid_body_2d.position
-	
+	vertical_position += delta*vertical_speed
 	
 func get_bullet_stats() -> Array:
-	var spawn_point = angry_steve.get_gun_spawn()
+	rigid_body_2d.position.y = vertical_position
+	var spawn_point = bullet_spawn.global_position
 	var direction_vec = Vector2(sin(rigid_body_2d.rotation), -cos(rigid_body_2d.rotation))
+	
 	#print(direction_vec)
+	
 	return [spawn_point, direction_vec]
 	
 func _process(delta):
+	rigid_body_2d.position.y = vertical_position
 	
-	
-	#rigid_body_2d.position.y += vertical_speed*delta
-	rigid_body_2d.position.y = 0
