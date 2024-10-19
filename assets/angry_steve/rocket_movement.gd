@@ -38,6 +38,5 @@ func _process(delta):
 		print("shoot")
 		var direction_vec = Vector2(sin(rigid_body_2d.rotation), -cos(rigid_body_2d.rotation))
 		angry_steve.shoot(direction_vec)
-		
+	'''		
 	rigid_body_2d.position.y = 0
-	'''
