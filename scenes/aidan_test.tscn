@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://b43a4n5qbfuby"]
+
+[ext_resource type="PackedScene" uid="uid://3nagd1rvprrd" path="res://assets/angry_steve/rocket_movement.tscn" id="1_58fmw"]
+[ext_resource type="PackedScene" uid="uid://dohublqlkjpa3" path="res://assets/ui/in_game_ui.tscn" id="2_vr28d"]
+
+[node name="AidanTest" type="Node2D"]
+
+[node name="In_Game_UI" parent="." instance=ExtResource("2_vr28d")]
+
+[node name="RocketMovement" parent="." instance=ExtResource("1_58fmw")]
+position = Vector2(558, 375)
