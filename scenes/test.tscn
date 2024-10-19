@@ -7,10 +7,10 @@
 [node name="Test" type="Node"]
 
 [node name="Bird" parent="." instance=ExtResource("1_3la0d")]
-position = Vector2(22, 328)
+position = Vector2(357, 295)
 
 [node name="Weather_balloon" parent="." instance=ExtResource("2_apegw")]
-position = Vector2(801, 543)
+position = Vector2(1114, 465)
 
 [node name="Asteroid" parent="." instance=ExtResource("3_gdvxx")]
-position = Vector2(334, 167)
+position = Vector2(458, 123)

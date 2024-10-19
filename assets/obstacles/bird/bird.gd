@@ -4,6 +4,8 @@ extends CharacterBody2D
 @export var sin_wave_intensity : int = 200
 @export var sin_wave_speed : float = 2.5
 
+@onready var sprite : AnimatedSprite2D = $AnimatedSprite2D
+
 var spawnedDirection : bool = false #left = false, right = true
 var time : float
 
@@ -11,7 +13,7 @@ var time : float
 signal destroyed(obstacle_pos, scrap)
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	sprite.play()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -25,9 +27,11 @@ func movement():
 	if (spawnedDirection):
 		#move towards the left with the tiniest bit of sin movement
 		velocity = Vector2(-1 * SPEED, get_sine())
+		sprite.flip_h = false
 	else:
 		#move towards the right with the tiniest bit of sin movement
 		velocity = Vector2(1 * SPEED, get_sine())
+		sprite.flip_h = true
 	move_and_slide()
 
 func death(killed : bool):
@@ -42,5 +46,8 @@ func get_sine():
 func _on_area_2d_area_entered(area : Area2D):
 	if (area.is_in_group("bullet")):
 		death(true)
-	if (area.is_in_group("player")):
+
+func _on_area_2d_body_entered(body):
+	if (body.is_in_group("player")):
 		death(false)
+		body.take_damage()

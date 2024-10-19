@@ -4,8 +4,8 @@ extends Node2D
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if (obstacle.global_position.x > 1000 ||
-		obstacle.global_position.x < -1000 ||
+	if (obstacle.global_position.x > 10000 ||
+		obstacle.global_position.x < -10000 ||
 		obstacle.global_position.y > 10000):
 			despawn()
 

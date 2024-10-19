@@ -15,12 +15,20 @@ run/main_scene="res://scenes/rocket_movement.tscn"
 config/features=PackedStringArray("4.3", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[display]
+
+window/stretch/mode="canvas_items"
+
 [global_group]
 
+scrap=""
 bullet=""
 player=""
 obstacles=""
+<<<<<<< HEAD
 scrap=""
+=======
+>>>>>>> 8ba6dc5b9f4b606bad0ca69ff187e4a8441562e2
 
 [input]
 
