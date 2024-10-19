@@ -1,12 +1,16 @@
-[gd_scene load_steps=3 format=3 uid="uid://bigyxwqtvr2dh"]
+[gd_scene load_steps=6 format=3 uid="uid://bigyxwqtvr2dh"]
 
+[ext_resource type="Script" path="res://assets/obstacles/weather_balloon/weather_balloon.gd" id="1_5boas"]
 [ext_resource type="Texture2D" uid="uid://b0wsbjkia42bo" path="res://assets/sprites/placeholder_steve.jpg" id="1_e8vnm"]
+[ext_resource type="PackedScene" uid="uid://bd2rrkiklhypo" path="res://assets/spawner/spawners/scrap_spawner.tscn" id="2_86r6s"]
+[ext_resource type="PackedScene" uid="uid://dm0wvq7phgosy" path="res://assets/obstacles/despawn.tscn" id="3_yr37u"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7a41r"]
 radius = 17.0
 height = 54.0
 
 [node name="Weather_balloon" type="CharacterBody2D"]
+script = ExtResource("1_5boas")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.1, 0.1)
@@ -14,3 +18,10 @@ texture = ExtResource("1_e8vnm")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_7a41r")
+
+[node name="scrap_spawner" parent="." instance=ExtResource("2_86r6s")]
+
+[node name="despawn" parent="." node_paths=PackedStringArray("obstacle") instance=ExtResource("3_yr37u")]
+obstacle = NodePath("..")
+
+[connection signal="destroyed" from="." to="scrap_spawner" method="_on_destroyed"]

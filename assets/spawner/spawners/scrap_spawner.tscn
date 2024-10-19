@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bd2rrkiklhypo"]
+
+[ext_resource type="Script" path="res://assets/spawner/spawners/scrap_spawner.gd" id="1_8nnge"]
+
+[node name="scrap_spawner" type="Node2D"]
+script = ExtResource("1_8nnge")

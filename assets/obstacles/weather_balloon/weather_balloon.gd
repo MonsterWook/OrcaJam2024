@@ -1,43 +1,32 @@
 extends CharacterBody2D
 
-@export var SPEED : int = 100
-@export var sin_wave_intensity : int = 200
-@export var sin_wave_speed : float = 2.5
-
+@export var SPEED : int = 25
 var spawnedDirection : bool = false #left = false, right = true
-var time : float
-
-
+var rot : float = 0
 signal destroyed(obstacle_pos, scrap)
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	if (spawnedDirection):
+		rot = randf_range(4* PI/3, 3 * PI/2)
+	else:
+		rot = randf_range(3 * PI/2, 5 * PI/3)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	if (Input.is_key_pressed(KEY_SPACE)):
 		death(true)
-	time += delta
 	movement()
 
 func movement():
-	#easy movement just go from the left of the screen to the right or vice versa
-	if (spawnedDirection):
-		#move towards the left with the tiniest bit of sin movement
-		velocity = Vector2(-1 * SPEED, get_sine())
-	else:
-		#move towards the right with the tiniest bit of sin movement
-		velocity = Vector2(1 * SPEED, get_sine())
+	#very small movement upwards
+	velocity = Vector2(SPEED, 0).rotated(rot)
 	move_and_slide()
 
 func death(killed : bool):
 	if (killed):
-		destroyed.emit(global_position, 0)
+		destroyed.emit(global_position, 1)
 	#play destoyed anim maybe
 	queue_free()
-
-func get_sine():
-	return sin(time * sin_wave_speed) * sin_wave_intensity
 
 func _on_area_2d_area_entered(area : Area2D):
 	if (area.is_in_group("bullet")):

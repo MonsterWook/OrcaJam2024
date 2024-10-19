@@ -1,19 +1,30 @@
-[gd_scene load_steps=4 format=3 uid="uid://byknsw20p8tgq"]
+[gd_scene load_steps=6 format=3 uid="uid://byknsw20p8tgq"]
 
 [ext_resource type="Texture2D" uid="uid://b0wsbjkia42bo" path="res://assets/sprites/placeholder_steve.jpg" id="1_inwxc"]
 [ext_resource type="Script" path="res://assets/obstacles/bird/bird.gd" id="1_mf7an"]
+[ext_resource type="PackedScene" uid="uid://bd2rrkiklhypo" path="res://assets/spawner/spawners/scrap_spawner.tscn" id="3_qxw2e"]
+[ext_resource type="PackedScene" uid="uid://dm0wvq7phgosy" path="res://assets/obstacles/despawn.tscn" id="4_38le5"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7a41r"]
 radius = 17.0
 height = 54.0
 
 [node name="Bird" type="CharacterBody2D"]
-position = Vector2(3, 311)
 script = ExtResource("1_mf7an")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.1, 0.1)
 texture = ExtResource("1_inwxc")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("CapsuleShape2D_7a41r")
+
+[node name="scrap_spawner" parent="." instance=ExtResource("3_qxw2e")]
+
+[node name="despawn" parent="." node_paths=PackedStringArray("obstacle") instance=ExtResource("4_38le5")]
+obstacle = NodePath("..")
+
+[connection signal="destroyed" from="." to="scrap_spawner" method="_on_destroyed"]
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

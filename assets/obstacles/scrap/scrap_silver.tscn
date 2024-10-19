@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://cdo1emn5nt4cx"]
+
+[ext_resource type="Script" path="res://assets/obstacles/scrap/scrap.gd" id="1_fytss"]
+[ext_resource type="Texture2D" uid="uid://720yxy3tljr4" path="res://assets/sprites/scrap.webp" id="2_7vtml"]
+[ext_resource type="PackedScene" uid="uid://dm0wvq7phgosy" path="res://assets/obstacles/despawn.tscn" id="3_c754c"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_531ur"]
+radius = 30.0
+
+[node name="Scrap_silver" type="CharacterBody2D"]
+script = ExtResource("1_fytss")
+value = 500
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0, 1, 0.816667, 1)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("2_7vtml")
+
+[node name="Area2D" type="Area2D" parent="." groups=["scrap"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+visible = false
+shape = SubResource("CircleShape2D_531ur")
+
+[node name="despawn" parent="." node_paths=PackedStringArray("obstacle") instance=ExtResource("3_c754c")]
+obstacle = NodePath("..")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
