@@ -34,12 +34,11 @@ func _physics_process(delta: float) -> void:
 	rigid_body_2d.apply_force(direction_vec*BOOST_SPEED)
 	
 	
+func get_bullet_stats():
+	angry_steve.get_gun_spawn()
+	var direction_vec = Vector2(sin(rigid_body_2d.rotation), -cos(rigid_body_2d.rotation))
+	
 func _process(delta):
-	'''
-	if Input.is_action_pressed("boost"):
-		print("shoot")
-		var direction_vec = Vector2(sin(rigid_body_2d.rotation), -cos(rigid_body_2d.rotation))
-		angry_steve.shoot(direction_vec)
-	'''		
+	
 	
 	rigid_body_2d.position.y += vertical_speed*delta

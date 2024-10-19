@@ -15,4 +15,5 @@ func shoot(direction: Vector2):
 	instance.direction_vec = direction
 	
 
-		
+func get_gun_spawn():
+	return bullet_spawn.position 
