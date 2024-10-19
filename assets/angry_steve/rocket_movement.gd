@@ -6,6 +6,8 @@ const BOOST_SPEED: float = 300
 @onready var rigid_body_2d: RigidBody2D = $Rocket/RigidBody2D
 @onready var angry_steve: Node2D = $Rocket/RigidBody2D/AngrySteve
 
+var vertical_speed = 10
+
 var max_rotation = deg_to_rad(60)
 var min_rotation = deg_to_rad(-60)
 
@@ -39,4 +41,5 @@ func _process(delta):
 		var direction_vec = Vector2(sin(rigid_body_2d.rotation), -cos(rigid_body_2d.rotation))
 		angry_steve.shoot(direction_vec)
 	'''		
-	rigid_body_2d.position.y = 0
+	
+	rigid_body_2d.position.y += vertical_speed*delta

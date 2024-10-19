@@ -14,7 +14,7 @@ texture_filter = 2
 scale = Vector2(0.0939532, 0.0939532)
 texture = ExtResource("1_gpu2s")
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="Area2D" type="Area2D" parent="." groups=["bullet"]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(1.5, 0)
