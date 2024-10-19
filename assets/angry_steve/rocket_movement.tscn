@@ -1,9 +1,8 @@
-
 [gd_scene load_steps=6 format=3 uid="uid://3nagd1rvprrd"]
 
 [ext_resource type="Script" path="res://assets/angry_steve/rocket_movement.gd" id="1_7urn4"]
 [ext_resource type="Texture2D" uid="uid://dyohy4lk1280g" path="res://assets/sprites/Rocket-PNG-Photos.png" id="2_ok60q"]
-[ext_resource type="PackedScene" uid="uid://dxdvuxmxq8vv5" path="res://assets/angry_steve/angry_steve.tscn" id="3_jlmnl"]
+[ext_resource type="PackedScene" uid="uid://so2gc1cxchi1" path="res://assets/angry_steve/angry_steve.tscn" id="3_jlmnl"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yukkh"]
 size = Vector2(54, 109)
@@ -12,7 +11,6 @@ size = Vector2(54, 109)
 size = Vector2(68, 107)
 
 [node name="RocketMovement" type="Node2D"]
-position = Vector2(576, 321)
 script = ExtResource("1_7urn4")
 
 [node name="Rocket" type="Node2D" parent="."]

@@ -16,4 +16,4 @@ func shoot(direction: Vector2):
 	
 
 func get_gun_spawn():
-	return bullet_spawn.position 
+	return bullet_spawn.global_position
