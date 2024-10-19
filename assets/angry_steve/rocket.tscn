@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://btw2h44hobtrr"]
 
-[ext_resource type="Script" path="res://scripts/rocket_movement.gd" id="1_nfyot"]
+[ext_resource type="Script" path="res://assets/angry_steve/rocket_movement.gd" id="1_nfyot"]
 
 [node name="Rocket" type="Node2D"]
 script = ExtResource("1_nfyot")

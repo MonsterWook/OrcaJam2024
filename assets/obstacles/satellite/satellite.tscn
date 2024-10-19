@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://l212vo8c5fme"]
+
+[ext_resource type="Texture2D" uid="uid://b0wsbjkia42bo" path="res://assets/sprites/placeholder_steve.jpg" id="1_voya4"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7a41r"]
+radius = 17.0
+height = 54.0
+
+[node name="Satellite" type="CharacterBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("1_voya4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_7a41r")
