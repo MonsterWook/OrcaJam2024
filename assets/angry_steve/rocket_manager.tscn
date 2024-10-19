@@ -7,3 +7,18 @@
 script = ExtResource("1_y38my")
 
 [node name="RocketMovement" parent="." instance=ExtResource("1_54fw2")]
+
+[node name="FuelBar" type="ProgressBar" parent="RocketMovement"]
+offset_left = 512.0
+offset_top = 49.0
+offset_right = 539.0
+offset_bottom = 270.0
+value = 100.0
+fill_mode = 3
+show_percentage = false
+
+[node name="shootTimeout" type="Timer" parent="."]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[connection signal="timeout" from="shootTimeout" to="." method="_on_timer_timeout"]

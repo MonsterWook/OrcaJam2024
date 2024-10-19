@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://3nagd1rvprrd"]
+[gd_scene load_steps=5 format=3 uid="uid://3nagd1rvprrd"]
 
 [ext_resource type="Script" path="res://assets/angry_steve/rocket_movement.gd" id="1_7urn4"]
 [ext_resource type="Texture2D" uid="uid://dyohy4lk1280g" path="res://assets/sprites/Rocket-PNG-Photos.png" id="2_ok60q"]
@@ -6,9 +6,6 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yukkh"]
 size = Vector2(54, 109)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_dyuqy"]
-size = Vector2(68, 107)
 
 [node name="RocketMovement" type="Node2D"]
 script = ExtResource("1_7urn4")
@@ -25,19 +22,12 @@ scale = Vector2(0.207031, 0.207031)
 texture = ExtResource("2_ok60q")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Rocket/RigidBody2D"]
-visible = false
 shape = SubResource("RectangleShape2D_yukkh")
 
 [node name="BulletSpawn" type="Node2D" parent="Rocket/RigidBody2D"]
 position = Vector2(-21, -31)
 
 [node name="AngrySteve" parent="Rocket/RigidBody2D" instance=ExtResource("3_jlmnl")]
+visible = false
 position = Vector2(-24, 0)
 rotation = -1.5708
-
-[node name="Area2D" type="Area2D" parent="Rocket" groups=["player"]]
-position = Vector2(2, 1)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Rocket/Area2D"]
-position = Vector2(0, -0.5)
-shape = SubResource("RectangleShape2D_dyuqy")
