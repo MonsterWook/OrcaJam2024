@@ -1,6 +1,8 @@
 extends CharacterBody2D
 
 @export var SPEED : int = 25
+@export var damage : int = 10
+
 var spawnedDirection : bool = false #left = false, right = true
 var rot : float = 0
 signal destroyed(obstacle_pos, scrap)
@@ -31,5 +33,8 @@ func death(killed : bool):
 func _on_area_2d_area_entered(area : Area2D):
 	if (area.is_in_group("bullet")):
 		death(true)
-	if (area.is_in_group("player")):
+
+func _on_area_2d_body_entered(body):
+	if (body.is_in_group("player")):
 		death(false)
+		body.take_damage(damage)

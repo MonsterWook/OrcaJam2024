@@ -3,6 +3,7 @@ extends CharacterBody2D
 @export var SPEED : int = 100
 @export var sin_wave_intensity : int = 200
 @export var sin_wave_speed : float = 2.5
+@export var damage : int = 10
 
 @onready var sprite : AnimatedSprite2D = $AnimatedSprite2D
 
@@ -50,4 +51,4 @@ func _on_area_2d_area_entered(area : Area2D):
 func _on_area_2d_body_entered(body):
 	if (body.is_in_group("player")):
 		death(false)
-		body.take_damage()
+		body.take_damage(damage)

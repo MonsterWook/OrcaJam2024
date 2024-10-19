@@ -2,6 +2,7 @@ extends CharacterBody2D
 
 @export var SPEED : int = 25
 @export var ROT_SPEED : float = 50
+@export var damage : int = 10
 
 @onready var sprite = $Sprite2D
 
@@ -36,5 +37,8 @@ func death(killed : bool):
 func _on_area_2d_area_entered(area : Area2D):
 	if (area.is_in_group("bullet")):
 		death(true)
-	if (area.is_in_group("player")):
+
+func _on_area_2d_body_entered(body):
+	if (body.is_in_group("player")):
 		death(false)
+		body.take_damage(damage)
