@@ -1,13 +1,14 @@
 extends CharacterBody2D
 
 @export var SPEED : int = 100
-@export var sin_wave_intensity : int = 25
-@export var sin_wave_speed : float = 2
+@export var sin_wave_intensity : int = 200
+@export var sin_wave_speed : float = 2.5
 
 var spawnedDirection : bool = false #left = false, right = true
 var time : float
 
-signal destroyed(obstalce_pos, scrap)
+
+signal destroyed(obstacle_pos, scrap)
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
@@ -29,7 +30,7 @@ func movement():
 
 func death(killed : bool):
 	if (killed):
-		destroyed.emit(global_position, 0)
+		destroyed.emit(global_position, 2)
 	#play destoyed anim maybe
 	queue_free()
 

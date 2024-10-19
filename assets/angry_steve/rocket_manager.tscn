@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://d0yp3fn4qfolo"]
+
+[ext_resource type="PackedScene" uid="uid://3nagd1rvprrd" path="res://assets/angry_steve/rocket_movement.tscn" id="1_54fw2"]
+[ext_resource type="Script" path="res://assets/angry_steve/rocket_manager.gd" id="1_y38my"]
+
+[node name="RocketManager" type="Node2D"]
+script = ExtResource("1_y38my")
+
+[node name="RocketMovement" parent="." instance=ExtResource("1_54fw2")]
