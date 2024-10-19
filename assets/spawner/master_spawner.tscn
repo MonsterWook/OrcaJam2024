@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://nfli7vysv23"]
+
+[ext_resource type="Script" path="res://assets/spawner/master_spawner.gd" id="1_h3sq7"]
+[ext_resource type="Script" path="res://assets/spawner/spawners/spawn_plane.gd" id="2_o66li"]
+
+[node name="master_spawner" type="Node2D"]
+script = ExtResource("1_h3sq7")
+
+[node name="spawn_bird" type="Node2D" parent="."]
+
+[node name="spawn_plane" type="Node2D" parent="."]
+script = ExtResource("2_o66li")
+
+[node name="spawn_satellite" type="Node2D" parent="."]
+
+[node name="spawn_weather_balloon" type="Node2D" parent="."]
+
+[node name="spawn_asteroid" type="Node2D" parent="."]
+
+[node name="spawn_alien" type="Node2D" parent="."]

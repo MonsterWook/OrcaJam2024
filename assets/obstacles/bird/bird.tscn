@@ -8,7 +8,7 @@ radius = 17.0
 height = 54.0
 
 [node name="Bird" type="CharacterBody2D"]
-position = Vector2(0, 306)
+position = Vector2(3, 311)
 script = ExtResource("1_mf7an")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
