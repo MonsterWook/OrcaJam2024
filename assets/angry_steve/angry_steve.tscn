@@ -1,0 +1,61 @@
+[gd_scene load_steps=9 format=3 uid="uid://so2gc1cxchi1"]
+
+[ext_resource type="Script" path="res://assets/angry_steve/angry_steve.gd" id="1_6buur"]
+[ext_resource type="Texture2D" uid="uid://ilp6y2gqjetk" path="res://assets/sprites/miscellaneous/brackeys_platformer_assets/brackeys_platformer_assets/sprites/knight.png" id="1_o782e"]
+[ext_resource type="Texture2D" uid="uid://dlbcd2tqwr8vb" path="res://assets/sprites/miscellaneous/shotgun.png" id="2_c63x3"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v676e"]
+atlas = ExtResource("1_o782e")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5mxkn"]
+atlas = ExtResource("1_o782e")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6rewm"]
+atlas = ExtResource("1_o782e")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_im7fi"]
+atlas = ExtResource("1_o782e")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_iuv1v"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v676e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5mxkn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6rewm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_im7fi")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[node name="AngrySteve" type="Node2D"]
+script = ExtResource("1_6buur")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_iuv1v")
+animation = &"idle"
+frame_progress = 0.0165048
+
+[node name="gun" type="Node2D" parent="AnimatedSprite2D"]
+position = Vector2(7, 8)
+scale = Vector2(0.32, 0.32)
+
+[node name="Sprite2D" type="Sprite2D" parent="AnimatedSprite2D/gun"]
+texture_filter = 2
+texture = ExtResource("2_c63x3")
+
+[node name="BulletSpawn" type="Node2D" parent="AnimatedSprite2D/gun"]
+position = Vector2(87.4999, -15.625)

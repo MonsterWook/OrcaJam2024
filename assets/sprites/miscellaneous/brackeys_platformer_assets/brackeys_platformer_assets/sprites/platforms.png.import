@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dyohy4lk1280g"
-path="res://.godot/imported/Rocket-PNG-Photos.png-bc70b02b68a82a08161cb6d0890e094e.ctex"
+uid="uid://w7pl812u54l"
+path="res://.godot/imported/platforms.png-b2d99ce1634df590e44fba0a210ef64a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/rocket/Rocket-PNG-Photos.png"
-dest_files=["res://.godot/imported/Rocket-PNG-Photos.png-bc70b02b68a82a08161cb6d0890e094e.ctex"]
+source_file="res://assets/sprites/miscellaneous/brackeys_platformer_assets/brackeys_platformer_assets/sprites/platforms.png"
+dest_files=["res://.godot/imported/platforms.png-b2d99ce1634df590e44fba0a210ef64a.ctex"]
 
 [params]
 
