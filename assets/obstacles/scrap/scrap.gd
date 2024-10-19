@@ -6,6 +6,7 @@ extends CharacterBody2D
 var time : float
 var scrap_ui : Node
 
+var spawnedDirection : bool = false
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	#connect scrap collected to ui system. talk to Aidan about that
