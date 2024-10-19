@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://big3ntldyqvoj"]
+[gd_scene load_steps=4 format=3 uid="uid://bovmmndtake8o"]
 
 [ext_resource type="Script" path="res://assets/angry_steve/bullet.gd" id="1_8scsd"]
 [ext_resource type="Texture2D" uid="uid://crimbidfhw2hn" path="res://assets/sprites/miscellaneous/fireball.png" id="1_gpu2s"]

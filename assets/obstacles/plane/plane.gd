@@ -6,6 +6,8 @@ extends CharacterBody2D
 
 var spawnedDirection : bool = false #left = false, right = true
 var time : float
+
+signal destroyed
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
@@ -24,6 +26,18 @@ func movement():
 		#move towards the right with the tiniest bit of sin movement
 		velocity = Vector2(1 * SPEED, get_sine())
 	move_and_slide()
-	
+
+func death(killed : bool):
+	if (killed):
+		emit_signal("destroyed")
+	#play destoyed anim maybe
+	queue_free()
+
 func get_sine():
 	return sin(time * sin_wave_speed) * sin_wave_intensity
+
+func _on_area_2d_area_entered(area : Area2D):
+	if (area.is_in_group("bullet")):
+		death(true)
+	if (area.is_in_group("player")):
+		death(false)
