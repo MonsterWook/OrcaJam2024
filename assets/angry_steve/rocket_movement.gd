@@ -11,7 +11,7 @@ extends Node2D
 const boost_speed: float = 500
 
 var rotation_speed: float = 200 
-var vertical_speed = -5
+@export var vertical_speed = -5
 var vertical_position = 0
 
 var max_rotation = deg_to_rad(60)
