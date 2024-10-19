@@ -4,6 +4,10 @@
 [ext_resource type="PackedScene" uid="uid://d2kfg4rnwq311" path="res://assets/ui/upgrade_button.tscn" id="2_k0v74"]
 
 [node name="UpgradeButtons" type="HBoxContainer"]
+offset_right = 476.0
+offset_bottom = 24.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
 script = ExtResource("1_ufbfk")
 
 [node name="UpgradeButton" parent="." instance=ExtResource("2_k0v74")]

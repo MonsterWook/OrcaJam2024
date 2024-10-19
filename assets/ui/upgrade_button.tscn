@@ -3,4 +3,5 @@
 [ext_resource type="Script" path="res://assets/ui/upgrade_button.gd" id="1_pdak8"]
 
 [node name="UpgradeButton" type="CheckButton"]
+text = "      "
 script = ExtResource("1_pdak8")

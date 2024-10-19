@@ -2,11 +2,9 @@ extends Node2D
 
 const ROTATION_SPEED: float = 5
 const BOOST_SPEED: float = 300
+@onready var rocket: Node2D = $Rocket
 @onready var rigid_body_2d: RigidBody2D = $Rocket/RigidBody2D
 @onready var angry_steve: Node2D = $Rocket/RigidBody2D/AngrySteve
-@onready var rocket: Node2D = $Rocket
-
-var vertical_speed = 0
 
 var max_rotation = deg_to_rad(60)
 var min_rotation = deg_to_rad(-60)
@@ -32,17 +30,13 @@ func _physics_process(delta: float) -> void:
 		
 	var direction_vec = Vector2(sin(rigid_body_2d.rotation), -cos(rigid_body_2d.rotation))
 	rigid_body_2d.apply_force(direction_vec*BOOST_SPEED)
-	rocket.position = rigid_body_2d.position
 	
-	
-func get_bullet_stats() -> Array:
-	var spawn_point = angry_steve.get_gun_spawn()
-	var direction_vec = Vector2(sin(rigid_body_2d.rotation), -cos(rigid_body_2d.rotation))
-	#print(direction_vec)
-	return [spawn_point, direction_vec]
 	
 func _process(delta):
-	
-	
-	#rigid_body_2d.position.y += vertical_speed*delta
+	'''
+	if Input.is_action_pressed("boost"):
+		print("shoot")
+		var direction_vec = Vector2(sin(rigid_body_2d.rotation), -cos(rigid_body_2d.rotation))
+		angry_steve.shoot(direction_vec)
+	'''		
 	rigid_body_2d.position.y = 0

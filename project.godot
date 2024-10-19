@@ -18,8 +18,8 @@ config/icon="res://icon.svg"
 [global_group]
 
 scrap_ui=""
-bullet=""
-player=""
+scene_manager=""
+upgrades=""
 
 [input]
 
