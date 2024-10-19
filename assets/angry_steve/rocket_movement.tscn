@@ -14,8 +14,6 @@ vertical_speed = -10
 [node name="Rocket" type="Node2D" parent="."]
 
 [node name="RigidBody2D" type="RigidBody2D" parent="Rocket" groups=["player"]]
-collision_layer = 2
-collision_mask = 2
 gravity_scale = 0.1
 
 [node name="Sprite2D" type="Sprite2D" parent="Rocket/RigidBody2D"]
