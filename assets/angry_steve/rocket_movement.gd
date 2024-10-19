@@ -32,7 +32,7 @@ func _physics_process(delta: float) -> void:
 		
 	var direction_vec = Vector2(sin(rigid_body_2d.rotation), -cos(rigid_body_2d.rotation))
 	rigid_body_2d.apply_force(direction_vec*BOOST_SPEED)
-	rocket.position = rigid_body_2d.position
+	#rocket.position = rigid_body_2d.position
 	
 	
 func get_bullet_stats() -> Array:
@@ -42,7 +42,6 @@ func get_bullet_stats() -> Array:
 	return [spawn_point, direction_vec]
 	
 func _process(delta):
-	
-	
 	#rigid_body_2d.position.y += vertical_speed*delta
 	rigid_body_2d.position.y = 0
+	rocket.position = rigid_body_2d.position
