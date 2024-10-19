@@ -7,7 +7,7 @@ extends CharacterBody2D
 
 var spawnedDirection : bool = false #left = false, right = true
 var rot : float = 0
-signal destroyed
+signal destroyed(obstalce_pos, scrap)
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	if (spawnedDirection):
@@ -17,6 +17,8 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	if (Input.is_key_pressed(KEY_SPACE)):
+		death(true)
 	movement()
 
 func movement():
@@ -27,7 +29,7 @@ func movement():
 
 func death(killed : bool):
 	if (killed):
-		emit_signal("destroyed")
+		destroyed.emit(global_position, 2)
 	#play destoyed anim maybe
 	queue_free()
 

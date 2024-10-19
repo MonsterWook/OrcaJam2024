@@ -9,7 +9,7 @@ extends Node2D
 @onready var general_spawner : Node2D = self.get_node("general_spawner")
 @onready var side_spawner : Node2D = self.get_node("side_spawner")
 
-enum {BIRD, PLANE, SATELLITE, WEATHER, ASTEROID, ALIENS, SCRAP}
+enum {BIRD, PLANE, SATELLITE, WEATHER, ASTEROID, ALIENS, SCRAP, SILVER, GOLD}
 const obstacles : Array[PackedScene] = [
 	preload("res://assets/obstacles/bird/bird.tscn"),
 	preload("res://assets/obstacles/plane/plane.tscn"),
@@ -17,7 +17,9 @@ const obstacles : Array[PackedScene] = [
 	preload("res://assets/obstacles/weather_balloon/weather_balloon.tscn"),
 	preload("res://assets/obstacles/asteroids/asteroid.tscn"),
 	preload("res://assets/obstacles/aliens/aliens.tscn"),
-	preload("res://assets/obstacles/scrap/scrap.tscn")
+	preload("res://assets/obstacles/scrap/scrap.tscn"),
+	preload("res://assets/obstacles/scrap/scrap_silver.tscn"),
+	preload("res://assets/obstacles/scrap/scrap_gold.tscn")
 ]
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

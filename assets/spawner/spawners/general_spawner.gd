@@ -6,5 +6,4 @@ func spawn(obstacle : PackedScene):
 	var instance = obstacle.instantiate()
 	
 	instance.spawnedDirectrion = spawnDirection
-	#set angle, speed, etc.
 	get_tree().current_scene.add_child(instance)

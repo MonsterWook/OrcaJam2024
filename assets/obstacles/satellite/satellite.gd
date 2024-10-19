@@ -7,7 +7,7 @@ extends CharacterBody2D
 
 var spawnedDirection : bool = false #left = false, right = true
 var rot : float = 0
-signal destroyed
+signal destroyed(obstacle_pos, scrap)
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	if (spawnedDirection):
@@ -27,7 +27,7 @@ func movement():
 
 func death(killed : bool):
 	if (killed):
-		emit_signal("destroyed")
+		destroyed.emit(global_position, 1)
 	#play destoyed anim maybe
 	queue_free()
 
