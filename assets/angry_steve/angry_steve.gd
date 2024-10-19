@@ -7,14 +7,8 @@ const bullet = preload("res://assets/angry_steve/bullet.tscn")
 
 func _ready() -> void:
 	pass # Replace with function body.
-
-func shoot(direction: Vector2):
-	var instance = bullet.instantiate()
-	add_child(instance)
-	
-	instance.position = bullet_spawn.position
-	instance.direction_vec = direction
 	
 
 func get_gun_spawn():
-	return bullet_spawn.global_position
+	#return bullet_spawn.global_position
+	return bullet_spawn.position

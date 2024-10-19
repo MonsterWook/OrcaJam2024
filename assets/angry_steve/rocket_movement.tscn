@@ -15,7 +15,7 @@ script = ExtResource("1_7urn4")
 
 [node name="Rocket" type="Node2D" parent="."]
 
-[node name="RigidBody2D" type="RigidBody2D" parent="Rocket"]
+[node name="RigidBody2D" type="RigidBody2D" parent="Rocket" groups=["player"]]
 collision_layer = 2
 collision_mask = 2
 gravity_scale = 0.1
@@ -28,11 +28,15 @@ texture = ExtResource("2_ok60q")
 visible = false
 shape = SubResource("RectangleShape2D_yukkh")
 
+[node name="BulletSpawn" type="Node2D" parent="Rocket/RigidBody2D"]
+position = Vector2(-21, -31)
+
 [node name="AngrySteve" parent="Rocket/RigidBody2D" instance=ExtResource("3_jlmnl")]
 position = Vector2(-24, 0)
 rotation = -1.5708
 
 [node name="Area2D" type="Area2D" parent="Rocket" groups=["player"]]
+position = Vector2(2, 1)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Rocket/Area2D"]
 position = Vector2(0, -0.5)
