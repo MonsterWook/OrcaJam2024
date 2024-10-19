@@ -3,11 +3,12 @@ extends Node2D
 
 @onready var rigid_body_2d: RigidBody2D = $Rocket/RigidBody2D
 @onready var angry_steve: Node2D = $Rocket/RigidBody2D/AngrySteve
-#@onready var rocket: Node2D = $Rocket
+@onready var rocket: Node2D = $Rocket
 @onready var bullet_spawn: Node2D = $Rocket/RigidBody2D/BulletSpawn
 #@onready var timer: Timer = $Rocket/Timer
+@onready var area_2d: Area2D = $Area2D
 
-
+const max_velocity: float  = 300
 const boost_speed: float = 500
 
 var rotation_speed: float = 200 
@@ -38,6 +39,12 @@ func _physics_process(delta: float) -> void:
 	var direction_vec = Vector2(sin(rigid_body_2d.rotation), -cos(rigid_body_2d.rotation))
 	rigid_body_2d.apply_force(direction_vec*boost_speed)
 	vertical_position += delta*vertical_speed
+	'''
+	if rigid_body_2d.linear_velocity.x > max_velocity:
+		rigid_body_2d.linear_velocity.x = max_velocity
+	elif rigid_body_2d.linear_velocity.x < -max_velocity:
+		rigid_body_2d.linear_velocity.x = -max_velocity
+	'''
 	
 func get_bullet_stats() -> Array:
 	rigid_body_2d.position.y = vertical_position
@@ -56,7 +63,9 @@ func _process(delta):
 	#print(rigid_body_2d.position)
 	if (rigid_body_2d.position.x > 550 or rigid_body_2d.position.x < -550):
 		bounce_off(100)
-		
+	area_2d.position = rigid_body_2d.position
+	area_2d.rotation = rigid_body_2d.rotation 
+	
 	#print(rigid_body_2d.linear_velocity)
 	
 func get_rigid_position():

@@ -7,7 +7,6 @@ const bullet = preload("res://assets/angry_steve/bullet.tscn")
 @onready var fuel_bar: ProgressBar = $SceneObjects/FuelBar
 @onready var scene_objects: Node2D = $SceneObjects
 
-
 var can_shoot = true
 var reload_time = 1.0
 var magazine_size = 5
