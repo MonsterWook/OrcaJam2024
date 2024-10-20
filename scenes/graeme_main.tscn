@@ -5,4 +5,4 @@
 [node name="graeme_main" type="Node2D"]
 
 [node name="RocketManager" parent="." instance=ExtResource("1_ek6wt")]
-position = Vector2(-2, 3)
+position = Vector2(0, 2)
