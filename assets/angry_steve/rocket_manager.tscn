@@ -28,9 +28,11 @@ position = Vector2(0, 170)
 
 [node name="shoot" type="AudioStreamPlayer" parent="sfx"]
 stream = ExtResource("3_opm3y")
+volume_db = -15.0
 
 [node name="reload" type="AudioStreamPlayer" parent="sfx"]
 stream = ExtResource("4_35oru")
+volume_db = -15.0
 
 [node name="hurt1" type="AudioStreamPlayer" parent="sfx"]
 stream = ExtResource("6_8kt5m")
