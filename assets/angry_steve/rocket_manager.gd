@@ -90,6 +90,10 @@ func _process(delta: float) -> void:
 		should_die = true
 		death()
 		
+	if (rocket_movement.vertical_position < -8150):
+		get_parent().reached_moon()
+	print(rocket_movement.vertical_position)
+		
 func death():
 	can_shoot = false
 	thruster.stop()
@@ -116,7 +120,7 @@ func start():
 	
 	sfx_player.play_sound(thruster)
 	sfx_player.play_sound(blast)
-	fuel_amount = 100 + pow(2,SceneManager.fuel_lvl) * 20
+	fuel_amount = 100 + pow(1.5,SceneManager.fuel_lvl) * 20
 	print("fuel amount " + str(fuel_amount))
 	toughness_percent = 1 - (SceneManager.toughness_lvl / 10.0)*0.5
 	
@@ -138,6 +142,8 @@ func _on_timer_timeout() -> void:
 	bullets_count.text = "bullets: " + str(magazine_amount) + "/" + str(magazine_size)
 	can_shoot = true
 
+func get_y_position():
+	return rocket_movement.vertical_position
 	
 	
 func _on_death_timer_timeout():
