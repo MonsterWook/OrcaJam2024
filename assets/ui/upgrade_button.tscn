@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://d2kfg4rnwq311"]
+[gd_scene load_steps=4 format=3 uid="uid://d2kfg4rnwq311"]
 
 [ext_resource type="Theme" uid="uid://b5uam7d2vck2n" path="res://assets/ui/ui_theme.tres" id="1_6e7bl"]
 [ext_resource type="Script" path="res://assets/ui/upgrade_button.gd" id="1_pdak8"]
+[ext_resource type="AudioStream" uid="uid://daq6q2dp3ai53" path="res://assets/sfx/sounds/Menu click.wav" id="3_e5pth"]
 
 [node name="UpgradeButton" type="CheckButton"]
 theme = ExtResource("1_6e7bl")
@@ -10,3 +11,6 @@ text = "100000"
 alignment = 2
 icon_alignment = 2
 script = ExtResource("1_pdak8")
+
+[node name="MenuClick" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_e5pth")

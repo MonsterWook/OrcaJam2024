@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://r2qm4htbv8wr"]
+[gd_scene load_steps=36 format=3 uid="uid://r2qm4htbv8wr"]
 
 [ext_resource type="Theme" uid="uid://b5uam7d2vck2n" path="res://assets/ui/ui_theme.tres" id="1_ck4rl"]
 [ext_resource type="PackedScene" uid="uid://scbp50cflbwq" path="res://assets/ui/upgrade_buttons.tscn" id="1_egdjv"]
@@ -8,6 +8,8 @@
 [ext_resource type="Script" path="res://assets/ui/back_button.gd" id="4_1b6qm"]
 [ext_resource type="Texture2D" uid="uid://bf1dcrolohks" path="res://assets/ui/sprites/IMG_0435.PNG" id="7_aj0oe"]
 [ext_resource type="Texture2D" uid="uid://vri8h7epxkh3" path="res://assets/ui/sprites/IMG_0449.PNG" id="7_r2sy7"]
+[ext_resource type="Script" path="res://assets/ui/apply_button.gd" id="7_yaujv"]
+[ext_resource type="AudioStream" uid="uid://daq6q2dp3ai53" path="res://assets/sfx/sounds/Menu click.wav" id="8_lu6sh"]
 [ext_resource type="Texture2D" uid="uid://5yexevul7ix5" path="res://assets/ui/sprites/IMG_0447.PNG" id="8_rev32"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_alo3m"]
@@ -144,6 +146,10 @@ theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_io5id")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_debgx")
 theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_0gv10")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_8pqwg")
+script = ExtResource("7_yaujv")
+
+[node name="MenuClick" type="AudioStreamPlayer" parent="ShopUI/MarginContainer3/ApplyButton"]
+stream = ExtResource("8_lu6sh")
 
 [node name="MarginContainer4" type="MarginContainer" parent="ShopUI"]
 offset_left = -64.0
