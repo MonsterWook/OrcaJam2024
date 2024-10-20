@@ -2,12 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bi4rj0kht5rog"
-valid=false
+uid="uid://ugqjtp8ecw47"
+path="res://.godot/imported/Background_3.png-c0d5ded8f74aceb082a207c1a04e9c5a.ctex"
+metadata={
+"vram_texture": false
+}
 
 [deps]
 
-source_file="res://assets/sprites/angrySeve/Angry steve/__MACOSX/._IMG_0414.PNG"
+source_file="res://assets/background/Backgrounds/Background_3.png"
+dest_files=["res://.godot/imported/Background_3.png-c0d5ded8f74aceb082a207c1a04e9c5a.ctex"]
 
 [params]
 

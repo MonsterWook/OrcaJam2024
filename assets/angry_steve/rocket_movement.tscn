@@ -1,6 +1,8 @@
-[gd_scene load_steps=13 format=3 uid="uid://3nagd1rvprrd"]
+[gd_scene load_steps=15 format=3 uid="uid://3nagd1rvprrd"]
 
 [ext_resource type="Script" path="res://assets/angry_steve/rocket_movement.gd" id="1_7urn4"]
+[ext_resource type="Texture2D" uid="uid://bxvhmd7te1w5v" path="res://assets/sprites/angrySeve/Angry steve/IMG_0428.png" id="2_g5arc"]
+[ext_resource type="Texture2D" uid="uid://bnrxox0jn6juo" path="res://assets/sprites/angrySeve/Angry steve/IMG_0429.png" id="3_xhu8i"]
 [ext_resource type="Texture2D" uid="uid://b26ia2nli8j4s" path="res://assets/sprites/angrySeve/Angry steve/IMG_0413.PNG" id="4_gfrdw"]
 [ext_resource type="Texture2D" uid="uid://crimbidfhw2hn" path="res://assets/sprites/miscellaneous/fireball.png" id="4_plph8"]
 [ext_resource type="Texture2D" uid="uid://cb6vjxnmioisb" path="res://assets/sprites/angrySeve/Angry steve/IMG_0414.PNG" id="5_inmpu"]
@@ -19,6 +21,17 @@ region = Rect2(0, 0, 2112, 2112)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ceqes"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_g5arc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_xhu8i")
+}],
+"loop": true,
+"name": &"ground",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_p7lg0")
@@ -68,9 +81,10 @@ z_index = 2
 position = Vector2(5, 0)
 scale = Vector2(0.0928882, 0.0928882)
 sprite_frames = SubResource("SpriteFrames_ceqes")
-animation = &"idle"
+animation = &"ground"
 autoplay = "idle"
-frame_progress = 0.62711
+frame = 1
+frame_progress = 0.423571
 
 [node name="collision" type="Timer" parent="Rocket"]
 wait_time = 0.2
