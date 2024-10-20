@@ -1,14 +1,18 @@
 extends Node2D
 
+
 @onready var rigid_body_2d: RigidBody2D = $Rocket/RigidBody2D
 @onready var angry_steve: Node2D = $Rocket/RigidBody2D/AngrySteve
 @onready var rocket: Node2D = $Rocket
 @onready var bullet_spawn: Node2D = $Rocket/RigidBody2D/BulletSpawn
 #@onready var timer: Timer = $Rocket/Timer
 @onready var area_2d: Area2D = $Area2D
+@onready var collision_timer: Timer = $Rocket/collision
 
 const max_velocity: float  = 300
 const boost_speed: float = 500
+
+var impulse = false
 
 var rotation_speed: float = 200 
 @export var vertical_speed = -5
@@ -34,17 +38,19 @@ func _physics_process(delta: float) -> void:
 	elif rigid_body_2d.angular_velocity > 0 and rigid_body_2d.rotation > max_rotation:
 		rigid_body_2d.angular_velocity = 0
 	#print(rigid_body_2d.angular_velocity)
+	
+	
+		
 		
 	var direction_vec = Vector2(sin(rigid_body_2d.rotation), -cos(rigid_body_2d.rotation))
-
 	rigid_body_2d.apply_force(direction_vec*boost_speed)
 	vertical_position += delta*vertical_speed
-	'''
+	
 	if rigid_body_2d.linear_velocity.x > max_velocity:
 		rigid_body_2d.linear_velocity.x = max_velocity
-	elif rigid_body_2d.linear_velocity.x < -max_velocity:
+	
+	if rigid_body_2d.linear_velocity.x < -max_velocity:
 		rigid_body_2d.linear_velocity.x = -max_velocity
-	'''
 	
 func get_bullet_stats() -> Array:
 	rigid_body_2d.position.y = vertical_position
@@ -60,9 +66,12 @@ func bounce_off(bounce_amount: int):
 
 func _process(delta):
 	rigid_body_2d.position.y = vertical_position
-	#print(rigid_body_2d.position)
-	if (rigid_body_2d.position.x > 550 or rigid_body_2d.position.x < -550):
-		bounce_off(100)
+	
+	if (rigid_body_2d.position.x > 550 or rigid_body_2d.position.x < -550) and !impulse:
+		collision_timer.start()
+		impulse = true
+		bounce_off(120)
+	
 	area_2d.position = rigid_body_2d.position
 	area_2d.rotation = rigid_body_2d.rotation 
 	
@@ -73,3 +82,7 @@ func get_rigid_position():
 
 func _on_timer_timeout() -> void:
 	pass # Replace with function body.
+
+
+func _on_collision_timeout() -> void:
+	impulse = false
