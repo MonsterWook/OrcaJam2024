@@ -31,7 +31,7 @@ func get_scrap() -> int:
 	return scrap
 
 func apply_upgrade(upgrade_type: String, upgrade_level: int) -> void:
-	print("applying upgrades")
+
 	match upgrade_type:
 		"Fuel":
 			fuel_lvl = upgrade_level
@@ -42,5 +42,3 @@ func apply_upgrade(upgrade_type: String, upgrade_level: int) -> void:
 		"Toughness":
 			toughness_lvl = upgrade_level
 	update_stats_text.emit()
-	
-	print(fuel_lvl, tilt_lvl, shotgun_lvl, toughness_lvl)

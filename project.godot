@@ -19,6 +19,10 @@ config/icon="res://icon.svg"
 
 SceneManager="*res://assets/scene_manager.tscn"
 
+[display]
+
+window/stretch/mode="canvas_items"
+
 [global_group]
 
 bullet=""
