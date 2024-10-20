@@ -37,7 +37,7 @@ height = 15.3631
 
 [node name="RocketMovement" type="Node2D"]
 script = ExtResource("1_7urn4")
-vertical_speed = -10
+vertical_speed = -100
 
 [node name="Rocket" type="Node2D" parent="."]
 
@@ -63,10 +63,6 @@ sprite_frames = SubResource("SpriteFrames_ceqes")
 animation = &"idle"
 autoplay = "idle"
 frame_progress = 0.62711
-
-[node name="GPUParticles2D" type="GPUParticles2D" parent="Rocket/RigidBody2D"]
-position = Vector2(0, 87)
-amount = 100
 
 [node name="Area2D" type="Area2D" parent="." groups=["player"]]
 
