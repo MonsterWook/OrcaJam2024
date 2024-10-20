@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://r5xfu00emplj"]
 
 [ext_resource type="PackedScene" uid="uid://3nagd1rvprrd" path="res://assets/angry_steve/rocket_movement.tscn" id="1_58fmw"]
-[ext_resource type="PackedScene" path="res://assets/scene_manager.tscn" id="1_d1nwe"]
+[ext_resource type="PackedScene" uid="uid://dhwbohtxp3iry" path="res://assets/scene_manager.tscn" id="1_d1nwe"]
 [ext_resource type="PackedScene" uid="uid://dohublqlkjpa3" path="res://assets/ui/in_game_ui.tscn" id="2_vr28d"]
 [ext_resource type="PackedScene" uid="uid://r2qm4htbv8wr" path="res://assets/ui/shop_ui.tscn" id="3_le0qa"]
 
