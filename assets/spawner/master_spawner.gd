@@ -7,6 +7,8 @@ extends Node2D
 
 @onready var general_spawner = $general_spawner
 @onready var side_spawner = $side_spawner
+@onready var spawn_timer_1: Timer = $spawn_timer1
+@onready var spawn_timer_2: Timer = $spawn_timer2
 
 const obstacles_surface : Array[PackedScene] = [
 	preload("res://assets/obstacles/bird/bird.tscn"),
@@ -27,9 +29,24 @@ const obstacles_space : Array[PackedScene] = [
 	preload("res://assets/obstacles/scrap/scrap_gold.tscn")
 ]
 
+var playing_game : bool = false
+var start_pos : Vector2
 # Called every frame. 'delta' is the elapsed time since the previous frame.
+func _ready() -> void:
+	start_pos = global_position
+
 func _process(delta: float) -> void:
-	position.y += vertical_speed*delta
+	if(playing_game):
+		position.y += vertical_speed*delta
+
+func reset_spawner():
+	stop_timers()
+	playing_game = false
+	global_position = start_pos
+
+func start_spawner():
+	start_timers()
+	playing_game = true
 
 func spawn_obstacle(obstacle : PackedScene, spawner : Node2D):
 	print(global_position.y)
@@ -57,3 +74,10 @@ func _on_spawn_timer_timeout():
 	for i in range(randi_range(0, 2)):
 		var scrap = obstacles[2]
 		spawn_obstacle(scrap, general_spawner)
+
+func stop_timers():
+	spawn_timer_1.stop()
+	spawn_timer_2.stop()
+func start_timers():
+	spawn_timer_1.start()
+	spawn_timer_2.start()

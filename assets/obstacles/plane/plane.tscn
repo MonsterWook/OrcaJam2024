@@ -31,9 +31,10 @@ script = ExtResource("1_4q18w")
 SPEED = 150
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(24, -13)
+position = Vector2(0, -20)
 scale = Vector2(0.15, 0.15)
 sprite_frames = SubResource("SpriteFrames_yqm15")
+flip_h = true
 
 [node name="Area2D" type="Area2D" parent="." groups=["obstacles"]]
 
