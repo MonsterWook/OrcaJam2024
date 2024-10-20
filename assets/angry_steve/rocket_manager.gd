@@ -1,6 +1,7 @@
 extends Node2D
 
 const bullet = preload("res://assets/angry_steve/bullet.tscn")
+const particle : PackedScene = preload("res://assets/obstacles/destroyed_particle.tscn")
 @onready var rocket_movement: Node2D = $RocketMovement
 @onready var shoot_timeout: Timer = $shootTimeout
 @onready var bullets_count: Label = $SceneObjects/BulletsCount
@@ -93,6 +94,12 @@ func death():
 	can_shoot = false
 	thruster.stop()
 	death_timer.start()
+	var instance = particle.instantiate()
+	instance.emitting = true
+	instance.position = Vector2(rocket_movement.area_2d.position.x, rocket_movement.vertical_position + 200)
+	rocket_movement.rigid_body_2d.visible=false
+	rocket_movement.area_2d.visible=false
+	add_child(instance)
 	print("should die")
 	
 func take_damage(damage):
