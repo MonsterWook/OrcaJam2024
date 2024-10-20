@@ -2,8 +2,10 @@ extends CharacterBody2D
 
 @export var SPEED : int = 25
 @export var ROT_SPEED : float = 10
+@export var damage : int = 10
 
 @onready var sprite = $Sprite2D
+@onready var collision_shape_2d = $Area2D/CollisionShape2D
 
 var spawnedDirection : bool = false #left = false, right = true
 var rot : float = 0
@@ -22,6 +24,7 @@ func _process(delta: float) -> void:
 func movement():
 	#very small movement while spinning
 	velocity = Vector2(-SPEED, 0).rotated(rot)
+	collision_shape_2d.rotation_degrees += ROT_SPEED / 100
 	sprite.rotation_degrees += ROT_SPEED / 100
 	move_and_slide()
 
@@ -36,3 +39,4 @@ func _on_area_2d_area_entered(area : Area2D):
 		death(true)
 	if (area.is_in_group("player")):
 		death(false)
+		area.get_parent().get_parent().take_damage(damage)

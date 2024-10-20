@@ -1,9 +1,41 @@
-[gd_scene load_steps=3 format=3 uid="uid://d0yp3fn4qfolo"]
+[gd_scene load_steps=5 format=3 uid="uid://d0yp3fn4qfolo"]
 
 [ext_resource type="PackedScene" uid="uid://3nagd1rvprrd" path="res://assets/angry_steve/rocket_movement.tscn" id="1_54fw2"]
 [ext_resource type="Script" path="res://assets/angry_steve/rocket_manager.gd" id="1_y38my"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rbung"]
+bg_color = Color(0.311017, 0.664703, 0.67711, 0.309804)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_aisqf"]
+bg_color = Color(0.951144, 0.391471, 0.394326, 1)
 
 [node name="RocketManager" type="Node2D"]
 script = ExtResource("1_y38my")
 
 [node name="RocketMovement" parent="." instance=ExtResource("1_54fw2")]
+
+[node name="shootTimeout" type="Timer" parent="."]
+
+[node name="SceneObjects" type="Node2D" parent="."]
+
+[node name="Camera2D" type="Camera2D" parent="SceneObjects"]
+
+[node name="FuelBar" type="ProgressBar" parent="SceneObjects"]
+offset_left = 512.0
+offset_top = 49.0
+offset_right = 539.0
+offset_bottom = 270.0
+theme_override_styles/background = SubResource("StyleBoxFlat_rbung")
+theme_override_styles/fill = SubResource("StyleBoxFlat_aisqf")
+value = 100.0
+fill_mode = 3
+show_percentage = false
+
+[node name="BulletsCount" type="Label" parent="SceneObjects"]
+offset_left = 454.0
+offset_top = -293.0
+offset_right = 540.0
+offset_bottom = -270.0
+text = "bullets: 0/0"
+
+[connection signal="timeout" from="shootTimeout" to="." method="_on_timer_timeout"]

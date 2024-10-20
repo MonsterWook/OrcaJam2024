@@ -1,22 +1,25 @@
 [gd_scene load_steps=6 format=3 uid="uid://l212vo8c5fme"]
 
 [ext_resource type="Script" path="res://assets/obstacles/satellite/satellite.gd" id="1_h7wcg"]
-[ext_resource type="Texture2D" uid="uid://b0wsbjkia42bo" path="res://assets/sprites/placeholder_steve.jpg" id="1_voya4"]
 [ext_resource type="PackedScene" uid="uid://bd2rrkiklhypo" path="res://assets/spawner/spawners/scrap_spawner.tscn" id="2_ups7i"]
+[ext_resource type="Texture2D" uid="uid://dhfwht4jo7gmw" path="res://assets/obstacles/satellite/satellite.png" id="2_uu3b6"]
 [ext_resource type="PackedScene" uid="uid://dm0wvq7phgosy" path="res://assets/obstacles/despawn.tscn" id="3_m3esy"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7a41r"]
-radius = 17.0
-height = 54.0
+radius = 38.1838
+height = 148.0
 
 [node name="Satellite" type="CharacterBody2D"]
 script = ExtResource("1_h7wcg")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.1, 0.1)
-texture = ExtResource("1_voya4")
+texture = ExtResource("2_uu3b6")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="Area2D" type="Area2D" parent="." groups=["obstacles"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+rotation = -0.785398
 shape = SubResource("CapsuleShape2D_7a41r")
 
 [node name="scrap_spawner" parent="." instance=ExtResource("2_ups7i")]
@@ -25,3 +28,4 @@ shape = SubResource("CapsuleShape2D_7a41r")
 obstacle = NodePath("..")
 
 [connection signal="destroyed" from="." to="scrap_spawner" method="_on_destroyed"]
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
