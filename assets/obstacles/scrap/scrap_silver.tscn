@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://cdo1emn5nt4cx"]
+[gd_scene load_steps=6 format=3 uid="uid://cdo1emn5nt4cx"]
 
 [ext_resource type="Script" path="res://assets/obstacles/scrap/scrap.gd" id="1_fytss"]
 [ext_resource type="Texture2D" uid="uid://cgo8a6hfcc8q3" path="res://assets/obstacles/scrap/scrap.png" id="2_x6n3k"]
 [ext_resource type="PackedScene" uid="uid://dm0wvq7phgosy" path="res://assets/obstacles/despawn.tscn" id="3_c754c"]
+[ext_resource type="AudioStream" uid="uid://foswkdyi456o" path="res://assets/sfx/sounds/scrap.wav" id="4_li5ta"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_531ur"]
 radius = 30.0
@@ -23,5 +24,8 @@ shape = SubResource("CircleShape2D_531ur")
 
 [node name="despawn" parent="." node_paths=PackedStringArray("obstacle") instance=ExtResource("3_c754c")]
 obstacle = NodePath("..")
+
+[node name="pickup" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_li5ta")
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

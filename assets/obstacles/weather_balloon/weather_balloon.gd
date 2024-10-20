@@ -5,6 +5,8 @@ extends CharacterBody2D
 
 @onready var explode = $sfx/explode
 @onready var death_sfx = $sfx/death
+@onready var collision_shape_2d = $Area2D/CollisionShape2D
+@onready var area_2d = $Area2D
 
 var spawnedDirection : bool = false #left = false, right = true
 var rot : float = 0
@@ -36,7 +38,9 @@ func death(killed : bool):
 		destroyed.emit(global_position, 1)
 	cam_shake.apply_shake(20)
 	sfx.play_sound(death_sfx)
-	queue_free()
+	area_2d.set_deferred("process_mode", PROCESS_MODE_DISABLED)
+	collision_shape_2d.set_disabled(true)
+	visible = false
 
 func _on_area_2d_area_entered(area : Area2D):
 	if (area.is_in_group("bullet")):
