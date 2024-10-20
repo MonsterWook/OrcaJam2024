@@ -7,6 +7,7 @@ const PLAYING_STATE = 1
 @onready var master_spawner: Node2D = $master_spawner
 
 @onready var qte: Node2D = $QTE
+var qte_playing = false
 
 signal update_scrap
 
@@ -24,7 +25,8 @@ func reached_moon():
 	
 func _process(delta):
 	
-	if (master_spawner.global_position.y < -12000):
+	if (master_spawner.global_position.y < -6100):
+		qte_playing = true
 		qte.start_anim()
 		
 	if Input.is_action_pressed("start") and steve_state == MENU_STATE:
