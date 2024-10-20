@@ -10,12 +10,12 @@ extends Node2D
 @onready var collision_timer: Timer = $Rocket/collision
 
 const max_velocity: float  = 300
-const boost_speed: float = 500
 
+var boost_speed: float = 500
 var impulse = false
 
 var rotation_speed: float = 200 
-@export var vertical_speed = -5
+@export var vertical_speed = 0
 var vertical_position = 0
 
 var max_rotation = deg_to_rad(60)
@@ -23,7 +23,7 @@ var min_rotation = deg_to_rad(-60)
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	vertical_speed = 0
 
 func _physics_process(delta: float) -> void:
 	
@@ -51,7 +51,18 @@ func _physics_process(delta: float) -> void:
 	
 	if rigid_body_2d.linear_velocity.x < -max_velocity:
 		rigid_body_2d.linear_velocity.x = -max_velocity
+
+func reset_steve():
+	rigid_body_2d.position = Vector2(0, 0)
+	vertical_position = 0
+	vertical_speed = 0
+	#rigid_body_2d.rotation
 	
+func start_steve(linear_speed, angular_speed):
+	rotation_speed = angular_speed
+	boost_speed = linear_speed
+	vertical_speed = -100
+
 func get_bullet_stats() -> Array:
 	rigid_body_2d.position.y = vertical_position
 	

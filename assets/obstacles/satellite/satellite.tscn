@@ -1,24 +1,27 @@
-[gd_scene load_steps=6 format=3 uid="uid://l212vo8c5fme"]
+[gd_scene load_steps=8 format=3 uid="uid://l212vo8c5fme"]
 
 [ext_resource type="Script" path="res://assets/obstacles/satellite/satellite.gd" id="1_h7wcg"]
 [ext_resource type="PackedScene" uid="uid://bd2rrkiklhypo" path="res://assets/spawner/spawners/scrap_spawner.tscn" id="2_ups7i"]
 [ext_resource type="Texture2D" uid="uid://dhfwht4jo7gmw" path="res://assets/obstacles/satellite/satellite.png" id="2_uu3b6"]
 [ext_resource type="PackedScene" uid="uid://dm0wvq7phgosy" path="res://assets/obstacles/despawn.tscn" id="3_m3esy"]
+[ext_resource type="PackedScene" uid="uid://by7kugiy1d4ec" path="res://assets/obstacles/spawn_particle.tscn" id="5_26u2q"]
+[ext_resource type="PackedScene" uid="uid://b5utcaw1nkqse" path="res://assets/Camera/cam_shake.tscn" id="6_t0m47"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7a41r"]
-radius = 38.1838
-height = 148.0
+radius = 45.2548
+height = 226.274
 
 [node name="Satellite" type="CharacterBody2D"]
 script = ExtResource("1_h7wcg")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.1, 0.1)
+scale = Vector2(0.15, 0.15)
 texture = ExtResource("2_uu3b6")
 
 [node name="Area2D" type="Area2D" parent="." groups=["obstacles"]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(1, 0)
 rotation = -0.785398
 shape = SubResource("CapsuleShape2D_7a41r")
 
@@ -27,5 +30,10 @@ shape = SubResource("CapsuleShape2D_7a41r")
 [node name="despawn" parent="." node_paths=PackedStringArray("obstacle") instance=ExtResource("3_m3esy")]
 obstacle = NodePath("..")
 
+[node name="spawn_particle" parent="." instance=ExtResource("5_26u2q")]
+
+[node name="cam_shake" parent="." instance=ExtResource("6_t0m47")]
+
 [connection signal="destroyed" from="." to="scrap_spawner" method="_on_destroyed"]
+[connection signal="destroyed" from="." to="spawn_particle" method="_on_destroyed"]
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

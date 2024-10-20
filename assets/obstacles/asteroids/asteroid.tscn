@@ -1,9 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://mnrfhel2kaix"]
+[gd_scene load_steps=8 format=3 uid="uid://mnrfhel2kaix"]
 
 [ext_resource type="Script" path="res://assets/obstacles/asteroids/asteroid.gd" id="1_oc7ca"]
 [ext_resource type="Texture2D" uid="uid://dtcuy4kplj2cw" path="res://assets/obstacles/asteroids/meteor.png" id="2_dsefl"]
 [ext_resource type="PackedScene" uid="uid://bd2rrkiklhypo" path="res://assets/spawner/spawners/scrap_spawner.tscn" id="2_runwe"]
 [ext_resource type="PackedScene" uid="uid://dm0wvq7phgosy" path="res://assets/obstacles/despawn.tscn" id="3_d5jvp"]
+[ext_resource type="PackedScene" uid="uid://by7kugiy1d4ec" path="res://assets/obstacles/spawn_particle.tscn" id="5_7stgo"]
+[ext_resource type="PackedScene" uid="uid://b5utcaw1nkqse" path="res://assets/Camera/cam_shake.tscn" id="6_28a3d"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7a41r"]
 radius = 81.0
@@ -27,5 +29,10 @@ shape = SubResource("CapsuleShape2D_7a41r")
 [node name="despawn" parent="." node_paths=PackedStringArray("obstacle") instance=ExtResource("3_d5jvp")]
 obstacle = NodePath("..")
 
+[node name="spawn_particle" parent="." instance=ExtResource("5_7stgo")]
+
+[node name="cam_shake" parent="." instance=ExtResource("6_28a3d")]
+
 [connection signal="destroyed" from="." to="scrap_spawner" method="_on_destroyed"]
+[connection signal="destroyed" from="." to="spawn_particle" method="_on_destroyed"]
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

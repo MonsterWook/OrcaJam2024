@@ -1,0 +1,29 @@
+[gd_scene load_steps=2 format=3 uid="uid://djt25luokf11f"]
+
+[sub_resource type="Gradient" id="Gradient_x7xkq"]
+colors = PackedColorArray(1, 0.952941, 0, 1, 1, 0, 0, 1)
+
+[node name="destroyed_particle" type="CPUParticles2D"]
+z_index = 10
+scale = Vector2(10, 10)
+emitting = false
+amount = 150
+lifetime = 0.5
+one_shot = true
+explosiveness = 1.0
+lifetime_randomness = 0.1
+fixed_fps = 30
+draw_order = 1
+direction = Vector2(0, 0)
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 10.0
+initial_velocity_max = 30.0
+angular_velocity_min = -720.0
+angular_velocity_max = 720.0
+linear_accel_min = -20.0
+scale_amount_min = 5.0
+scale_amount_max = 10.0
+color_ramp = SubResource("Gradient_x7xkq")
+hue_variation_min = -1.0
+hue_variation_max = 1.0

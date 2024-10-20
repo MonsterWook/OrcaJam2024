@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://3nagd1rvprrd"]
+[gd_scene load_steps=13 format=3 uid="uid://3nagd1rvprrd"]
 
 [ext_resource type="Script" path="res://assets/angry_steve/rocket_movement.gd" id="1_7urn4"]
 [ext_resource type="Texture2D" uid="uid://b26ia2nli8j4s" path="res://assets/sprites/angrySeve/Angry steve/IMG_0413.PNG" id="4_gfrdw"]
@@ -32,8 +32,8 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_nkyx3"]
-radius = 9.34579
-height = 26.257
+radius = 4.43925
+height = 13.6872
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_w5pe3"]
 
@@ -42,9 +42,13 @@ max_value = 100.0
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.011236, 100), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
 point_count = 3
 
+[sub_resource type="Gradient" id="Gradient_ir5cv"]
+offsets = PackedFloat32Array(0, 0.0988701, 1)
+colors = PackedColorArray(1, 1, 0, 1, 0.99, 0.99, 0.99, 1, 0.92549, 0.631373, 0.360784, 1)
+
 [node name="RocketMovement" type="Node2D"]
+z_index = 2
 script = ExtResource("1_7urn4")
-vertical_speed = -100
 
 [node name="Rocket" type="Node2D" parent="."]
 
@@ -60,6 +64,8 @@ shape = SubResource("CapsuleShape2D_viuv0")
 position = Vector2(18, -95)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Rocket/RigidBody2D"]
+z_index = 2
+position = Vector2(5, 0)
 scale = Vector2(0.0928882, 0.0928882)
 sprite_frames = SubResource("SpriteFrames_ceqes")
 animation = &"idle"
@@ -78,21 +84,20 @@ shape = SubResource("CapsuleShape2D_nkyx3")
 debug_color = Color(0.803922, 0.403922, 0.262745, 0.372549)
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="Area2D"]
+z_index = 1
 material = SubResource("ShaderMaterial_w5pe3")
-position = Vector2(-7, 56)
-amount = 40
+position = Vector2(1, 33)
+amount = 80
 lifetime = 0.66
+randomness = 0.2
 texture = ExtResource("4_plph8")
-emission_shape = 1
-emission_sphere_radius = 1.0
-direction = Vector2(0, 0)
-spread = 85.0
+direction = Vector2(0, 1)
 gravity = Vector2(0, 200)
-initial_velocity_min = 50.51
-initial_velocity_max = 90.91
+initial_velocity_min = 45.0
+initial_velocity_max = 90.0
 damping_curve = SubResource("Curve_22xet")
 scale_amount_min = 0.01
 scale_amount_max = 0.01
-color = Color(1, 1, 1, 0.666667)
+color_ramp = SubResource("Gradient_ir5cv")
 
 [connection signal="timeout" from="Rocket/collision" to="." method="_on_collision_timeout"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://byknsw20p8tgq"]
+[gd_scene load_steps=11 format=3 uid="uid://byknsw20p8tgq"]
 
 [ext_resource type="Script" path="res://assets/obstacles/bird/bird.gd" id="1_mf7an"]
 [ext_resource type="Texture2D" uid="uid://dcj78uexvgq68" path="res://assets/obstacles/bird/bird_art/IMG_0409.PNG" id="2_cncac"]
@@ -6,6 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://bd2rrkiklhypo" path="res://assets/spawner/spawners/scrap_spawner.tscn" id="3_qxw2e"]
 [ext_resource type="Texture2D" uid="uid://dhu7bj3kqhyh1" path="res://assets/obstacles/bird/bird_art/IMG_0411.PNG" id="4_0jgpa"]
 [ext_resource type="PackedScene" uid="uid://dm0wvq7phgosy" path="res://assets/obstacles/despawn.tscn" id="4_38le5"]
+[ext_resource type="PackedScene" uid="uid://by7kugiy1d4ec" path="res://assets/obstacles/spawn_particle.tscn" id="7_k2a4e"]
+[ext_resource type="PackedScene" uid="uid://b5utcaw1nkqse" path="res://assets/Camera/cam_shake.tscn" id="8_o0wl5"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_576qb"]
 animations = [{
@@ -48,6 +50,11 @@ shape = SubResource("CapsuleShape2D_7a41r")
 [node name="despawn" parent="." node_paths=PackedStringArray("obstacle") instance=ExtResource("4_38le5")]
 obstacle = NodePath("..")
 
+[node name="spawn_particle" parent="." instance=ExtResource("7_k2a4e")]
+
+[node name="cam_shake" parent="." instance=ExtResource("8_o0wl5")]
+
 [connection signal="destroyed" from="." to="scrap_spawner" method="_on_destroyed"]
+[connection signal="destroyed" from="." to="spawn_particle" method="_on_destroyed"]
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

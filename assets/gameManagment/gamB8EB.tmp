@@ -1,0 +1,13 @@
+[gd_scene load_steps=4 format=3 uid="uid://birmeao4mjv3w"]
+
+[ext_resource type="Script" path="res://assets/gameManagment/game_manager.gd" id="1_fo8q4"]
+[ext_resource type="PackedScene" uid="uid://r2qm4htbv8wr" path="res://assets/ui/shop_ui.tscn" id="2_n28q1"]
+[ext_resource type="PackedScene" uid="uid://d0yp3fn4qfolo" path="res://assets/angry_steve/rocket_manager.tscn" id="4_xibco"]
+
+[node name="GameManager" type="Node"]
+script = ExtResource("1_fo8q4")
+
+[node name="ShopUI" parent="." instance=ExtResource("2_n28q1")]
+position = Vector2(-575, -177)
+
+[node name="RocketManager" parent="." instance=ExtResource("4_xibco")]
