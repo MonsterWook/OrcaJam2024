@@ -3,8 +3,12 @@ extends CharacterBody2D
 @export var shake_speed : float = 5
 @export var value : int = 100
 
+@onready var pickup = $pickup
+@onready var collision_shape_2d = $Area2D/CollisionShape2D
+
 var time : float
 var scrap_ui : Node
+var sfx
 
 var goto_pos : Vector2 = Vector2.ZERO
 var spawnedDirection : bool = false
@@ -12,6 +16,7 @@ var spawnedDirection : bool = false
 func _ready():
 	#connect scrap collected to ui system. talk to Aidan about that
 	scrap_ui = get_tree().get_first_node_in_group("scrap_ui")
+	sfx = get_tree().get_first_node_in_group("sfx")
 	pass # Replace with function body.
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -35,5 +40,6 @@ func get_sine():
 func _on_area_2d_area_entered(area : Area2D):
 	if(area.is_in_group("player")):
 		scrap_ui.increase_scrap_amount(value)
-		#play particles or sum
-		queue_free()
+		sfx.play_sound(pickup)
+		collision_shape_2d.disabled = true
+		visible = false

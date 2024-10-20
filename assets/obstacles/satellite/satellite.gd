@@ -40,7 +40,8 @@ func death(killed : bool):
 		destroyed.emit(global_position, 1)
 	cam_shake.apply_shake(20)
 	sfx.play_sound(death_sfx)
-	queue_free()
+	collision_shape_2d.set_disabled(true)
+	visible = false
 
 func _on_area_2d_area_entered(area : Area2D):
 	if (area.is_in_group("bullet")):

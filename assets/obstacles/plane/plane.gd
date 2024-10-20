@@ -8,6 +8,7 @@ extends CharacterBody2D
 @onready var sprite : AnimatedSprite2D = $Sprite2D
 @onready var explode = $sfx/explode
 @onready var death_sfx = $sfx/death
+@onready var collision_shape_2d = $Area2D/CollisionShape2D
 
 var spawnedDirection : bool = false #left = false, right = true
 var time : float
@@ -44,7 +45,8 @@ func death(killed : bool):
 		destroyed.emit(global_position, 0)
 	cam_shake.apply_shake(20)
 	sfx.play_sound(death_sfx)
-	queue_free()
+	collision_shape_2d.set_disabled(true)
+	visible = false
 
 func get_sine():
 	return sin(time * sin_wave_speed) * sin_wave_intensity
