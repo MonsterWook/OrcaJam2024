@@ -1,6 +1,7 @@
-extends Button
+extends CanvasLayer
+@onready var start_button: Button = $MarginContainer2/StartButton
+@onready var shop_button: Button = $MarginContainer/ShopButton
 
-signal start_button_pressed
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -10,6 +11,3 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
-
-func _pressed() -> void:
-	start_button_pressed.emit()

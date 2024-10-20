@@ -2,6 +2,7 @@ extends CanvasLayer
 @onready var shop_scrap_label: RichTextLabel = $ShopUI/MarginContainer2/ScrapLabelContainer/MarginContainer/VBoxContainer/ShopScrapLabel
 @onready var shop_scrap_difference_label: RichTextLabel = $ShopUI/MarginContainer2/ScrapLabelContainer/MarginContainer/VBoxContainer/ShopScrapDifferenceLabel
 @onready var upgrades = get_tree().get_nodes_in_group("upgrades")
+@onready var back_button: Button = $ShopUI/MarginContainer4/BackButton
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
