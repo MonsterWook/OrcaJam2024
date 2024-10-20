@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://c0jjp5iehp7j2"]
+[gd_scene load_steps=17 format=3 uid="uid://c0jjp5iehp7j2"]
 
 [ext_resource type="Script" path="res://scenes/cutscene.gd" id="1_w0uck"]
 [ext_resource type="Texture2D" uid="uid://nwpoxxsigg6b" path="res://scenes/cutscene_art/IMG_0419.PNG" id="2_sdmgb"]
@@ -10,6 +10,8 @@
 [ext_resource type="Texture2D" uid="uid://d31v2vxh2s8k6" path="res://scenes/cutscene_art/moon.jpg" id="8_3g8wq"]
 [ext_resource type="AudioStream" uid="uid://burgtxetwxgty" path="res://assets/sfx/sounds/what are you.wav" id="9_h8e86"]
 [ext_resource type="AudioStream" uid="uid://d3cdooathkt5d" path="res://assets/sfx/sounds/dark-void-ambience-201610.mp3" id="10_dlh5f"]
+[ext_resource type="AudioStream" uid="uid://c42pdqdugoso8" path="res://assets/sfx/sounds/Ambience Backyard Near Road More Traffic 01.wav" id="11_acb63"]
+[ext_resource type="AudioStream" uid="uid://daq6q2dp3ai53" path="res://assets/sfx/sounds/Menu click.wav" id="12_jt1ui"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_hbf6i"]
 animations = [{
@@ -93,6 +95,30 @@ tracks/2/keys = {
 "update": 1,
 "values": [false]
 }
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("AmbienceBackyardNearRoadMoreTraffic01:playing")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("MenuClick:playing")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_c2f6s"]
 resource_name = "cutscene"
@@ -170,6 +196,30 @@ tracks/4/keys = {
 "update": 1,
 "values": [true, false]
 }
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("AmbienceBackyardNearRoadMoreTraffic01:playing")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 10),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("MenuClick:playing")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(7),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_fhs7e"]
 _data = {
@@ -205,3 +255,9 @@ stream = ExtResource("9_h8e86")
 
 [node name="Dark-void-ambience-201610" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("10_dlh5f")
+
+[node name="AmbienceBackyardNearRoadMoreTraffic01" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_acb63")
+
+[node name="MenuClick" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("12_jt1ui")
