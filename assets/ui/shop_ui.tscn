@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://r2qm4htbv8wr"]
+[gd_scene load_steps=34 format=3 uid="uid://r2qm4htbv8wr"]
 
 [ext_resource type="Theme" uid="uid://b5uam7d2vck2n" path="res://assets/ui/ui_theme.tres" id="1_ck4rl"]
 [ext_resource type="PackedScene" uid="uid://scbp50cflbwq" path="res://assets/ui/upgrade_buttons.tscn" id="1_egdjv"]
@@ -7,22 +7,84 @@
 [ext_resource type="Script" path="res://assets/ui/shop_scrap_difference_label.gd" id="3_m7g5c"]
 [ext_resource type="Script" path="res://assets/ui/back_button.gd" id="4_1b6qm"]
 [ext_resource type="Texture2D" uid="uid://bf1dcrolohks" path="res://assets/ui/sprites/IMG_0435.PNG" id="7_aj0oe"]
+[ext_resource type="Texture2D" uid="uid://vri8h7epxkh3" path="res://assets/ui/sprites/IMG_0449.PNG" id="7_r2sy7"]
+[ext_resource type="Texture2D" uid="uid://5yexevul7ix5" path="res://assets/ui/sprites/IMG_0447.PNG" id="8_rev32"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_alo3m"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_tw2ee"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_egfga"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_nbsqk"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0bfie"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6khmg"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_x00sc"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_yvw7g"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_io5id"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_debgx"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0gv10"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8pqwg"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_yjs7c"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_kr2mv"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xwwiq"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5yyhy"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_eoun4"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2gnlt"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_e0cbf"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_265kn"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rg40r"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_y3u1v"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_n04vw"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gnwxr"]
 
 [node name="ShopUICanvas" type="CanvasLayer"]
 script = ExtResource("1_molcj")
 
 [node name="ShopUI" type="CanvasGroup" parent="."]
 
+[node name="TextureRect" type="TextureRect" parent="ShopUI"]
+show_behind_parent = true
+clip_contents = true
+offset_left = -192.0
+offset_top = -64.0
+offset_right = 2808.0
+offset_bottom = 1349.0
+scale = Vector2(0.525, 0.525)
+size_flags_horizontal = 3
+texture = ExtResource("7_aj0oe")
+
 [node name="MarginContainer2" type="MarginContainer" parent="ShopUI"]
-offset_right = 111.0
-offset_bottom = 91.0
-theme_override_constants/margin_left = 25
-theme_override_constants/margin_top = 25
+offset_right = 176.0
+offset_bottom = 160.0
+theme_override_constants/margin_left = 75
+theme_override_constants/margin_top = 75
 
 [node name="ScrapLabelContainer" type="PanelContainer" parent="ShopUI/MarginContainer2"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxEmpty_alo3m")
 
 [node name="MarginContainer" type="MarginContainer" parent="ShopUI/MarginContainer2/ScrapLabelContainer"]
 layout_mode = 2
@@ -56,19 +118,76 @@ fit_content = true
 scroll_active = false
 script = ExtResource("3_m7g5c")
 
+[node name="MarginContainer3" type="MarginContainer" parent="ShopUI"]
+offset_left = 712.0
+offset_top = 267.0
+offset_right = 1970.0
+offset_bottom = 1517.0
+scale = Vector2(0.38, 0.38)
+theme_override_constants/margin_top = 25
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 25
+
+[node name="ApplyButton" type="Button" parent="ShopUI/MarginContainer3"]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+theme = ExtResource("1_ck4rl")
+theme_override_icons/icon = ExtResource("7_r2sy7")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_tw2ee")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_egfga")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_nbsqk")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_0bfie")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_6khmg")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_x00sc")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_yvw7g")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_io5id")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_debgx")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_0gv10")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_8pqwg")
+
+[node name="MarginContainer4" type="MarginContainer" parent="ShopUI"]
+offset_left = -64.0
+offset_top = 280.0
+offset_right = 1231.0
+offset_bottom = 1556.0
+scale = Vector2(0.42, 0.42)
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 25
+theme_override_constants/margin_bottom = 25
+
+[node name="BackButton" type="Button" parent="ShopUI/MarginContainer4"]
+layout_mode = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_yjs7c")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_kr2mv")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_xwwiq")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_5yyhy")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_eoun4")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_2gnlt")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_e0cbf")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_265kn")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_rg40r")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_y3u1v")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_n04vw")
+text = "
+
+"
+icon = ExtResource("8_rev32")
+script = ExtResource("4_1b6qm")
+
 [node name="MarginContainer" type="MarginContainer" parent="ShopUI"]
-offset_top = 192.0
+offset_top = 136.0
 offset_right = 1152.0
-offset_bottom = 648.0
+offset_bottom = 448.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-theme_override_constants/margin_left = 50
+theme_override_constants/margin_left = 75
 theme_override_constants/margin_top = 50
-theme_override_constants/margin_right = 50
-theme_override_constants/margin_bottom = 150
+theme_override_constants/margin_right = 75
+theme_override_constants/margin_bottom = 0
 
 [node name="PanelContainer" type="PanelContainer" parent="ShopUI/MarginContainer"]
 layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_gnwxr")
 
 [node name="MarginContainer" type="MarginContainer" parent="ShopUI/MarginContainer/PanelContainer"]
 layout_mode = 2
@@ -95,40 +214,3 @@ upgrade_type = "Shotgun"
 [node name="ToughnessUpgradeButtons" parent="ShopUI/MarginContainer/PanelContainer/MarginContainer/VBoxContainer" groups=["upgrades"] instance=ExtResource("1_egdjv")]
 layout_mode = 2
 upgrade_type = "Toughness"
-
-[node name="MarginContainer3" type="MarginContainer" parent="ShopUI"]
-offset_left = 768.0
-offset_top = 496.0
-offset_right = 1152.0
-offset_bottom = 648.0
-theme_override_constants/margin_top = 25
-theme_override_constants/margin_right = 50
-theme_override_constants/margin_bottom = 25
-
-[node name="ApplyButton" type="Button" parent="ShopUI/MarginContainer3"]
-custom_minimum_size = Vector2(0, 30)
-layout_mode = 2
-theme = ExtResource("1_ck4rl")
-text = "Apply"
-
-[node name="MarginContainer4" type="MarginContainer" parent="ShopUI"]
-offset_top = 496.0
-offset_right = 384.0
-offset_bottom = 648.0
-theme_override_constants/margin_left = 50
-theme_override_constants/margin_top = 25
-theme_override_constants/margin_bottom = 25
-
-[node name="BackButton" type="Button" parent="ShopUI/MarginContainer4"]
-layout_mode = 2
-theme = ExtResource("1_ck4rl")
-text = "Back
-"
-script = ExtResource("4_1b6qm")
-
-[node name="TextureRect" type="TextureRect" parent="ShopUI"]
-offset_left = -480.0
-offset_top = -176.0
-offset_right = 2520.0
-offset_bottom = 1024.0
-texture = ExtResource("7_aj0oe")
