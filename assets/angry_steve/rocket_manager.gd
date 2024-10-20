@@ -14,6 +14,8 @@ var fuel_amount = 100
 var toughness_percent = 1
 var magazine_amount = magazine_size
 
+var fuel_loss_rate = 0.5
+
 var left_barrier = -100
 var right_barrier = 100
 
@@ -48,7 +50,9 @@ func _process(delta: float) -> void:
 		
 	var rigid_body_position = rocket_movement.get_rigid_position()
 	scene_objects.position = rigid_body_position
-		
+	
+	fuel_amount -= delta*fuel_loss_rate
+	fuel_bar.set_value(fuel_amount)
 		
 func take_damage(damage):
 	fuel_amount -= damage*toughness_percent
