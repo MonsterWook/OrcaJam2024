@@ -15,6 +15,10 @@ run/main_scene="res://scenes/rocket_movement.tscn"
 config/features=PackedStringArray("4.3", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[autoload]
+
+SceneManager="*res://assets/scene_manager.tscn"
+
 [global_group]
 
 bullet=""
