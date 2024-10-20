@@ -1,14 +1,37 @@
-[gd_scene load_steps=6 format=3 uid="uid://3nagd1rvprrd"]
+[gd_scene load_steps=10 format=3 uid="uid://3nagd1rvprrd"]
 
 [ext_resource type="Script" path="res://assets/angry_steve/rocket_movement.gd" id="1_7urn4"]
-[ext_resource type="Texture2D" uid="uid://dyohy4lk1280g" path="res://assets/sprites/Rocket-PNG-Photos.png" id="2_ok60q"]
 [ext_resource type="PackedScene" uid="uid://so2gc1cxchi1" path="res://assets/angry_steve/angry_steve.tscn" id="3_jlmnl"]
+[ext_resource type="Texture2D" uid="uid://b26ia2nli8j4s" path="res://assets/sprites/angrySeve/Angry steve/IMG_0413.PNG" id="4_gfrdw"]
+[ext_resource type="Texture2D" uid="uid://cb6vjxnmioisb" path="res://assets/sprites/angrySeve/Angry steve/IMG_0414.PNG" id="5_inmpu"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_yukkh"]
-size = Vector2(54, 109)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_viuv0"]
+radius = 41.0
+height = 196.0
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_hxytp"]
-size = Vector2(57, 111)
+[sub_resource type="AtlasTexture" id="AtlasTexture_p7lg0"]
+atlas = ExtResource("4_gfrdw")
+region = Rect2(0, 0, 2112, 2112)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ym0f6"]
+atlas = ExtResource("5_inmpu")
+region = Rect2(0, 0, 2112, 2112)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ceqes"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p7lg0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ym0f6")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_nkyx3"]
 
 [node name="RocketMovement" type="Node2D"]
 script = ExtResource("1_7urn4")
@@ -21,24 +44,32 @@ collision_layer = 2
 collision_mask = 2
 gravity_scale = 0.1
 
-[node name="Sprite2D" type="Sprite2D" parent="Rocket/RigidBody2D"]
-scale = Vector2(0.207031, 0.207031)
-texture = ExtResource("2_ok60q")
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Rocket/RigidBody2D"]
-shape = SubResource("RectangleShape2D_yukkh")
+shape = SubResource("CapsuleShape2D_viuv0")
 
 [node name="BulletSpawn" type="Node2D" parent="Rocket/RigidBody2D"]
-position = Vector2(-21, -31)
+position = Vector2(18, -95)
 
 [node name="AngrySteve" parent="Rocket/RigidBody2D" instance=ExtResource("3_jlmnl")]
 visible = false
 position = Vector2(-24, 0)
 rotation = -1.5708
 
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Rocket/RigidBody2D"]
+scale = Vector2(0.0928882, 0.0928882)
+sprite_frames = SubResource("SpriteFrames_ceqes")
+animation = &"idle"
+autoplay = "idle"
+frame_progress = 0.62711
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="Rocket/RigidBody2D"]
+position = Vector2(0, 87)
+amount = 100
+
 [node name="Area2D" type="Area2D" parent="." groups=["player"]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(0.5, -0.5)
-shape = SubResource("RectangleShape2D_hxytp")
+position = Vector2(0.5, -2)
+scale = Vector2(4.28, 7.16)
+shape = SubResource("CapsuleShape2D_nkyx3")
 debug_color = Color(0.803922, 0.403922, 0.262745, 0.372549)
