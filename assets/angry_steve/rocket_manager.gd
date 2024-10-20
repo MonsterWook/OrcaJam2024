@@ -41,7 +41,10 @@ func _process(delta: float) -> void:
 			var instance = bullet.instantiate()
 			instance.position = result[0]
 			instance.direction_vec = result[1]
+			var bullet_rotation = result[1].angle() - deg_to_rad(90)
+			instance.rotation = bullet_rotation
 			add_child(instance)
+			
 			magazine_amount -= 1
 			bullets_count.text = "bullets: " + str(magazine_amount) + "/" + str(magazine_size)
 			
