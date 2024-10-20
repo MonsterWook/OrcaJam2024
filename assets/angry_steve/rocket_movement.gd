@@ -1,8 +1,7 @@
 extends Node2D
 
-
+@onready var sprite: AnimatedSprite2D = $Rocket/RigidBody2D/AnimatedSprite2D
 @onready var rigid_body_2d: RigidBody2D = $Rocket/RigidBody2D
-@onready var angry_steve: Node2D = $Rocket/RigidBody2D/AngrySteve
 @onready var rocket: Node2D = $Rocket
 @onready var bullet_spawn: Node2D = $Rocket/RigidBody2D/BulletSpawn
 #@onready var timer: Timer = $Rocket/Timer
