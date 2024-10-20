@@ -12,6 +12,9 @@ size = Vector2(152.25, 323.438)
 
 [node name="master_spawner" type="Node2D"]
 script = ExtResource("1_h3sq7")
+max_surface = -4000
+max_stratosphere = -10000
+max_space = -20000
 
 [node name="general_spawner" type="Node2D" parent="."]
 script = ExtResource("3_jubqi")
