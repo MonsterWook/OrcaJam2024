@@ -49,7 +49,7 @@ func _on_spawn_timer_timeout():
 	#obstacle spawner
 	for i in range(randi_range(1,2)):
 		var obstacle = obstacles[randi_range(0, 1)]
-		if (obstacles == obstacles_surface):
+		if (obstacles == obstacles_surface || obstacle == obstacles_space[1]):
 			spawn_obstacle(obstacle, side_spawner)
 		else:
 			spawn_obstacle(obstacle, general_spawner)

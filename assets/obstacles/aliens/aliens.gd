@@ -26,11 +26,11 @@ func movement():
 	if (spawnedDirection):
 		#move towards the left with the tiniest bit of sin movement
 		velocity = Vector2(-1 * SPEED, up)
-		sprite.flip_h = true
+		sprite.flip_h = false
 	else:
 		#move towards the right with the tiniest bit of sin movement
 		velocity = Vector2(1 * SPEED, up)
-		sprite.flip_h = false
+		sprite.flip_h = true
 	move_and_slide()
 
 func death(killed : bool):
