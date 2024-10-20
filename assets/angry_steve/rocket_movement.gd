@@ -54,9 +54,11 @@ func reset_steve():
 	rigid_body_2d.position = Vector2(0, 0)
 	vertical_position = 0
 	vertical_speed = 0
+	
 	#rigid_body_2d.rotation
 	
 func start_steve(linear_speed, angular_speed):
+	rigid_body_2d.position = Vector2(0, 0)
 	rotation_speed = angular_speed
 	boost_speed = linear_speed
 	vertical_speed = -100

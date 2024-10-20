@@ -6,6 +6,8 @@ const PLAYING_STATE = 1
 @onready var shop_ui: CanvasLayer = $ShopUI
 @onready var master_spawner: Node2D = $master_spawner
 
+signal update_scrap
+
 var steve_state = MENU_STATE
 
 func _init():
@@ -26,8 +28,12 @@ func _process(delta):
 func steve_died():
 	steve_state = MENU_STATE
 	shop_ui.visible = true
+	
 	rocket_manager.visible = false
 	master_spawner.reset_spawner()
+	
+	update_scrap.emit()
+	
 	
 	
 
