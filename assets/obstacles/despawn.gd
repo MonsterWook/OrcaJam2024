@@ -2,7 +2,7 @@ extends Node2D
 
 @export var obstacle : CharacterBody2D
 
-var time
+var time : float = 0
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	time += delta
