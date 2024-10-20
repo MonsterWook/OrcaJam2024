@@ -32,6 +32,8 @@ scrap=""
 scrap_ui=""
 scene_manager=""
 upgrades=""
+camera=""
+camera_shake=""
 
 [input]
 

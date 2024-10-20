@@ -8,6 +8,8 @@ extends CharacterBody2D
 
 var spawnedDirection : bool = false #left = false, right = true
 var rot : float = 0
+var cam_shake
+
 signal destroyed(obstalce_pos, scrap)
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -15,6 +17,7 @@ func _ready() -> void:
 		rot = randf_range(4 * PI/3, 2 * PI)
 	else:
 		rot = randf_range(PI,5 * PI/3)
+	cam_shake = get_tree().get_first_node_in_group("camera_shake")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -29,7 +32,7 @@ func movement():
 func death(killed : bool):
 	if (killed):
 		destroyed.emit(global_position, 2)
-	#play destoyed anim maybe
+	cam_shake.apply_shake(20)
 	queue_free()
 
 func _on_area_2d_area_entered(area : Area2D):

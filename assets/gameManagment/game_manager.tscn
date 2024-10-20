@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://birmeao4mjv3w"]
+[gd_scene load_steps=7 format=3 uid="uid://birmeao4mjv3w"]
 
 [ext_resource type="Script" path="res://assets/gameManagment/game_manager.gd" id="1_fo8q4"]
 [ext_resource type="PackedScene" uid="uid://r2qm4htbv8wr" path="res://assets/ui/shop_ui.tscn" id="2_n28q1"]
 [ext_resource type="PackedScene" uid="uid://nfli7vysv23" path="res://assets/spawner/master_spawner.tscn" id="4_3o4ws"]
 [ext_resource type="PackedScene" uid="uid://d0yp3fn4qfolo" path="res://assets/angry_steve/rocket_manager.tscn" id="4_xibco"]
 [ext_resource type="PackedScene" uid="uid://dohublqlkjpa3" path="res://assets/ui/in_game_ui.tscn" id="5_4s414"]
+[ext_resource type="PackedScene" uid="uid://b5utcaw1nkqse" path="res://assets/Camera/cam_shake.tscn" id="6_65a5y"]
 
 [node name="GameManager" type="Node"]
 script = ExtResource("1_fo8q4")
@@ -18,3 +19,5 @@ position = Vector2(-575, -177)
 position = Vector2(-568, -366)
 
 [node name="In_Game_UI" parent="." instance=ExtResource("5_4s414")]
+
+[node name="cam_shake" parent="." groups=["camera_shake"] instance=ExtResource("6_65a5y")]

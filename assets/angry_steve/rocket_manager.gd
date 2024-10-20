@@ -8,6 +8,7 @@ const bullet = preload("res://assets/angry_steve/bullet.tscn")
 @onready var scene_objects: Node2D = $SceneObjects
 @onready var scene_manager: Node = $"../SceneManager"
 
+var cam_shake
 var can_shoot = true
 var reload_time = 1.0
 var magazine_size = 5
@@ -25,6 +26,7 @@ func _init():
 
 func _ready():
 	bullets_count.text = "bullets: " + str(magazine_amount) + "/" + str(magazine_size)
+	cam_shake = get_tree().get_first_node_in_group("camera_shake")
 
 
 func _process(delta: float) -> void:
@@ -41,7 +43,9 @@ func _process(delta: float) -> void:
 		var bullet_rotation = result[1].angle() - deg_to_rad(90)
 		instance.rotation = bullet_rotation
 		add_child(instance)
-			
+		
+		cam_shake.apply_shake(2)
+		
 		magazine_amount -= 1
 		bullets_count.text = "bullets: " + str(magazine_amount) + "/" + str(magazine_size)
 			

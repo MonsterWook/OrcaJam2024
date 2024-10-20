@@ -19,7 +19,7 @@ position = Vector2(0, 170)
 
 [node name="SceneObjects" type="Node2D" parent="."]
 
-[node name="Camera2D" type="Camera2D" parent="SceneObjects"]
+[node name="Camera2D" type="Camera2D" parent="SceneObjects" groups=["camera"]]
 
 [node name="FuelBar" type="ProgressBar" parent="SceneObjects"]
 offset_left = 512.0
