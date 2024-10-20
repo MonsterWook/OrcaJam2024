@@ -1,3 +1,4 @@
+
 extends Node
 
 @onready var stats_text_label: RichTextLabel = $StatsTextLabel

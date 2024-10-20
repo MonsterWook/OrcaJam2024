@@ -1,8 +1,8 @@
 extends Node2D
 
-@export var max_surface = -5000
-@export var max_stratosphere = -15000
-@export var max_space : int = -30000
+@export var max_surface = 5000
+@export var max_stratosphere = 15000
+@export var max_space : int = 30000
 @export var vertical_speed : int = -100
 
 @onready var general_spawner = $general_spawner
@@ -28,9 +28,7 @@ const obstacles_space : Array[PackedScene] = [
 	
 	preload("res://assets/obstacles/scrap/scrap_gold.tscn")
 ]
-const background : Array[PackedScene] = [
-	null, null
-]
+
 var playing_game : bool = false
 var start_pos : Vector2
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -62,8 +60,6 @@ func current_location():
 		return obstacles_stratosphere
 	elif ( altitude > max_space):
 		return obstacles_space
-	else:
-		return obstacles_space
 
 func _on_spawn_timer_timeout():
 	var obstacles = current_location()
@@ -78,12 +74,6 @@ func _on_spawn_timer_timeout():
 	for i in range(randi_range(0, 2)):
 		var scrap = obstacles[2]
 		spawn_obstacle(scrap, general_spawner)
-	if (obstacles == obstacles_surface):
-		var obstacle = background[0]
-		spawn_obstacle(obstacle, side_spawner)
-	elif(obstacles_surface == obstacles_space):
-		var obstacle = background[1]
-		spawn_obstacle(obstacle, general_spawner)
 
 func stop_timers():
 	spawn_timer_1.stop()
