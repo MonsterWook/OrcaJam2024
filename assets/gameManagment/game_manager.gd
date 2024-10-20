@@ -16,6 +16,9 @@ func _init():
 func _ready():
 	rocket_manager.visible = false
 	
+func reached_moon():
+	print("we reached the moon")
+	
 func _process(delta):
 	if Input.is_action_pressed("start") and steve_state == MENU_STATE:
 		rocket_manager.start()
