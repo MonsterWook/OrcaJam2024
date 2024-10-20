@@ -9,6 +9,10 @@ const bullet = preload("res://assets/angry_steve/bullet.tscn")
 @onready var scene_manager: Node = $"../SceneManager"
 @onready var scrap_amount: Label = $SceneObjects/ScrapAmount
 
+@onready var reload = $sfx/reload
+@onready var shoot = $sfx/shoot
+@onready var hurt = $sfx/hurt
+
 var cam_shake
 var can_shoot = true
 var reload_time = 1.0
@@ -24,6 +28,8 @@ var fuel_loss_rate = 6
 var left_barrier = -100
 var right_barrier = 100
 
+var sfx_player
+
 func _init():
 	pass
 
@@ -31,6 +37,7 @@ func _ready():
 	bullets_count.text = "bullets: " + str(magazine_amount) + "/" + str(magazine_size)
 	fuel_bar.max_value = max_fuel
 	cam_shake = get_tree().get_first_node_in_group("camera_shake")
+	sfx_player = get_tree().get_first_node_in_group("sfx")
 	print("max speed: " + str(max_fuel))
 
 
@@ -47,6 +54,7 @@ func _process(delta: float) -> void:
 		instance.rotation = bullet_rotation
 		add_child(instance)
 		
+		sfx_player.play_sound(shoot)
 		cam_shake.apply_shake(2)
 		
 		magazine_amount -= 1
@@ -106,5 +114,7 @@ func start():
 
 func _on_timer_timeout() -> void:
 	print("can shoot again")
+	sfx_player.play_sound(reload)
+	shoot_timeout.stop()
 	bullets_count.text = "bullets: " + str(magazine_amount) + "/" + str(magazine_size)
 	can_shoot = true

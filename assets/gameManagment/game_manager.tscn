@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://birmeao4mjv3w"]
+[gd_scene load_steps=9 format=3 uid="uid://birmeao4mjv3w"]
 
 [ext_resource type="Script" path="res://assets/gameManagment/game_manager.gd" id="1_fo8q4"]
 [ext_resource type="PackedScene" uid="uid://r2qm4htbv8wr" path="res://assets/ui/shop_ui.tscn" id="2_n28q1"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://dohublqlkjpa3" path="res://assets/ui/in_game_ui.tscn" id="5_4s414"]
 [ext_resource type="PackedScene" uid="uid://b5utcaw1nkqse" path="res://assets/Camera/cam_shake.tscn" id="6_qfjl8"]
 [ext_resource type="PackedScene" uid="uid://dupmdypys1rt6" path="res://assets/background/background.tscn" id="7_q7n26"]
+[ext_resource type="PackedScene" uid="uid://cn47s5ais5yha" path="res://assets/sfx/sfx_handler.tscn" id="8_u868v"]
 
 [node name="GameManager" type="Node"]
 script = ExtResource("1_fo8q4")
@@ -25,3 +26,5 @@ max_space = -12000
 [node name="cam_shake" parent="." groups=["camera_shake"] instance=ExtResource("6_qfjl8")]
 
 [node name="Background" parent="." instance=ExtResource("7_q7n26")]
+
+[node name="sfxHandler" parent="." groups=["sfx"] instance=ExtResource("8_u868v")]
