@@ -6,16 +6,20 @@ extends CharacterBody2D
 @export var damage : int = 10
 
 @onready var sprite : AnimatedSprite2D = $Sprite2D
+@onready var explode = $sfx/explode
+@onready var death_sfx = $sfx/death
 
 var spawnedDirection : bool = false #left = false, right = true
 var time : float
 var cam_shake
+var sfx
 
 signal destroyed(obstalce_pos, scrap)
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	sprite.play()
 	cam_shake = get_tree().get_first_node_in_group("camera_shake")
+	sfx = get_tree().get_first_node_in_group("sfx")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -36,8 +40,10 @@ func movement():
 
 func death(killed : bool):
 	if (killed):
+		sfx.play_sound(explode)
 		destroyed.emit(global_position, 0)
 	cam_shake.apply_shake(20)
+	sfx.play_sound(death_sfx)
 	queue_free()
 
 func get_sine():

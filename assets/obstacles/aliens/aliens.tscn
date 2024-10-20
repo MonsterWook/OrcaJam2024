@@ -1,12 +1,14 @@
-[gd_scene load_steps=10 format=3 uid="uid://bf35u6dbctvmm"]
+[gd_scene load_steps=12 format=3 uid="uid://bf35u6dbctvmm"]
 
 [ext_resource type="Script" path="res://assets/obstacles/aliens/aliens.gd" id="1_pdlj1"]
 [ext_resource type="Texture2D" uid="uid://bplg3w1bxvhi8" path="res://assets/obstacles/aliens/alien_art/IMG_0426.PNG" id="2_goj7j"]
 [ext_resource type="PackedScene" uid="uid://bd2rrkiklhypo" path="res://assets/spawner/spawners/scrap_spawner.tscn" id="2_nfjp6"]
 [ext_resource type="PackedScene" uid="uid://dm0wvq7phgosy" path="res://assets/obstacles/despawn.tscn" id="3_0x6vs"]
 [ext_resource type="Texture2D" uid="uid://duaau1ch08ks6" path="res://assets/obstacles/aliens/alien_art/IMG_0427.PNG" id="3_t0y6b"]
-[ext_resource type="PackedScene" uid="uid://by7kugiy1d4ec" path="res://assets/obstacles/spawn_particle.tscn" id="6_jeeca"]
+[ext_resource type="PackedScene" path="res://assets/obstacles/spawn_particle.tscn" id="6_jeeca"]
 [ext_resource type="PackedScene" uid="uid://b5utcaw1nkqse" path="res://assets/Camera/cam_shake.tscn" id="7_tpduj"]
+[ext_resource type="AudioStream" uid="uid://bq3lrrs8am8e4" path="res://assets/sfx/sounds/explosion.wav" id="8_fp6ip"]
+[ext_resource type="AudioStream" uid="uid://cs2r81qtg1ous" path="res://assets/sfx/sounds/Destroy Alien.wav" id="9_lfau5"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_3q5ka"]
 animations = [{
@@ -49,6 +51,14 @@ obstacle = NodePath("..")
 [node name="spawn_particle" parent="." instance=ExtResource("6_jeeca")]
 
 [node name="cam_shake" parent="." instance=ExtResource("7_tpduj")]
+
+[node name="sfx" type="Node2D" parent="."]
+
+[node name="explode" type="AudioStreamPlayer" parent="sfx"]
+stream = ExtResource("8_fp6ip")
+
+[node name="death" type="AudioStreamPlayer" parent="sfx"]
+stream = ExtResource("9_lfau5")
 
 [connection signal="destroyed" from="." to="scrap_spawner" method="_on_destroyed"]
 [connection signal="destroyed" from="." to="spawn_particle" method="_on_destroyed"]
