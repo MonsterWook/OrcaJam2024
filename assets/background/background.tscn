@@ -73,7 +73,7 @@ position = Vector2(0, -13200)
 texture = ExtResource("9_v5whx")
 
 [node name="Background12" type="Sprite2D" parent="."]
-z_index = -5
+z_index = 5
 position = Vector2(1.16415e-10, -13627)
 rotation = 3.14159
 scale = Vector2(3, 3)

@@ -56,6 +56,7 @@ obstacle = NodePath("..")
 
 [node name="explode" type="AudioStreamPlayer" parent="sfx"]
 stream = ExtResource("8_fp6ip")
+volume_db = -15.0
 
 [node name="death" type="AudioStreamPlayer" parent="sfx"]
 stream = ExtResource("9_lfau5")
