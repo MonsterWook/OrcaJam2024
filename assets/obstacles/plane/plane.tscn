@@ -1,22 +1,45 @@
-[gd_scene load_steps=6 format=3 uid="uid://chvq8junnnu6r"]
+[gd_scene load_steps=10 format=3 uid="uid://chvq8junnnu6r"]
 
 [ext_resource type="Script" path="res://assets/obstacles/plane/plane.gd" id="1_4q18w"]
-[ext_resource type="Texture2D" uid="uid://b0wsbjkia42bo" path="res://assets/sprites/placeholder_steve.jpg" id="1_plyad"]
+[ext_resource type="Texture2D" uid="uid://bblgxvaxpqcvp" path="res://assets/obstacles/plane/plane_art/Untitled_Artwork.png" id="2_tyeom"]
+[ext_resource type="Texture2D" uid="uid://dr8477t4fpytq" path="res://assets/obstacles/plane/plane_art/Untitled_Artwork 2.png" id="3_eknui"]
 [ext_resource type="PackedScene" uid="uid://bd2rrkiklhypo" path="res://assets/spawner/spawners/scrap_spawner.tscn" id="3_wotyq"]
 [ext_resource type="PackedScene" uid="uid://dm0wvq7phgosy" path="res://assets/obstacles/despawn.tscn" id="4_0h47d"]
+[ext_resource type="PackedScene" uid="uid://by7kugiy1d4ec" path="res://assets/obstacles/spawn_particle.tscn" id="6_hau16"]
+[ext_resource type="PackedScene" uid="uid://b5utcaw1nkqse" path="res://assets/Camera/cam_shake.tscn" id="7_ucbki"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_yqm15"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_tyeom")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_eknui")
+}],
+"loop": true,
+"name": &"default",
+"speed": 15.0
+}]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7a41r"]
-radius = 17.0
-height = 54.0
+radius = 34.0
+height = 134.0
 
 [node name="Plane" type="CharacterBody2D"]
 script = ExtResource("1_4q18w")
+SPEED = 150
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.1, 0.1)
-texture = ExtResource("1_plyad")
+[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -20)
+scale = Vector2(0.15, 0.15)
+sprite_frames = SubResource("SpriteFrames_yqm15")
+flip_h = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="Area2D" type="Area2D" parent="." groups=["obstacles"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+rotation = 1.5708
 shape = SubResource("CapsuleShape2D_7a41r")
 
 [node name="scrap_spawner" parent="." instance=ExtResource("3_wotyq")]
@@ -24,4 +47,10 @@ shape = SubResource("CapsuleShape2D_7a41r")
 [node name="despawn" parent="." node_paths=PackedStringArray("obstacle") instance=ExtResource("4_0h47d")]
 obstacle = NodePath("..")
 
+[node name="spawn_particle" parent="." instance=ExtResource("6_hau16")]
+
+[node name="cam_shake" parent="." instance=ExtResource("7_ucbki")]
+
 [connection signal="destroyed" from="." to="scrap_spawner" method="_on_destroyed"]
+[connection signal="destroyed" from="." to="spawn_particle" method="_on_destroyed"]
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

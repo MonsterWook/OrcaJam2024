@@ -1,18 +1,20 @@
 [gd_scene load_steps=4 format=3 uid="uid://bovmmndtake8o"]
 
 [ext_resource type="Script" path="res://assets/angry_steve/bullet.gd" id="1_8scsd"]
-[ext_resource type="Texture2D" uid="uid://crimbidfhw2hn" path="res://assets/sprites/miscellaneous/fireball.png" id="1_gpu2s"]
+[ext_resource type="Texture2D" uid="uid://d26is501h55n1" path="res://assets/angry_steve/bullet.png" id="2_m3a2p"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nk38i"]
 size = Vector2(75, 76)
 
 [node name="Bullet" type="Node2D"]
+scale = Vector2(0.2, 0.2)
 script = ExtResource("1_8scsd")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 2
-scale = Vector2(0.0939532, 0.0939532)
-texture = ExtResource("1_gpu2s")
+position = Vector2(-5, 10)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("2_m3a2p")
 
 [node name="Area2D" type="Area2D" parent="." groups=["bullet"]]
 

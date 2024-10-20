@@ -1,14 +1,52 @@
-[gd_scene load_steps=4 format=3 uid="uid://nfli7vysv23"]
+[gd_scene load_steps=6 format=3 uid="uid://nfli7vysv23"]
 
 [ext_resource type="Script" path="res://assets/spawner/master_spawner.gd" id="1_h3sq7"]
 [ext_resource type="Script" path="res://assets/spawner/spawners/side_spawner.gd" id="2_wyqy2"]
 [ext_resource type="Script" path="res://assets/spawner/spawners/general_spawner.gd" id="3_jubqi"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jobja"]
+size = Vector2(1087, 265.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g18pi"]
+size = Vector2(152.25, 323.438)
+
 [node name="master_spawner" type="Node2D"]
 script = ExtResource("1_h3sq7")
+max_surface = -4000
+max_stratosphere = -10000
+max_space = -20000
 
 [node name="general_spawner" type="Node2D" parent="."]
 script = ExtResource("3_jubqi")
 
+[node name="general_spawn" type="Area2D" parent="general_spawner"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="general_spawner/general_spawn"]
+position = Vector2(578, -164)
+shape = SubResource("RectangleShape2D_jobja")
+
 [node name="side_spawner" type="Node2D" parent="."]
 script = ExtResource("2_wyqy2")
+
+[node name="side_spawn_right" type="Area2D" parent="side_spawner"]
+
+[node name="right" type="CollisionShape2D" parent="side_spawner/side_spawn_right"]
+position = Vector2(1259, -177)
+shape = SubResource("RectangleShape2D_g18pi")
+
+[node name="side_spawn_left" type="Area2D" parent="side_spawner"]
+
+[node name="left" type="CollisionShape2D" parent="side_spawner/side_spawn_left"]
+position = Vector2(-109, -182)
+shape = SubResource("RectangleShape2D_g18pi")
+
+[node name="spawn_timer1" type="Timer" parent="."]
+wait_time = 7.0
+autostart = true
+
+[node name="spawn_timer2" type="Timer" parent="."]
+wait_time = 5.0
+autostart = true
+
+[connection signal="timeout" from="spawn_timer1" to="." method="_on_spawn_timer_timeout"]
+[connection signal="timeout" from="spawn_timer2" to="." method="_on_spawn_timer_timeout"]

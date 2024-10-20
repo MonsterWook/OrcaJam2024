@@ -6,6 +6,8 @@ extends CharacterBody2D
 var time : float
 var scrap_ui : Node
 
+var goto_pos : Vector2 = Vector2.ZERO
+var spawnedDirection : bool = false
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	#connect scrap collected to ui system. talk to Aidan about that
@@ -16,10 +18,17 @@ func _ready():
 func _process(delta):
 	time += delta
 	shake()
+	if(goto_pos != Vector2.ZERO):
+		move_to()
 
 func shake():
 	rotation = get_sine() 
 
+func move_to():
+	if ((global_position - goto_pos) < Vector2(2,2) ||
+		(global_position - goto_pos) > Vector2(2,2)):
+			var tween = get_tree().create_tween()
+			tween.tween_property(self, "global_position", goto_pos, .5)
 func get_sine():
 	return (sin(time * shake_speed) * .25) + PI/6
 

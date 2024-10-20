@@ -1,0 +1,71 @@
+[gd_scene load_steps=9 format=3 uid="uid://dupmdypys1rt6"]
+
+[ext_resource type="Texture2D" uid="uid://cth0ndi8dggmg" path="res://assets/background/Backgrounds/background_0.png" id="1_xdsm1"]
+[ext_resource type="Texture2D" uid="uid://p6kkqy5dosjd" path="res://assets/background/Backgrounds/Background_1.png" id="2_4ondo"]
+[ext_resource type="Texture2D" uid="uid://bcwt88c3y7r44" path="res://assets/background/Backgrounds/Background_2.png" id="3_oyvwg"]
+[ext_resource type="Texture2D" uid="uid://5fd3s1ck7e4k" path="res://assets/background/Backgrounds/IMG_0436.png" id="4_vvd7k"]
+[ext_resource type="Texture2D" uid="uid://ce4jkuw2gq6ec" path="res://assets/background/Backgrounds/Background_5.png" id="6_bn8kr"]
+[ext_resource type="Texture2D" uid="uid://b6ic5uqav18as" path="res://assets/background/Backgrounds/Background_6.png" id="7_j7u3p"]
+[ext_resource type="Texture2D" uid="uid://difb5cmlh8phj" path="res://assets/background/Backgrounds/Background_7.png" id="8_3cuva"]
+[ext_resource type="Texture2D" uid="uid://dt7nqyixgyx6v" path="res://assets/background/Backgrounds/Background_8.png" id="9_v5whx"]
+
+[node name="Background" type="Node2D"]
+
+[node name="Background0" type="Sprite2D" parent="."]
+z_index = -1
+texture = ExtResource("1_xdsm1")
+
+[node name="Background1" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(0, -1200)
+texture = ExtResource("2_4ondo")
+
+[node name="Background2" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(0, -2400)
+texture = ExtResource("3_oyvwg")
+
+[node name="Background3" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(0, -3600)
+texture = ExtResource("4_vvd7k")
+
+[node name="Background4" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(0, -4800)
+texture = ExtResource("6_bn8kr")
+
+[node name="Background5" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(0, -6000)
+texture = ExtResource("6_bn8kr")
+
+[node name="Background6" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(0, -7200)
+texture = ExtResource("6_bn8kr")
+
+[node name="Background7" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(0, -8400)
+texture = ExtResource("7_j7u3p")
+
+[node name="Background8" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(0, -9600)
+texture = ExtResource("8_3cuva")
+
+[node name="Background9" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(0, -10800)
+texture = ExtResource("9_v5whx")
+
+[node name="Background10" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(0, -12000)
+texture = ExtResource("9_v5whx")
+
+[node name="Background11" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(0, -13200)
+texture = ExtResource("9_v5whx")
