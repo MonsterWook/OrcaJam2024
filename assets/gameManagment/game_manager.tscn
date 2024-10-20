@@ -11,7 +11,6 @@
 script = ExtResource("1_fo8q4")
 
 [node name="ShopUI" parent="." instance=ExtResource("2_n28q1")]
-position = Vector2(-575, -177)
 
 [node name="RocketManager" parent="." instance=ExtResource("4_xibco")]
 

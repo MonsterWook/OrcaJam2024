@@ -1,8 +1,8 @@
 extends Node2D
 
-@export var max_surface = 5000
-@export var max_stratosphere = 15000
-@export var max_space : int = 30000
+@export var max_surface = -5000
+@export var max_stratosphere = -15000
+@export var max_space : int = -30000
 @export var vertical_speed : int = -100
 
 @onready var general_spawner = $general_spawner
@@ -59,6 +59,8 @@ func current_location():
 	elif (altitude > max_stratosphere):
 		return obstacles_stratosphere
 	elif ( altitude > max_space):
+		return obstacles_space
+	else:
 		return obstacles_space
 
 func _on_spawn_timer_timeout():
