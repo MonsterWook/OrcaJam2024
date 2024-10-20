@@ -13,6 +13,7 @@ bg_color = Color(0.951144, 0.391471, 0.394326, 1)
 script = ExtResource("1_y38my")
 
 [node name="RocketMovement" parent="." instance=ExtResource("1_54fw2")]
+position = Vector2(0, 166)
 
 [node name="shootTimeout" type="Timer" parent="."]
 
