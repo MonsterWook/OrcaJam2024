@@ -30,6 +30,9 @@ var left_barrier = -100
 var right_barrier = 100
 
 var sfx_player
+var timer_state = 0
+
+var should_die = false
 
 func _init():
 	pass
@@ -78,14 +81,15 @@ func _process(delta: float) -> void:
 	
 	scrap_amount.text = "Scrap: " + str(SceneManager.scrap)
 	
-	if (fuel_amount < 0):
+	if fuel_amount < 0 and !should_die:
+		should_die = true
 		death()
 		
 func death():
-	get_parent().steve_died()
-	rocket_movement.reset_steve()
 	can_shoot = false
 	death_timer.start()
+	print("should die")
+	
 func take_damage(damage):
 	fuel_amount -= damage*toughness_percent
 	rocket_movement.bounce_off(100)
@@ -106,7 +110,7 @@ func start():
 	var angular_speed = 400 + SceneManager.tilt_lvl * 20
 	
 	can_shoot = true
-	
+	should_die = false
 	fuel_bar.set_value(fuel_amount)
 	rocket_movement.start_steve(linear_speed, angular_speed)
 	#rocket_movement.start_steve(300, 400)
@@ -116,5 +120,13 @@ func _on_timer_timeout() -> void:
 	shoot_timeout.stop()
 	bullets_count.text = "bullets: " + str(magazine_amount) + "/" + str(magazine_size)
 	can_shoot = true
+
 	
+	
+func _on_death_timer_timeout():
+	get_parent().steve_died()
+	rocket_movement.reset_steve()
+	
+	
+	print("should_die")
 	

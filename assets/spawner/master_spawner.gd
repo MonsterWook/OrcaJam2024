@@ -65,6 +65,8 @@ func current_location():
 		return obstacles_stratosphere
 	elif ( altitude > max_space):
 		return obstacles_space
+	else:
+		return obstacles_space
 
 func _on_spawn_timer_timeout():
 	var obstacles = current_location()

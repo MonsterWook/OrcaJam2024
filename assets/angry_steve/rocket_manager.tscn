@@ -59,5 +59,7 @@ offset_bottom = -279.0
 text = "Scrap: 0"
 
 [node name="deathTimer" type="Timer" parent="."]
+one_shot = true
 
 [connection signal="timeout" from="shootTimeout" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="deathTimer" to="." method="_on_death_timer_timeout"]
