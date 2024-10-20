@@ -6,7 +6,7 @@ extends RichTextLabel
 func _ready() -> void:
 	#SceneManager.update_scrap_difference.connect(update_text)
 	for upgrade in upgrades:
-		upgrade.update_scrap_difference.connect(update_text)
+		upgrade.update_scrap.connect(update_text)
 	update_text()
 	pass # Replace with function body.
 

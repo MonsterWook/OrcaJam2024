@@ -29,6 +29,9 @@ func _process(delta: float) -> void:
 
 func get_scrap() -> int:
 	return scrap
+	
+func set_scrap(new_scrap_amount: int) -> void:
+	scrap = new_scrap_amount
 
 func apply_upgrade(upgrade_type: String, upgrade_level: int) -> void:
 

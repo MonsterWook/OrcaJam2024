@@ -7,7 +7,7 @@ extends HBoxContainer
 @onready var temp_scrap: int = SceneManager.temp_scrap
 
 signal apply_upgrades(level)
-signal update_scrap_difference()
+signal update_scrap()
 
 @export var upgrade_type: String
 var upgrade_level: int = 0
@@ -62,14 +62,16 @@ func on_button_toggle(button_index: int):
 			buttons[i].button_pressed = false
 
 	SceneManager.temp_scrap = temp_scrap
-	update_scrap_difference.emit()
+	update_scrap.emit()
 	print(temp_scrap)
 	#update_purchasable_upgrades()
 	get_tree().call_group("upgrades","update_purchasable_upgrades")
 
 func on_upgrade_applied():
 	total_cost = 0
-	SceneManager.scrap = SceneManager.temp_scrap
+	SceneManager.set_scrap(SceneManager.temp_scrap)
+	SceneManager.temp_scrap = SceneManager.get_scrap()
+	update_scrap.emit()
 	for i in range(len(buttons)):
 		if buttons[i].button_pressed == true:
 			buttons[i].text = "%7s" % ""

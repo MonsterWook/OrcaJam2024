@@ -1,10 +1,12 @@
 extends RichTextLabel
 
+@onready var upgrades = get_tree().get_nodes_in_group("upgrades")
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	
+	for upgrade in upgrades:
+		upgrade.update_scrap.connect(update_scrap_amount)
 	update_scrap_amount()
 
 
