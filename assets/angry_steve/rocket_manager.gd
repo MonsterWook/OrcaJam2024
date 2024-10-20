@@ -128,6 +128,8 @@ func start():
 	should_die = false
 	fuel_bar.set_value(fuel_amount)
 	rocket_movement.start_steve(linear_speed, angular_speed)
+	rocket_movement.rigid_body_2d.visible=true
+	rocket_movement.area_2d.visible=true
 	#rocket_movement.start_steve(300, 400)
 func _on_timer_timeout() -> void:
 	
