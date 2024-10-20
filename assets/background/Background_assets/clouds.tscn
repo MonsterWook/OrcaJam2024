@@ -20,9 +20,13 @@ animations = [{
 }]
 
 [node name="clouds" type="CharacterBody2D"]
+position = Vector2(-13, 87)
 script = ExtResource("1_if764")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+z_index = -3
+position = Vector2(9, -25)
+scale = Vector2(0.6, 0.6)
 sprite_frames = SubResource("SpriteFrames_5kkcm")
 autoplay = "default"
 frame_progress = 0.699187
