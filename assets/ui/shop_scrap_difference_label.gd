@@ -4,7 +4,7 @@ extends RichTextLabel
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	#SceneManager.update_scrap_difference.connect(update_text)
+	#SceneManager.update_scraps_text.connect(update_text)
 	for upgrade in upgrades:
 		upgrade.update_scrap.connect(update_text)
 	update_text()

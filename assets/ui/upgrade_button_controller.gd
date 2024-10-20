@@ -74,6 +74,7 @@ func on_upgrade_applied():
 	total_cost = 0
 	SceneManager.set_scrap(SceneManager.temp_scrap)
 	SceneManager.temp_scrap = SceneManager.get_scrap()
+	temp_scrap = SceneManager.temp_scrap
 	update_scrap.emit()
 	for i in range(len(buttons)):
 		if buttons[i].button_pressed == true:

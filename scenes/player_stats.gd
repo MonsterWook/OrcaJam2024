@@ -15,7 +15,7 @@ var toughness_lvl: int = 0
 
 @onready var upgrades = get_tree().get_nodes_in_group("upgrades")
 
-signal update_stats_text()
+signal update_stats_text
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

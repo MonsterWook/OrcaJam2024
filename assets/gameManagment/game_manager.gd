@@ -31,7 +31,7 @@ func steve_died():
 	
 	rocket_manager.visible = false
 	master_spawner.reset_spawner()
-	
+	shop_ui.update()
 	update_scrap.emit()
 	
 	
