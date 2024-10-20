@@ -52,3 +52,9 @@ func qte_fail():
 	progress_bar.visible = false
 	cutscene.play("fail")
 	anim.play("fail")
+
+func quit_game():
+	get_tree().quit()
+
+func restart_game():
+	get_tree().get_first_node_in_group("real_player").take_damage(1000000000)
