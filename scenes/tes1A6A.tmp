@@ -1,17 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://dsrax2etf7fv5"]
+[gd_scene load_steps=3 format=3 uid="uid://dsrax2etf7fv5"]
 
-[ext_resource type="PackedScene" uid="uid://dohublqlkjpa3" path="res://assets/ui/in_game_ui.tscn" id="1_bfa0i"]
 [ext_resource type="PackedScene" uid="uid://nfli7vysv23" path="res://assets/spawner/master_spawner.tscn" id="1_llbtq"]
 [ext_resource type="PackedScene" uid="uid://d0yp3fn4qfolo" path="res://assets/angry_steve/rocket_manager.tscn" id="2_f711n"]
-[ext_resource type="PackedScene" path="res://assets/scene_manager.tscn" id="4_r1lt3"]
 
 [node name="Test" type="Node"]
-
-[node name="In_Game_UI" parent="." instance=ExtResource("1_bfa0i")]
 
 [node name="master_spawner" parent="." instance=ExtResource("1_llbtq")]
 position = Vector2(-568, -333)
 
 [node name="RocketManager" parent="." instance=ExtResource("2_f711n")]
-
-[node name="SceneManager" parent="." instance=ExtResource("4_r1lt3")]

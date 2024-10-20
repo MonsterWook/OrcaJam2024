@@ -6,16 +6,15 @@
 [ext_resource type="PackedScene" uid="uid://dm0wvq7phgosy" path="res://assets/obstacles/despawn.tscn" id="3_d5jvp"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7a41r"]
-radius = 34.0
-height = 68.0
+radius = 81.0
+height = 162.0
 
 [node name="Asteroid" type="CharacterBody2D"]
-position = Vector2(591, 272)
 script = ExtResource("1_oc7ca")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(-2, 6)
-scale = Vector2(0.1, 0.1)
+position = Vector2(-5, 17)
+scale = Vector2(0.25, 0.25)
 texture = ExtResource("2_dsefl")
 
 [node name="Area2D" type="Area2D" parent="." groups=["obstacles"]]

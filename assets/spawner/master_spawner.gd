@@ -38,15 +38,15 @@ func spawn_obstacle(obstacle : PackedScene, spawner : Node2D):
 
 func current_location():
 	var altitude = global_position.y
-	if (altitude < max_surface):
+	if (altitude > max_surface):
 		return obstacles_surface
-	elif (altitude < max_stratosphere):
+	elif (altitude > max_stratosphere):
 		return obstacles_stratosphere
-	elif ( altitude < max_space):
+	elif ( altitude > max_space):
 		return obstacles_space
 
 func _on_spawn_timer_timeout():
-	var obstacles = obstacles_surface
+	var obstacles = current_location()
 	#obstacle spawner
 	for i in range(randi_range(2,3)):
 		var obstacle = obstacles[randi_range(0, 1)]
