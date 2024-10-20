@@ -572,6 +572,7 @@ position = Vector2(-2, 290)
 sprite_frames = SubResource("SpriteFrames_nv2xg")
 
 [node name="Camera2D" type="Camera2D" parent="."]
+visible = false
 z_index = 11
 zoom = Vector2(0.8, 0.8)
 
