@@ -149,6 +149,18 @@ tracks/10/keys = {
 "update": 1,
 "values": [11]
 }
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath(".:visible")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_koh1f"]
 resource_name = "before"
@@ -258,6 +270,18 @@ tracks/8/path = NodePath("AnimatedSprite2D:visible")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath(".:visible")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
@@ -543,6 +567,7 @@ animations = [{
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_na60f"]
 
 [node name="QTE" type="Node2D"]
+visible = false
 script = ExtResource("1_eq5md")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
