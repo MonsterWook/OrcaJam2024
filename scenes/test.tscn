@@ -1,16 +1,11 @@
-[gd_scene load_steps=4 format=3 uid="uid://dsrax2etf7fv5"]
+[gd_scene load_steps=3 format=3 uid="uid://dsrax2etf7fv5"]
 
-[ext_resource type="PackedScene" uid="uid://byknsw20p8tgq" path="res://assets/obstacles/bird/bird.tscn" id="1_3la0d"]
-[ext_resource type="PackedScene" uid="uid://bigyxwqtvr2dh" path="res://assets/obstacles/weather_balloon/weather_balloon.tscn" id="2_apegw"]
-[ext_resource type="PackedScene" uid="uid://mnrfhel2kaix" path="res://assets/obstacles/asteroids/asteroid.tscn" id="3_gdvxx"]
+[ext_resource type="PackedScene" uid="uid://nfli7vysv23" path="res://assets/spawner/master_spawner.tscn" id="1_llbtq"]
+[ext_resource type="PackedScene" uid="uid://d0yp3fn4qfolo" path="res://assets/angry_steve/rocket_manager.tscn" id="2_f711n"]
 
 [node name="Test" type="Node"]
 
-[node name="Bird" parent="." instance=ExtResource("1_3la0d")]
-position = Vector2(357, 295)
+[node name="master_spawner" parent="." instance=ExtResource("1_llbtq")]
+position = Vector2(-568, -333)
 
-[node name="Weather_balloon" parent="." instance=ExtResource("2_apegw")]
-position = Vector2(1114, 465)
-
-[node name="Asteroid" parent="." instance=ExtResource("3_gdvxx")]
-position = Vector2(458, 123)
+[node name="RocketManager" parent="." instance=ExtResource("2_f711n")]

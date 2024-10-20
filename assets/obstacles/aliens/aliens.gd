@@ -39,8 +39,6 @@ func death(killed : bool):
 func _on_area_2d_area_entered(area : Area2D):
 	if (area.is_in_group("bullet")):
 		death(true)
-
-func _on_area_2d_body_entered(body):
-	if (body.is_in_group("player")):
+	if (area.is_in_group("player")):
 		death(false)
-		body.take_damage(damage)
+		area.get_parent().get_parent().take_damage(damage)

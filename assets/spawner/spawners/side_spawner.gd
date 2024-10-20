@@ -22,4 +22,4 @@ func spawn(obstacle : PackedScene):
 	instance.global_position = rand_point
 	instance.spawnedDirection = spawnDirection
 	
-	get_tree().current_scene.add_child(instance)
+	get_tree().root.add_child(instance)

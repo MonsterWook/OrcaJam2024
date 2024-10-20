@@ -3,7 +3,7 @@ extends Node2D
 @export var max_surface = 5000
 @export var max_stratosphere = 15000
 @export var max_space : int = 30000
-@export var vertical_speed : int = 10
+@export var vertical_speed : int = -100
 
 @onready var general_spawner = $general_spawner
 @onready var side_spawner = $side_spawner
@@ -33,6 +33,7 @@ func _process(delta: float) -> void:
 	position.y += vertical_speed*delta
 
 func spawn_obstacle(obstacle : PackedScene, spawner : Node2D):
+	print(global_position.y)
 	spawner.spawn(obstacle)
 
 func current_location():
@@ -47,13 +48,13 @@ func current_location():
 func _on_spawn_timer_timeout():
 	var obstacles = obstacles_surface
 	#obstacle spawner
-	for i in range(randi_range(2,4)):
+	for i in range(randi_range(2,3)):
 		var obstacle = obstacles[randi_range(0, 1)]
 		if (obstacles == obstacles_surface):
 			spawn_obstacle(obstacle, side_spawner)
 		else:
 			spawn_obstacle(obstacle, general_spawner)
 	#scrap spawner
-	for i in range(randi_range(1, 4)):
+	for i in range(randi_range(1, 3)):
 		var scrap = obstacles[2]
 		spawn_obstacle(scrap, general_spawner)
