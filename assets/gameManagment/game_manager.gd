@@ -26,13 +26,14 @@ func _process(delta):
 		
 	
 func steve_died():
-	steve_state = MENU_STATE
-	shop_ui.visible = true
+	if (steve_state == PLAYING_STATE):
+		steve_state = MENU_STATE
+		shop_ui.visible = true
 	
-	rocket_manager.visible = false
-	master_spawner.reset_spawner()
-	shop_ui.update()
-	update_scrap.emit()
+		rocket_manager.visible = false
+		master_spawner.reset_spawner()
+		shop_ui.update()
+		update_scrap.emit()
 	
 	
 	
