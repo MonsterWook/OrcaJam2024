@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://b43a4n5qbfuby"]
+
+[ext_resource type="PackedScene" uid="uid://3nagd1rvprrd" path="res://assets/angry_steve/rocket_movement.tscn" id="1_58fmw"]
+[ext_resource type="PackedScene" uid="uid://dohublqlkjpa3" path="res://assets/ui/in_game_ui.tscn" id="2_vr28d"]
+[ext_resource type="PackedScene" uid="uid://r2qm4htbv8wr" path="res://assets/ui/shop_ui.tscn" id="3_le0qa"]
+[ext_resource type="Script" path="res://scenes/player_stats.gd" id="4_wp717"]
+
+[node name="AidanTest" type="Node2D"]
+
+[node name="SceneManager" type="Node" parent="." groups=["scene_manager"]]
+script = ExtResource("4_wp717")
+
+[node name="RocketMovement" parent="." instance=ExtResource("1_58fmw")]
+visible = false
+position = Vector2(558, 375)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ShopUI" parent="CanvasLayer" instance=ExtResource("3_le0qa")]
+
+[node name="In_Game_UI" parent="CanvasLayer" instance=ExtResource("2_vr28d")]
+visible = false

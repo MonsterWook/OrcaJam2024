@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="OrcaJam2024"
-run/main_scene="res://scenes/rocket_movement.tscn"
+run/main_scene="res://assets/angry_steve/rocket_movement.tscn"
 config/features=PackedStringArray("4.3", "GL Compatibility")
 config/icon="res://icon.svg"
 
@@ -21,6 +21,9 @@ window/stretch/mode="canvas_items"
 
 [global_group]
 
+scrap_ui=""
+scene_manager=""
+upgrades=""
 bullet=""
 player=""
 obstacles=""

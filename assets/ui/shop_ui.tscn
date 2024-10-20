@@ -1,0 +1,63 @@
+[gd_scene load_steps=5 format=3 uid="uid://r2qm4htbv8wr"]
+
+[ext_resource type="PackedScene" uid="uid://scbp50cflbwq" path="res://assets/ui/upgrade_buttons.tscn" id="1_egdjv"]
+[ext_resource type="Script" path="res://assets/ui/scrap_label_controller.gd" id="2_775my"]
+[ext_resource type="Script" path="res://assets/ui/stats_text_label.gd" id="2_i3nfu"]
+[ext_resource type="Script" path="res://assets/ui/shop_scrap_difference_label.gd" id="3_m7g5c"]
+
+[node name="ShopUI" type="CanvasGroup"]
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+offset_top = 250.0
+offset_right = 1144.0
+offset_bottom = 501.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer"]
+layout_mode = 2
+
+[node name="StatsTextLabel" type="RichTextLabel" parent="PanelContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Fuel: {scene_manager.fuel_lvl}
+Tilt Speed: {scene_manager.tilt_lvl}
+Shotgun Ammo: {scene_manager.shotgun_lvl}
+Thoughness: {scene_manager.toughness_lvl}"
+fit_content = true
+script = ExtResource("2_i3nfu")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="FuelUpgradeButtons" parent="PanelContainer/HBoxContainer/VBoxContainer" groups=["upgrades"] instance=ExtResource("1_egdjv")]
+layout_mode = 2
+
+[node name="TiltUpgradeButtons" parent="PanelContainer/HBoxContainer/VBoxContainer" groups=["upgrades"] instance=ExtResource("1_egdjv")]
+layout_mode = 2
+
+[node name="ShotgunUpgradeButtons" parent="PanelContainer/HBoxContainer/VBoxContainer" groups=["upgrades"] instance=ExtResource("1_egdjv")]
+layout_mode = 2
+
+[node name="ToughnessUpgradeButtons" parent="PanelContainer/HBoxContainer/VBoxContainer" groups=["upgrades"] instance=ExtResource("1_egdjv")]
+layout_mode = 2
+
+[node name="ApplyButton" type="Button" parent="PanelContainer/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+text = "Apply"
+
+[node name="ScrapLabelContainer" type="PanelContainer" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrapLabelContainer"]
+layout_mode = 2
+
+[node name="ShopScrapLabel" type="RichTextLabel" parent="ScrapLabelContainer/VBoxContainer"]
+layout_mode = 2
+script = ExtResource("2_775my")
+
+[node name="ShopScrapDifferenceLabel" type="RichTextLabel" parent="ScrapLabelContainer/VBoxContainer"]
+visible = false
+layout_mode = 2
+text = "100"
+script = ExtResource("3_m7g5c")

@@ -1,6 +1,5 @@
 extends Node2D
 
-
 @onready var rigid_body_2d: RigidBody2D = $Rocket/RigidBody2D
 @onready var angry_steve: Node2D = $Rocket/RigidBody2D/AngrySteve
 @onready var rocket: Node2D = $Rocket
@@ -37,6 +36,7 @@ func _physics_process(delta: float) -> void:
 	#print(rigid_body_2d.angular_velocity)
 		
 	var direction_vec = Vector2(sin(rigid_body_2d.rotation), -cos(rigid_body_2d.rotation))
+
 	rigid_body_2d.apply_force(direction_vec*boost_speed)
 	vertical_position += delta*vertical_speed
 	'''
