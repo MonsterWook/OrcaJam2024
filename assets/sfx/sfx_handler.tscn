@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://cn47s5ais5yha"]
+
+[ext_resource type="Script" path="res://assets/sfx/sfx_handler.gd" id="1_jqlfx"]
+
+[node name="sfxHandler" type="Node2D"]
+script = ExtResource("1_jqlfx")

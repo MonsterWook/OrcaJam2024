@@ -1,12 +1,14 @@
-[gd_scene load_steps=10 format=3 uid="uid://chvq8junnnu6r"]
+[gd_scene load_steps=12 format=3 uid="uid://chvq8junnnu6r"]
 
 [ext_resource type="Script" path="res://assets/obstacles/plane/plane.gd" id="1_4q18w"]
 [ext_resource type="Texture2D" uid="uid://bblgxvaxpqcvp" path="res://assets/obstacles/plane/plane_art/Untitled_Artwork.png" id="2_tyeom"]
 [ext_resource type="Texture2D" uid="uid://dr8477t4fpytq" path="res://assets/obstacles/plane/plane_art/Untitled_Artwork 2.png" id="3_eknui"]
 [ext_resource type="PackedScene" uid="uid://bd2rrkiklhypo" path="res://assets/spawner/spawners/scrap_spawner.tscn" id="3_wotyq"]
 [ext_resource type="PackedScene" uid="uid://dm0wvq7phgosy" path="res://assets/obstacles/despawn.tscn" id="4_0h47d"]
-[ext_resource type="PackedScene" uid="uid://by7kugiy1d4ec" path="res://assets/obstacles/spawn_particle.tscn" id="6_hau16"]
+[ext_resource type="PackedScene" path="res://assets/obstacles/spawn_particle.tscn" id="6_hau16"]
 [ext_resource type="PackedScene" uid="uid://b5utcaw1nkqse" path="res://assets/Camera/cam_shake.tscn" id="7_ucbki"]
+[ext_resource type="AudioStream" uid="uid://bq3lrrs8am8e4" path="res://assets/sfx/sounds/explosion.wav" id="8_7s3bs"]
+[ext_resource type="AudioStream" uid="uid://be5nu3ifjhq34" path="res://assets/sfx/sounds/Destroy Plane.wav" id="9_rfh1g"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_yqm15"]
 animations = [{
@@ -50,6 +52,14 @@ obstacle = NodePath("..")
 [node name="spawn_particle" parent="." instance=ExtResource("6_hau16")]
 
 [node name="cam_shake" parent="." instance=ExtResource("7_ucbki")]
+
+[node name="sfx" type="Node2D" parent="."]
+
+[node name="explode" type="AudioStreamPlayer" parent="sfx"]
+stream = ExtResource("8_7s3bs")
+
+[node name="death" type="AudioStreamPlayer" parent="sfx"]
+stream = ExtResource("9_rfh1g")
 
 [connection signal="destroyed" from="." to="scrap_spawner" method="_on_destroyed"]
 [connection signal="destroyed" from="." to="spawn_particle" method="_on_destroyed"]

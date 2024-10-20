@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://3nagd1rvprrd"]
+[gd_scene load_steps=16 format=3 uid="uid://3nagd1rvprrd"]
 
 [ext_resource type="Script" path="res://assets/angry_steve/rocket_movement.gd" id="1_7urn4"]
 [ext_resource type="Texture2D" uid="uid://bxvhmd7te1w5v" path="res://assets/sprites/angrySeve/Angry steve/IMG_0428.png" id="2_g5arc"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://b26ia2nli8j4s" path="res://assets/sprites/angrySeve/Angry steve/IMG_0413.PNG" id="4_gfrdw"]
 [ext_resource type="Texture2D" uid="uid://crimbidfhw2hn" path="res://assets/sprites/miscellaneous/fireball.png" id="4_plph8"]
 [ext_resource type="Texture2D" uid="uid://cb6vjxnmioisb" path="res://assets/sprites/angrySeve/Angry steve/IMG_0414.PNG" id="5_inmpu"]
+[ext_resource type="AudioStream" uid="uid://ge65s2avbrgv" path="res://assets/sfx/sounds/Thrust Not Turning.wav" id="7_unc6g"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_viuv0"]
 radius = 30.0
@@ -113,5 +114,10 @@ damping_curve = SubResource("Curve_22xet")
 scale_amount_min = 0.01
 scale_amount_max = 0.01
 color_ramp = SubResource("Gradient_ir5cv")
+
+[node name="sfx" type="Node2D" parent="."]
+
+[node name="thrust" type="AudioStreamPlayer2D" parent="sfx"]
+stream = ExtResource("7_unc6g")
 
 [connection signal="timeout" from="Rocket/collision" to="." method="_on_collision_timeout"]

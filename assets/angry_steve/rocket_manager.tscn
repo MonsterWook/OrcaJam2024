@@ -1,7 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://d0yp3fn4qfolo"]
+[gd_scene load_steps=7 format=3 uid="uid://d0yp3fn4qfolo"]
 
 [ext_resource type="PackedScene" uid="uid://3nagd1rvprrd" path="res://assets/angry_steve/rocket_movement.tscn" id="1_54fw2"]
 [ext_resource type="Script" path="res://assets/angry_steve/rocket_manager.gd" id="1_y38my"]
+[ext_resource type="AudioStream" uid="uid://bycie8sbgx2oj" path="res://assets/sfx/sounds/Shoot.wav" id="3_opm3y"]
+[ext_resource type="AudioStream" uid="uid://b2b2fmcmvq6vd" path="res://assets/sfx/sounds/Reload.wav" id="4_35oru"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rbung"]
 bg_color = Color(0.311017, 0.664703, 0.67711, 0.309804)
@@ -16,6 +18,16 @@ script = ExtResource("1_y38my")
 position = Vector2(0, 170)
 
 [node name="shootTimeout" type="Timer" parent="."]
+
+[node name="sfx" type="Node2D" parent="."]
+
+[node name="shoot" type="AudioStreamPlayer" parent="sfx"]
+stream = ExtResource("3_opm3y")
+
+[node name="reload" type="AudioStreamPlayer" parent="sfx"]
+stream = ExtResource("4_35oru")
+
+[node name="hurt" type="AudioStreamPlayer" parent="sfx"]
 
 [node name="SceneObjects" type="Node2D" parent="."]
 
