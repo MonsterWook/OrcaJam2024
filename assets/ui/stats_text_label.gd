@@ -1,6 +1,6 @@
 extends RichTextLabel
 #@onready var scene_manager = get_tree().get_nodes_in_group("scene_manager")[0]
-@onready var upgrade_buttons: HBoxContainer = $".."
+@onready var upgrade_buttons: HBoxContainer = $"../.."
 
 
 # Called when the node enters the scene tree for the first time.

@@ -1,11 +1,14 @@
-[gd_scene load_steps=5 format=3 uid="uid://r2qm4htbv8wr"]
+[gd_scene load_steps=7 format=3 uid="uid://r2qm4htbv8wr"]
 
+[ext_resource type="Theme" uid="uid://b5uam7d2vck2n" path="res://assets/ui/ui_theme.tres" id="1_ck4rl"]
 [ext_resource type="PackedScene" uid="uid://scbp50cflbwq" path="res://assets/ui/upgrade_buttons.tscn" id="1_egdjv"]
+[ext_resource type="Script" path="res://assets/ui/shop_ui.gd" id="1_molcj"]
 [ext_resource type="Script" path="res://assets/ui/scrap_label_controller.gd" id="2_775my"]
 [ext_resource type="Script" path="res://assets/ui/shop_scrap_difference_label.gd" id="3_m7g5c"]
 [ext_resource type="Script" path="res://assets/ui/back_button.gd" id="4_1b6qm"]
 
 [node name="ShopUICanvas" type="CanvasLayer"]
+script = ExtResource("1_molcj")
 
 [node name="ShopUI" type="CanvasGroup" parent="."]
 
@@ -35,6 +38,7 @@ theme_override_constants/separation = 0
 clip_contents = false
 layout_mode = 2
 size_flags_vertical = 3
+theme = ExtResource("1_ck4rl")
 text = "1000"
 fit_content = true
 scroll_active = false
@@ -44,6 +48,7 @@ script = ExtResource("2_775my")
 clip_contents = false
 layout_mode = 2
 size_flags_vertical = 3
+theme = ExtResource("1_ck4rl")
 theme_override_colors/default_color = Color(0.682373, 2.76752e-06, 4.81307e-07, 1)
 text = "-1000"
 fit_content = true
@@ -58,7 +63,7 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_constants/margin_left = 50
 theme_override_constants/margin_top = 50
-theme_override_constants/margin_right = 25
+theme_override_constants/margin_right = 50
 theme_override_constants/margin_bottom = 150
 
 [node name="PanelContainer" type="PanelContainer" parent="ShopUI/MarginContainer"]
@@ -91,22 +96,23 @@ layout_mode = 2
 upgrade_type = "Toughness"
 
 [node name="MarginContainer3" type="MarginContainer" parent="ShopUI"]
-offset_left = 792.0
+offset_left = 768.0
 offset_top = 496.0
 offset_right = 1152.0
 offset_bottom = 648.0
 theme_override_constants/margin_top = 25
-theme_override_constants/margin_right = 25
+theme_override_constants/margin_right = 50
 theme_override_constants/margin_bottom = 25
 
 [node name="ApplyButton" type="Button" parent="ShopUI/MarginContainer3"]
 custom_minimum_size = Vector2(0, 30)
 layout_mode = 2
+theme = ExtResource("1_ck4rl")
 text = "Apply"
 
 [node name="MarginContainer4" type="MarginContainer" parent="ShopUI"]
 offset_top = 496.0
-offset_right = 335.0
+offset_right = 384.0
 offset_bottom = 648.0
 theme_override_constants/margin_left = 50
 theme_override_constants/margin_top = 25
@@ -114,6 +120,7 @@ theme_override_constants/margin_bottom = 25
 
 [node name="BackButton" type="Button" parent="ShopUI/MarginContainer4"]
 layout_mode = 2
+theme = ExtResource("1_ck4rl")
 text = "Back
 "
 script = ExtResource("4_1b6qm")

@@ -1,6 +1,6 @@
 extends Node
 
-@onready var stats_text_label: RichTextLabel = $StatsTextLabel
+@onready var stats_text_label: RichTextLabel = $MarginContainer/StatsTextLabel
 
 var fuel_max: int
 var fuel: int = fuel_max
