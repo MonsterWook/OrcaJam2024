@@ -16,7 +16,9 @@ position = Vector2(558, 375)
 script = ExtResource("2_xqjm4")
 
 [node name="ShopUI" parent="UIManager" instance=ExtResource("3_le0qa")]
+visible = false
 
 [node name="In_Game_UI" parent="UIManager" instance=ExtResource("2_vr28d")]
+visible = false
 
 [node name="StartCanvasLayer" parent="UIManager" instance=ExtResource("5_eknhp")]
