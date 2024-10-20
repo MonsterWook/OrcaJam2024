@@ -1,0 +1,17 @@
+[gd_scene load_steps=5 format=3 uid="uid://dhny3eatuypit"]
+
+[ext_resource type="Script" path="res://assets/ui/ui_manager.gd" id="1_0l6e0"]
+[ext_resource type="PackedScene" uid="uid://r2qm4htbv8wr" path="res://assets/ui/shop_ui.tscn" id="2_pwbmc"]
+[ext_resource type="PackedScene" uid="uid://dohublqlkjpa3" path="res://assets/ui/in_game_ui.tscn" id="3_sxnn8"]
+[ext_resource type="PackedScene" uid="uid://cvm8xledgjcsg" path="res://assets/ui/start_ui.tscn" id="4_xta0g"]
+
+[node name="UIManager" type="CanvasLayer"]
+script = ExtResource("1_0l6e0")
+
+[node name="ShopUI" parent="." instance=ExtResource("2_pwbmc")]
+visible = false
+
+[node name="In_Game_UI" parent="." instance=ExtResource("3_sxnn8")]
+visible = false
+
+[node name="StartCanvasLayer" parent="." instance=ExtResource("4_xta0g")]
