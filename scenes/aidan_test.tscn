@@ -1,10 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://b43a4n5qbfuby"]
+[gd_scene load_steps=3 format=3 uid="uid://b43a4n5qbfuby"]
 
 [ext_resource type="PackedScene" uid="uid://3nagd1rvprrd" path="res://assets/angry_steve/rocket_movement.tscn" id="1_58fmw"]
-[ext_resource type="PackedScene" uid="uid://dohublqlkjpa3" path="res://assets/ui/in_game_ui.tscn" id="2_vr28d"]
-[ext_resource type="Script" path="res://assets/ui/ui_manager.gd" id="2_xqjm4"]
-[ext_resource type="PackedScene" uid="uid://r2qm4htbv8wr" path="res://assets/ui/shop_ui.tscn" id="3_le0qa"]
-[ext_resource type="PackedScene" uid="uid://cvm8xledgjcsg" path="res://assets/ui/start_ui.tscn" id="5_eknhp"]
+[ext_resource type="PackedScene" uid="uid://dhny3eatuypit" path="res://assets/ui/ui_manager.tscn" id="2_lhkdw"]
 
 [node name="AidanTest" type="Node2D"]
 
@@ -12,13 +9,4 @@
 visible = false
 position = Vector2(558, 375)
 
-[node name="UIManager" type="CanvasLayer" parent="."]
-script = ExtResource("2_xqjm4")
-
-[node name="ShopUI" parent="UIManager" instance=ExtResource("3_le0qa")]
-visible = false
-
-[node name="In_Game_UI" parent="UIManager" instance=ExtResource("2_vr28d")]
-visible = false
-
-[node name="StartCanvasLayer" parent="UIManager" instance=ExtResource("5_eknhp")]
+[node name="UIManager" parent="." instance=ExtResource("2_lhkdw")]
