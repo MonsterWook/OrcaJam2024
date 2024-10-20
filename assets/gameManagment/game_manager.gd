@@ -24,9 +24,8 @@ func reached_moon():
 	
 func _process(delta):
 	
-	if (master_spawner.vertical_position < -12000):
+	if (master_spawner.global_position.y < -12000):
 		qte.start_anim()
-		print
 		
 	if Input.is_action_pressed("start") and steve_state == MENU_STATE:
 		rocket_manager.start()
