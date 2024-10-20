@@ -17,5 +17,5 @@ func update() -> void:
 	shop_scrap_label.update_scrap_amount()
 	shop_scrap_difference_label.update_text()
 	for upgrade in upgrades:
-		upgrade.update_purchaseable_upgrades()
+		upgrade.update_purchasable_upgrades()
 	
