@@ -37,7 +37,6 @@ func _physics_process(delta: float) -> void:
 		rigid_body_2d.angular_velocity = 0
 	elif rigid_body_2d.angular_velocity > 0 and rigid_body_2d.rotation > max_rotation:
 		rigid_body_2d.angular_velocity = 0
-
 		
 	var direction_vec = Vector2(sin(rigid_body_2d.rotation), -cos(rigid_body_2d.rotation))
 	rigid_body_2d.apply_force(direction_vec*boost_speed)
@@ -68,6 +67,7 @@ func start_steve(linear_speed, angular_speed):
 	rotation_speed = angular_speed
 	boost_speed = linear_speed
 	vertical_speed = -150
+	vertical_position = 0
 	can_move = true
 
 func get_bullet_stats() -> Array:

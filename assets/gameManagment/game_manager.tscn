@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://birmeao4mjv3w"]
+[gd_scene load_steps=11 format=3 uid="uid://birmeao4mjv3w"]
 
 [ext_resource type="Script" path="res://assets/gameManagment/game_manager.gd" id="1_fo8q4"]
 [ext_resource type="PackedScene" uid="uid://r2qm4htbv8wr" path="res://assets/ui/shop_ui.tscn" id="2_n28q1"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://dupmdypys1rt6" path="res://assets/background/background.tscn" id="7_q7n26"]
 [ext_resource type="PackedScene" uid="uid://cn47s5ais5yha" path="res://assets/sfx/sfx_handler.tscn" id="8_u868v"]
 [ext_resource type="PackedScene" uid="uid://do1ijepw3r661" path="res://assets/sfx/music/music.tscn" id="9_p78jt"]
+[ext_resource type="PackedScene" uid="uid://coxi02v0nhohf" path="res://scenes/qte.tscn" id="10_hxyxt"]
 
 [node name="GameManager" type="Node"]
 script = ExtResource("1_fo8q4")
@@ -33,3 +34,5 @@ vertical_speed = -150
 
 [node name="Music" parent="." node_paths=PackedStringArray("gm") instance=ExtResource("9_p78jt")]
 gm = NodePath("..")
+
+[node name="QTE" parent="." instance=ExtResource("10_hxyxt")]
