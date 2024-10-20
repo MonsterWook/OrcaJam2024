@@ -15,6 +15,7 @@ height = 162.0
 
 [node name="Asteroid" type="CharacterBody2D"]
 script = ExtResource("1_oc7ca")
+damage = 100
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(-5, 17)

@@ -8,15 +8,19 @@ extends Node2D
 @onready var space_bar = $space_bar
 @onready var progress_bar = $TextureProgressBar
 
+@onready var explosion = $sfx/Explosion
+@onready var rage = $sfx/Rage
+@onready var scream = $sfx/Scream
+
 var qte_active : bool = false
 var mash_button : int = 0
 # Called when the node enters the scene tree for the first time.
-func _ready():
-	pass
+func start_anim():
+	anim.play("before")
 
 func start_qte():
+	scream.play()
 	qte_active = true
-	anim.stop()
 	space_bar.visible = true
 	progress_bar.visible = true
 	cutscene.play("qte")
@@ -37,13 +41,14 @@ func _process(delta):
 func qte_win():
 	mash_button = 0
 	qte_active = false
-	print("win")
-	anim.stop()
 	space_bar.visible = false
+	progress_bar.visible = false
+	anim.play("win")
 
 func qte_fail():
 	mash_button = 0
 	qte_active = false
-	print("lose")
-	anim.stop()
 	space_bar.visible = false
+	progress_bar.visible = false
+	cutscene.play("fail")
+	anim.play("fail")
