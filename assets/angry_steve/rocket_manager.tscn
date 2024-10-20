@@ -1,9 +1,14 @@
-[gd_scene load_steps=7 format=3 uid="uid://d0yp3fn4qfolo"]
+[gd_scene load_steps=12 format=3 uid="uid://d0yp3fn4qfolo"]
 
 [ext_resource type="PackedScene" uid="uid://3nagd1rvprrd" path="res://assets/angry_steve/rocket_movement.tscn" id="1_54fw2"]
 [ext_resource type="Script" path="res://assets/angry_steve/rocket_manager.gd" id="1_y38my"]
 [ext_resource type="AudioStream" uid="uid://bycie8sbgx2oj" path="res://assets/sfx/sounds/Shoot.wav" id="3_opm3y"]
 [ext_resource type="AudioStream" uid="uid://b2b2fmcmvq6vd" path="res://assets/sfx/sounds/Reload.wav" id="4_35oru"]
+[ext_resource type="AudioStream" uid="uid://ge65s2avbrgv" path="res://assets/sfx/sounds/Thrust Not Turning.wav" id="5_7cklk"]
+[ext_resource type="AudioStream" uid="uid://b1csg5lod8716" path="res://assets/sfx/sounds/bump2.wav" id="6_8kt5m"]
+[ext_resource type="AudioStream" uid="uid://cgo4e4hqg1pe8" path="res://assets/sfx/sounds/bump3.wav" id="7_6yb12"]
+[ext_resource type="AudioStream" uid="uid://bnx7ms1aprr7d" path="res://assets/sfx/sounds/bump4.wav" id="7_h2d3k"]
+[ext_resource type="AudioStream" uid="uid://bejaxpatjifyp" path="res://assets/sfx/sounds/Blast off.wav" id="9_xkycy"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rbung"]
 bg_color = Color(0.311017, 0.664703, 0.67711, 0.309804)
@@ -27,7 +32,25 @@ stream = ExtResource("3_opm3y")
 [node name="reload" type="AudioStreamPlayer" parent="sfx"]
 stream = ExtResource("4_35oru")
 
-[node name="hurt" type="AudioStreamPlayer" parent="sfx"]
+[node name="hurt1" type="AudioStreamPlayer" parent="sfx"]
+stream = ExtResource("6_8kt5m")
+volume_db = 15.0
+
+[node name="hurt2" type="AudioStreamPlayer" parent="sfx"]
+stream = ExtResource("7_6yb12")
+volume_db = 15.0
+
+[node name="hurt3" type="AudioStreamPlayer" parent="sfx"]
+stream = ExtResource("7_h2d3k")
+volume_db = 15.0
+
+[node name="thruster" type="AudioStreamPlayer" parent="sfx"]
+stream = ExtResource("5_7cklk")
+volume_db = -25.0
+
+[node name="blast" type="AudioStreamPlayer" parent="sfx"]
+stream = ExtResource("9_xkycy")
+volume_db = -25.0
 
 [node name="SceneObjects" type="Node2D" parent="."]
 

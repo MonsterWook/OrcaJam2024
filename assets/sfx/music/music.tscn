@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://do1ijepw3r661"]
+
+[ext_resource type="AudioStream" uid="uid://1f4od2w36iyg" path="res://assets/sfx/music/layer1.wav" id="1_5cwkb"]
+[ext_resource type="AudioStream" uid="uid://c1u1sxh7vpm1m" path="res://assets/sfx/music/layer2.wav" id="2_yles6"]
+
+[node name="Music" type="Node2D"]
+
+[node name="Layer1" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("1_5cwkb")
+
+[node name="Layer2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_yles6")

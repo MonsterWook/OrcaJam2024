@@ -12,7 +12,11 @@ const bullet = preload("res://assets/angry_steve/bullet.tscn")
 
 @onready var reload = $sfx/reload
 @onready var shoot = $sfx/shoot
-@onready var hurt = $sfx/hurt
+
+@onready var hurt = [$sfx/hurt1, $sfx/hurt2, $sfx/hurt3] 
+
+@onready var thruster = $sfx/thruster
+@onready var blast = $sfx/blast
 
 var cam_shake
 var can_shoot = true
@@ -87,12 +91,14 @@ func _process(delta: float) -> void:
 		
 func death():
 	can_shoot = false
+	thruster.stop()
 	death_timer.start()
 	print("should die")
 	
 func take_damage(damage):
 	fuel_amount -= damage*toughness_percent
 	rocket_movement.bounce_off(100)
+	sfx_player.play_sound(hurt[randi_range(0,2)])
 	fuel_bar.set_value(fuel_amount)
 	
 
@@ -101,6 +107,8 @@ func start():
 	magazine_size = 1 + SceneManager.shotgun_lvl
 	magazine_amount = magazine_size
 	
+	sfx_player.play_sound(thruster)
+	sfx_player.play_sound(blast)
 	fuel_amount = 100 + pow(2,SceneManager.fuel_lvl) * 20
 	print("fuel amount " + str(fuel_amount))
 	toughness_percent = 1 - (SceneManager.toughness_lvl / 10.0)*0.5
