@@ -9,7 +9,7 @@ extends Node2D
 @onready var collision_timer: Timer = $Rocket/collision
 
 const max_velocity: float  = 300
-
+var max_fuel = 0
 var boost_speed: float = 500
 var impulse = false
 
@@ -23,6 +23,8 @@ var min_rotation = deg_to_rad(-60)
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	vertical_speed = 0
+	
+	
 
 func _physics_process(delta: float) -> void:
 	
@@ -36,10 +38,7 @@ func _physics_process(delta: float) -> void:
 		rigid_body_2d.angular_velocity = 0
 	elif rigid_body_2d.angular_velocity > 0 and rigid_body_2d.rotation > max_rotation:
 		rigid_body_2d.angular_velocity = 0
-	#print(rigid_body_2d.angular_velocity)
-	
-	
-		
+
 		
 	var direction_vec = Vector2(sin(rigid_body_2d.rotation), -cos(rigid_body_2d.rotation))
 	rigid_body_2d.apply_force(direction_vec*boost_speed)
@@ -55,9 +54,11 @@ func reset_steve():
 	rigid_body_2d.position = Vector2(0, 0)
 	vertical_position = 0
 	vertical_speed = 0
+	
 	#rigid_body_2d.rotation
 	
 func start_steve(linear_speed, angular_speed):
+	rigid_body_2d.position = Vector2(0, 0)
 	rotation_speed = angular_speed
 	boost_speed = linear_speed
 	vertical_speed = -100
@@ -84,7 +85,8 @@ func _process(delta):
 	
 	area_2d.position = rigid_body_2d.position
 	area_2d.rotation = rigid_body_2d.rotation 
-	
+	#print("vertical position: " + str(vertical_position))
+	#print("vertical position: " + str(rigid_body_2d.global_position.y))
 	#print(rigid_body_2d.linear_velocity)
 	
 func get_rigid_position():

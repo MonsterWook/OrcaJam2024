@@ -1,0 +1,34 @@
+[gd_scene load_steps=6 format=3 uid="uid://dnreh7p4keltb"]
+
+[ext_resource type="PackedScene" uid="uid://dm0wvq7phgosy" path="res://assets/obstacles/despawn.tscn" id="1_8lvj2"]
+[ext_resource type="Script" path="res://assets/background/Background_assets/star.gd" id="1_ucttn"]
+[ext_resource type="Texture2D" uid="uid://dauxx1x303rou" path="res://assets/background/Background_assets/IMG_0437.png" id="2_xk3sa"]
+[ext_resource type="Texture2D" uid="uid://krsv2c40u1wv" path="res://assets/background/Background_assets/IMG_0438.png" id="3_r2jfs"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ev135"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_xk3sa")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_r2jfs")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+z_index = -3
+script = ExtResource("1_ucttn")
+
+[node name="despawn" parent="." node_paths=PackedStringArray("obstacle") instance=ExtResource("1_8lvj2")]
+obstacle = NodePath("..")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(1, 7)
+scale = Vector2(0.1, 0.1)
+sprite_frames = SubResource("SpriteFrames_ev135")
+autoplay = "default"
+frame_progress = 0.453487

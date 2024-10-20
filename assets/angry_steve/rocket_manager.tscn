@@ -23,7 +23,7 @@ position = Vector2(0, 170)
 
 [node name="FuelBar" type="ProgressBar" parent="SceneObjects"]
 offset_left = 512.0
-offset_top = 49.0
+offset_top = -223.0
 offset_right = 539.0
 offset_bottom = 270.0
 theme_override_styles/background = SubResource("StyleBoxFlat_rbung")
@@ -38,5 +38,12 @@ offset_top = -293.0
 offset_right = 540.0
 offset_bottom = -270.0
 text = "bullets: 0/0"
+
+[node name="ScrapAmount" type="Label" parent="SceneObjects"]
+offset_left = -554.0
+offset_top = -306.0
+offset_right = -494.0
+offset_bottom = -279.0
+text = "Scrap: 0"
 
 [connection signal="timeout" from="shootTimeout" to="." method="_on_timer_timeout"]

@@ -1,0 +1,35 @@
+[gd_scene load_steps=6 format=3 uid="uid://5cystolhem60"]
+
+[ext_resource type="Script" path="res://assets/background/Background_assets/clouds.gd" id="1_if764"]
+[ext_resource type="PackedScene" uid="uid://dm0wvq7phgosy" path="res://assets/obstacles/despawn.tscn" id="1_tdthl"]
+[ext_resource type="Texture2D" uid="uid://cwmyt4dpx46i" path="res://assets/background/Background_assets/Untitled_Artwork 3.png" id="2_38mu3"]
+[ext_resource type="Texture2D" uid="uid://dw6m47pns1gcn" path="res://assets/background/Background_assets/Untitled_Artwork 4.png" id="3_4d37m"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5kkcm"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_38mu3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_4d37m")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="clouds" type="CharacterBody2D"]
+position = Vector2(-13, 87)
+script = ExtResource("1_if764")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+z_index = -3
+position = Vector2(9, -25)
+scale = Vector2(0.6, 0.6)
+sprite_frames = SubResource("SpriteFrames_5kkcm")
+autoplay = "default"
+frame_progress = 0.699187
+
+[node name="despawn" parent="." node_paths=PackedStringArray("obstacle") instance=ExtResource("1_tdthl")]
+obstacle = NodePath("..")
