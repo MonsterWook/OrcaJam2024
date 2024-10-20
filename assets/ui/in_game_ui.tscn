@@ -8,6 +8,7 @@
 [node name="In_Game_UI" type="CanvasGroup"]
 
 [node name="FuelBar" type="ProgressBar" parent="."]
+visible = false
 anchors_preset = 14
 anchor_top = 0.5
 anchor_right = 1.0
@@ -38,6 +39,7 @@ offset_right = 507.0
 offset_bottom = 328.0
 
 [node name="ScrapLabel" type="RichTextLabel" parent="." groups=["scrap_ui"]]
+visible = false
 offset_left = 914.0
 offset_top = 562.0
 offset_right = 1159.0

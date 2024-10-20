@@ -13,6 +13,7 @@ func _process(delta: float) -> void:
 	pass
 	
 func update() -> void:
+	SceneManager.temp_scrap = SceneManager.get_scrap()
 	shop_scrap_label.update_scrap_amount()
 	shop_scrap_difference_label.update_text()
 	for upgrade in upgrades:

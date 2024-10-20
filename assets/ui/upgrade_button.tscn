@@ -1,10 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://d2kfg4rnwq311"]
+[gd_scene load_steps=2 format=3 uid="uid://d2kfg4rnwq311"]
 
-[ext_resource type="Theme" uid="uid://b5uam7d2vck2n" path="res://assets/ui/ui_theme.tres" id="1_6e7bl"]
 [ext_resource type="Script" path="res://assets/ui/upgrade_button.gd" id="1_pdak8"]
 
 [node name="UpgradeButton" type="CheckButton"]
-theme = ExtResource("1_6e7bl")
 theme_override_constants/icon_max_width = 200
 text = "100000"
 alignment = 2
