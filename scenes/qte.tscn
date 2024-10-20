@@ -1,25 +1,11 @@
-[gd_scene load_steps=11 format=3 uid="uid://coxi02v0nhohf"]
+[gd_scene load_steps=15 format=3 uid="uid://coxi02v0nhohf"]
 
 [ext_resource type="Script" path="res://scenes/qte.gd" id="1_eq5md"]
-[ext_resource type="Texture2D" uid="uid://dp5mcxpajo31p" path="res://scenes/cutscene_art/IMG_0423.PNG" id="2_wdnai"]
-[ext_resource type="Texture2D" uid="uid://crau066egl0ke" path="res://assets/font/Mr. Breakfast's Free Prompts/png/space_light.png" id="2_xfxbk"]
+[ext_resource type="Texture2D" uid="uid://dlfcxwf2w3arc" path="res://scenes/qte_art/IMG_0467.png" id="2_bj2wi"]
+[ext_resource type="Texture2D" uid="uid://qw50h1xrefb7" path="res://scenes/qte_art/IMG_0468.png" id="3_bupaf"]
 [ext_resource type="Texture2D" uid="uid://nwpoxxsigg6b" path="res://scenes/cutscene_art/IMG_0419.PNG" id="3_c3q45"]
-
-[sub_resource type="Animation" id="Animation_yygue"]
-resource_name = "qte"
-length = 7.0
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("space_bar:scale")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.25, 0.5, 0.75, 1, 1.25, 1.5, 1.75, 2, 2.25, 2.5, 2.75, 3, 3.25, 3.5, 3.75, 4, 4.25, 4.5, 4.75, 5, 5.25, 5.5, 5.75, 6, 6.25, 6.5, 6.75, 7),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [Vector2(1, 1), Vector2(0.75, 0.75), Vector2(1, 1), Vector2(0.75, 0.75), Vector2(1, 1), Vector2(0.75, 0.75), Vector2(1, 1), Vector2(0.75, 0.75), Vector2(1, 1), Vector2(0.75, 0.75), Vector2(1, 1), Vector2(0.75, 0.75), Vector2(1, 1), Vector2(0.75, 0.75), Vector2(1, 1), Vector2(0.75, 0.75), Vector2(1, 1), Vector2(0.75, 0.75), Vector2(1, 1), Vector2(0.75, 0.75), Vector2(1, 1), Vector2(0.75, 0.75), Vector2(1, 1), Vector2(0.75, 0.75), Vector2(1, 1), Vector2(0.75, 0.75), Vector2(1, 1), Vector2(0.75, 0.75), Vector2(1, 1)]
-}
+[ext_resource type="Texture2D" uid="uid://cv25hyr70owwd" path="res://assets/font/Mr. Breakfast's Free Prompts/png/space_dark.png" id="5_dsny6"]
+[ext_resource type="Script" path="res://scenes/qte_art/texture_progress_bar.gd" id="6_ippqo"]
 
 [sub_resource type="Animation" id="Animation_mlu26"]
 length = 0.001
@@ -53,6 +39,22 @@ tracks/0/keys = {
 }]
 }
 
+[sub_resource type="Animation" id="Animation_yygue"]
+resource_name = "qte"
+length = 7.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("space_bar:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.5, 0.75, 1, 1.25, 1.5, 1.75, 2, 2.25, 2.5, 2.75, 3, 3.25, 3.5, 3.75, 4, 4.25, 4.5, 4.75, 5, 5.25, 5.5, 5.75, 6, 6.25, 6.5, 6.75, 7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [Vector2(1, 1), Vector2(0.75, 0.75), Vector2(1, 1), Vector2(0.75, 0.75), Vector2(1, 1), Vector2(0.75, 0.75), Vector2(1, 1), Vector2(0.75, 0.75), Vector2(1, 1), Vector2(0.75, 0.75), Vector2(1, 1), Vector2(0.75, 0.75), Vector2(1, 1), Vector2(0.75, 0.75), Vector2(1, 1), Vector2(0.75, 0.75), Vector2(1, 1), Vector2(0.75, 0.75), Vector2(1, 1), Vector2(0.75, 0.75), Vector2(1, 1), Vector2(0.75, 0.75), Vector2(1, 1), Vector2(0.75, 0.75), Vector2(1, 1), Vector2(0.75, 0.75), Vector2(1, 1), Vector2(0.75, 0.75), Vector2(1, 1)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_vjwpe"]
 _data = {
 "RESET": SubResource("Animation_mlu26"),
@@ -69,7 +71,10 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_wdnai")
+"texture": ExtResource("2_bj2wi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_bupaf")
 }],
 "loop": true,
 "name": &"qte",
@@ -93,12 +98,16 @@ animations = [{
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_xfxbk")
+"texture": ExtResource("5_dsny6")
 }],
 "loop": true,
 "name": &"default",
 "speed": 4.0
 }]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_nk3cc"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_na60f"]
 
 [node name="QTE" type="Node2D"]
 script = ExtResource("1_eq5md")
@@ -107,16 +116,45 @@ script = ExtResource("1_eq5md")
 libraries = {
 "": SubResource("AnimationLibrary_vjwpe")
 }
+autoplay = "before"
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(0, -3)
+z_index = 2
+position = Vector2(-3, -84)
 scale = Vector2(0.3, 0.3)
 sprite_frames = SubResource("SpriteFrames_gs4cy")
-animation = &"scene_before_qte"
+animation = &"qte"
+autoplay = "scene_before_qte"
 
 [node name="space_bar" type="AnimatedSprite2D" parent="."]
 visible = false
-position = Vector2(0, 238)
+z_index = 2
+position = Vector2(-2, 290)
 sprite_frames = SubResource("SpriteFrames_nv2xg")
 
 [node name="Camera2D" type="Camera2D" parent="."]
+z_index = 2
+zoom = Vector2(0.8, 0.8)
+
+[node name="ColorRect" type="ColorRect" parent="."]
+z_index = 1
+offset_left = -773.0
+offset_top = -449.0
+offset_right = 782.0
+offset_bottom = 442.0
+color = Color(0.937255, 0.984314, 0.976471, 1)
+
+[node name="TextureProgressBar" type="ProgressBar" parent="."]
+visible = false
+z_index = 3
+offset_left = -400.0
+offset_top = 352.0
+offset_right = -360.0
+offset_bottom = 392.0
+scale = Vector2(20, 1)
+theme_override_styles/background = SubResource("StyleBoxEmpty_nk3cc")
+theme_override_styles/fill = SubResource("StyleBoxFlat_na60f")
+max_value = 7.0
+value = 7.0
+show_percentage = false
+script = ExtResource("6_ippqo")

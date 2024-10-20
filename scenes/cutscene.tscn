@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://c0jjp5iehp7j2"]
+[gd_scene load_steps=15 format=3 uid="uid://c0jjp5iehp7j2"]
 
 [ext_resource type="Script" path="res://scenes/cutscene.gd" id="1_w0uck"]
 [ext_resource type="Texture2D" uid="uid://nwpoxxsigg6b" path="res://scenes/cutscene_art/IMG_0419.PNG" id="2_sdmgb"]
@@ -8,6 +8,8 @@
 [ext_resource type="Texture2D" uid="uid://dp5mcxpajo31p" path="res://scenes/cutscene_art/IMG_0423.PNG" id="6_5c7q6"]
 [ext_resource type="Texture2D" uid="uid://c232m8wquw7tp" path="res://scenes/cutscene_art/IMG_0424.PNG" id="7_ko6oo"]
 [ext_resource type="Texture2D" uid="uid://d31v2vxh2s8k6" path="res://scenes/cutscene_art/moon.jpg" id="8_3g8wq"]
+[ext_resource type="AudioStream" uid="uid://burgtxetwxgty" path="res://assets/sfx/sounds/what are you.wav" id="9_h8e86"]
+[ext_resource type="AudioStream" uid="uid://d3cdooathkt5d" path="res://assets/sfx/sounds/dark-void-ambience-201610.mp3" id="10_dlh5f"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_hbf6i"]
 animations = [{
@@ -67,6 +69,30 @@ tracks/0/keys = {
 "update": 0,
 "values": [Vector2(0.3, 0.3)]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("WhatAreYou:playing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Dark-void-ambience-201610:playing")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_c2f6s"]
 resource_name = "cutscene"
@@ -120,6 +146,30 @@ tracks/2/keys = {
 "method": &"transition_to_game"
 }]
 }
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("WhatAreYou:playing")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(13),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Dark-void-ambience-201610:playing")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(10, 12),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_fhs7e"]
 _data = {
@@ -149,3 +199,9 @@ zoom = Vector2(0.3, 0.3)
 libraries = {
 "": SubResource("AnimationLibrary_fhs7e")
 }
+
+[node name="WhatAreYou" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_h8e86")
+
+[node name="Dark-void-ambience-201610" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_dlh5f")

@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://burgtxetwxgty"
+path="res://.godot/imported/what are you.wav-e7d90e93845b081346858e9e52256cf4.sample"
+
+[deps]
+
+source_file="res://assets/sfx/sounds/what are you.wav"
+dest_files=["res://.godot/imported/what are you.wav-e7d90e93845b081346858e9e52256cf4.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

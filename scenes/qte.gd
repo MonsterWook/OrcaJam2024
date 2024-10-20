@@ -6,23 +6,26 @@ extends Node2D
 @onready var cutscene = $AnimatedSprite2D
 @onready var anim = $AnimationPlayer
 @onready var space_bar = $space_bar
+@onready var progress_bar = $TextureProgressBar
 
 var qte_active : bool = false
 var mash_button : int = 0
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	anim.play("before")
+	pass
 
 func start_qte():
 	qte_active = true
 	anim.stop()
 	space_bar.visible = true
+	progress_bar.visible = true
 	cutscene.play("qte")
 	anim.play("qte")
 	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	progress_bar.set_value(duration)
 	if (mash_button >= amount_needed):
 		qte_win()
 	elif (qte_active && duration > 0):
