@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://dr8477t4fpytq" path="res://assets/obstacles/plane/plane_art/Untitled_Artwork 2.png" id="3_eknui"]
 [ext_resource type="PackedScene" uid="uid://bd2rrkiklhypo" path="res://assets/spawner/spawners/scrap_spawner.tscn" id="3_wotyq"]
 [ext_resource type="PackedScene" uid="uid://dm0wvq7phgosy" path="res://assets/obstacles/despawn.tscn" id="4_0h47d"]
-[ext_resource type="PackedScene" path="res://assets/obstacles/spawn_particle.tscn" id="6_hau16"]
+[ext_resource type="PackedScene" uid="uid://by7kugiy1d4ec" path="res://assets/obstacles/spawn_particle.tscn" id="6_hau16"]
 [ext_resource type="PackedScene" uid="uid://b5utcaw1nkqse" path="res://assets/Camera/cam_shake.tscn" id="7_ucbki"]
 [ext_resource type="AudioStream" uid="uid://bq3lrrs8am8e4" path="res://assets/sfx/sounds/explosion.wav" id="8_7s3bs"]
 [ext_resource type="AudioStream" uid="uid://be5nu3ifjhq34" path="res://assets/sfx/sounds/Destroy Plane.wav" id="9_rfh1g"]
