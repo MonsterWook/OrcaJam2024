@@ -40,8 +40,13 @@ shape = SubResource("RectangleShape2D_g18pi")
 position = Vector2(-109, -182)
 shape = SubResource("RectangleShape2D_g18pi")
 
-[node name="spawn_timer" type="Timer" parent="."]
+[node name="spawn_timer1" type="Timer" parent="."]
 wait_time = 7.0
 autostart = true
 
-[connection signal="timeout" from="spawn_timer" to="." method="_on_spawn_timer_timeout"]
+[node name="spawn_timer2" type="Timer" parent="."]
+wait_time = 5.0
+autostart = true
+
+[connection signal="timeout" from="spawn_timer1" to="." method="_on_spawn_timer_timeout"]
+[connection signal="timeout" from="spawn_timer2" to="." method="_on_spawn_timer_timeout"]

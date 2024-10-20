@@ -7,7 +7,6 @@ extends Node2D
 
 @onready var general_spawner = $general_spawner
 @onready var side_spawner = $side_spawner
-@onready var spawn_timer = $spawn_timer
 
 const obstacles_surface : Array[PackedScene] = [
 	preload("res://assets/obstacles/bird/bird.tscn"),
@@ -48,13 +47,13 @@ func current_location():
 func _on_spawn_timer_timeout():
 	var obstacles = current_location()
 	#obstacle spawner
-	for i in range(randi_range(2,3)):
+	for i in range(randi_range(1,2)):
 		var obstacle = obstacles[randi_range(0, 1)]
 		if (obstacles == obstacles_surface):
 			spawn_obstacle(obstacle, side_spawner)
 		else:
 			spawn_obstacle(obstacle, general_spawner)
 	#scrap spawner
-	for i in range(randi_range(1, 3)):
+	for i in range(randi_range(0, 2)):
 		var scrap = obstacles[2]
 		spawn_obstacle(scrap, general_spawner)
