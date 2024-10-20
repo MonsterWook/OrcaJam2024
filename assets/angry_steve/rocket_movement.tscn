@@ -32,8 +32,8 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_nkyx3"]
-radius = 9.34579
-height = 26.257
+radius = 5.14019
+height = 13.9665
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_w5pe3"]
 
@@ -44,11 +44,12 @@ point_count = 3
 
 [node name="RocketMovement" type="Node2D"]
 script = ExtResource("1_7urn4")
-vertical_speed = -100
+vertical_speed = -200
 
 [node name="Rocket" type="Node2D" parent="."]
 
 [node name="RigidBody2D" type="RigidBody2D" parent="Rocket" groups=["player"]]
+position = Vector2(3, 0)
 collision_layer = 2
 collision_mask = 2
 gravity_scale = 0.1

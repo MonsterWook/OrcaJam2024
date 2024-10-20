@@ -18,8 +18,6 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	if (Input.is_key_pressed(KEY_SPACE)):
-		death(true)
 	time += delta
 	movement()
 
@@ -47,6 +45,7 @@ func get_sine():
 func _on_area_2d_area_entered(area : Area2D):
 	if (area.is_in_group("bullet")):
 		death(true)
+		area.get_parent().queue_free()
 	if (area.is_in_group("player")):
 		death(false)
 		area.get_parent().get_parent().take_damage(damage)
