@@ -141,7 +141,7 @@ scale = Vector2(0.826373, 23.0708)
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_hbf6i")
 animation = &"two"
-frame_progress = 0.441977
+frame_progress = 0.128281
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(0.3, 0.3)
