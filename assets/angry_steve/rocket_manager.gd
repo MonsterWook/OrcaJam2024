@@ -18,6 +18,7 @@ const particle : PackedScene = preload("res://assets/obstacles/destroyed_particl
 
 @onready var thruster = $sfx/thruster
 @onready var blast = $sfx/blast
+@onready var gameover = $sfx/gameover
 
 var cam_shake
 var can_shoot = true
@@ -99,6 +100,8 @@ func death():
 	thruster.stop()
 	death_timer.start()
 	var instance = particle.instantiate()
+	
+	sfx_player.play(gameover)
 	instance.emitting = true
 	instance.position = Vector2(rocket_movement.area_2d.position.x, rocket_movement.vertical_position + 200)
 	rocket_movement.rigid_body_2d.visible=false
