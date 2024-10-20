@@ -16,7 +16,7 @@ bg_color = Color(0.311017, 0.664703, 0.67711, 0.309804)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_aisqf"]
 bg_color = Color(0.951144, 0.391471, 0.394326, 1)
 
-[node name="RocketManager" type="Node2D"]
+[node name="RocketManager" type="Node2D" groups=["real_player"]]
 script = ExtResource("1_y38my")
 
 [node name="RocketMovement" parent="." instance=ExtResource("1_54fw2")]

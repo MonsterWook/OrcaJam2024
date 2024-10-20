@@ -35,6 +35,7 @@ upgrades=""
 camera=""
 camera_shake=""
 sfx=""
+real_player=""
 
 [input]
 
