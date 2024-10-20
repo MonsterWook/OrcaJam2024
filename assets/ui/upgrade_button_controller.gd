@@ -16,7 +16,7 @@ var total_cost: int = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	temp_scrap=SceneManager.scrap
+	#temp_scrap=SceneManager.scrap
 	apply_button.pressed.connect(on_upgrade_applied)
 	for i in range(len(buttons)):
 		buttons[i].on_upgrade_pressed.connect(on_button_toggle)
@@ -33,7 +33,7 @@ func _enter_tree() -> void:
 
 func update_purchasable_upgrades() -> void:
 	total_cost = 0
-	temp_scrap = SceneManager.temp_scrap
+	#temp_scrap = SceneManager.temp_scrap
 	
 	for i in range(len(buttons)):
 		if(not buttons[i].disabled or not buttons[i].button_pressed):
@@ -43,30 +43,30 @@ func update_purchasable_upgrades() -> void:
 				buttons[i].text = "%7s" % total_cost
 			else:
 				buttons[i].text = "%9s" % ""
-			if total_cost > temp_scrap and not buttons[i].button_pressed:
+			if total_cost > SceneManager.temp_scrap and not buttons[i].button_pressed:
 				buttons[i].disabled = true
 			else:
 				buttons[i].disabled = false
 
 func on_button_toggle(button_index: int):
 	if buttons[button_index].button_pressed:
-		temp_scrap -= buttons[button_index].cost	
+		SceneManager.temp_scrap -= buttons[button_index].cost	
 	else:
-		temp_scrap += buttons[button_index].cost	
+		SceneManager.temp_scrap += buttons[button_index].cost	
 		
 	for i in range(button_index):
 		if(not buttons[i].button_pressed):
-			temp_scrap -= buttons[i].cost
+			SceneManager.temp_scrap -= buttons[i].cost
 			buttons[i].button_pressed = true
 
 	for i in range(button_index+1, len(buttons)):
 		if(buttons[i].button_pressed):
-			temp_scrap += buttons[i].cost
+			SceneManager.temp_scrap += buttons[i].cost
 			buttons[i].button_pressed = false
 
-	SceneManager.temp_scrap = temp_scrap
+	#SceneManager.temp_scrap = temp_scrap
 	update_scrap.emit()
-	print(temp_scrap)
+	print(SceneManager.temp_scrap)
 	#update_purchasable_upgrades()
 	get_tree().call_group("upgrades","update_purchasable_upgrades")
 
@@ -74,7 +74,7 @@ func on_upgrade_applied():
 	total_cost = 0
 	SceneManager.set_scrap(SceneManager.temp_scrap)
 	SceneManager.temp_scrap = SceneManager.get_scrap()
-	temp_scrap = SceneManager.temp_scrap
+	#temp_scrap = SceneManager.temp_scrap
 	update_scrap.emit()
 	for i in range(len(buttons)):
 		if buttons[i].button_pressed == true:

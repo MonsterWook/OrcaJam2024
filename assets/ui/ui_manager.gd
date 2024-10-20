@@ -1,14 +1,15 @@
 extends CanvasLayer
 @onready var start_canvas_layer: CanvasLayer = $CanvasLayer
 @onready var shop_ui: CanvasLayer = $ShopUI
-"@onready var shop_button: Button = $MarginContainer/ShopButton
+@onready var shop_button: Button = $MarginContainer/ShopButton
 @onready var start_button: Button = $MarginContainer2/StartButton
 @onready var back_button: Button = $ShopUI/MarginContainer4/BackButton
-"
+
 @onready var shop_ui_canvas: CanvasLayer = $"."
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	print(start_canvas_layer)
+	#shop_button.shop_button_pressed.connect(on_shop)
+	print(shop_button)
 	pass # Replace with function body.
 
 

@@ -1,6 +1,6 @@
 extends Button
 
-signal shop_button
+signal shop_button_pressed
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -12,4 +12,4 @@ func _process(delta: float) -> void:
 	pass
 
 func _pressed() -> void:
-	shop_button.emit()
+	shop_button_pressed.emit()
