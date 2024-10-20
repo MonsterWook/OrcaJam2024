@@ -9,13 +9,13 @@
 
 [node name="SceneManager" parent="." instance=ExtResource("1_d1nwe")]
 
+[node name="CanvasLayer" type="CanvasLayer" parent="SceneManager"]
+
+[node name="ShopUI" parent="SceneManager/CanvasLayer" instance=ExtResource("3_le0qa")]
+
+[node name="In_Game_UI" parent="SceneManager/CanvasLayer" instance=ExtResource("2_vr28d")]
+visible = false
+
 [node name="RocketMovement" parent="." instance=ExtResource("1_58fmw")]
 visible = false
 position = Vector2(558, 375)
-
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="ShopUI" parent="CanvasLayer" instance=ExtResource("3_le0qa")]
-
-[node name="In_Game_UI" parent="CanvasLayer" instance=ExtResource("2_vr28d")]
-visible = false

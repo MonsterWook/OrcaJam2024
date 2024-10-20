@@ -1,11 +1,12 @@
 extends HBoxContainer
-@onready var buttons: Array = get_children()
+@onready var buttons: Array = get_children().slice(1)
 @onready var apply_button: Button = $"../ApplyButton"
 @onready var scene_manager = get_tree().get_nodes_in_group("scene_manager")[0]
 @onready var temp_scrap: int = scene_manager.temp_scrap
 
 signal apply_upgrades(level)
 
+@export var upgrade_type: String
 var upgrade_level: int = 0
 var new_upgrade_level: int = 0
 var total_cost: int = 0
@@ -67,8 +68,9 @@ func on_upgrade_applied():
 	for i in range(len(buttons)):
 		if buttons[i].button_pressed == true:
 			buttons[i].disabled = true
-		if buttons[i].button_pressed == false:
+		else:
 			upgrade_level = i
 	
-	update_purchasable_upgrades()
-	apply_upgrades.emit(upgrade_level)
+			update_purchasable_upgrades()
+			apply_upgrades.emit(upgrade_type, upgrade_level)
+			return
