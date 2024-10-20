@@ -1,6 +1,7 @@
-[gd_scene load_steps=11 format=3 uid="uid://birmeao4mjv3w"]
+[gd_scene load_steps=12 format=3 uid="uid://birmeao4mjv3w"]
 
 [ext_resource type="Script" path="res://assets/gameManagment/game_manager.gd" id="1_fo8q4"]
+[ext_resource type="PackedScene" uid="uid://dhny3eatuypit" path="res://assets/ui/ui_manager.tscn" id="2_700k5"]
 [ext_resource type="PackedScene" uid="uid://r2qm4htbv8wr" path="res://assets/ui/shop_ui.tscn" id="2_n28q1"]
 [ext_resource type="PackedScene" uid="uid://nfli7vysv23" path="res://assets/spawner/master_spawner.tscn" id="4_3o4ws"]
 [ext_resource type="PackedScene" uid="uid://d0yp3fn4qfolo" path="res://assets/angry_steve/rocket_manager.tscn" id="4_xibco"]
@@ -14,7 +15,10 @@
 [node name="GameManager" type="Node"]
 script = ExtResource("1_fo8q4")
 
+[node name="UIManager" parent="." instance=ExtResource("2_700k5")]
+
 [node name="ShopUI" parent="." instance=ExtResource("2_n28q1")]
+visible = false
 
 [node name="RocketManager" parent="." instance=ExtResource("4_xibco")]
 
