@@ -20,6 +20,7 @@ script = ExtResource("1_fo8q4")
 position = Vector2(-583, -352)
 max_stratosphere = -8000
 max_space = -12000
+vertical_speed = -150
 
 [node name="In_Game_UI" parent="." instance=ExtResource("5_4s414")]
 

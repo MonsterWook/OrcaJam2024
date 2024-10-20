@@ -17,7 +17,7 @@ func _ready():
 	rocket_manager.visible = false
 	
 func _process(delta):
-	if Input.is_action_pressed("boost") and steve_state == MENU_STATE:
+	if Input.is_action_pressed("start") and steve_state == MENU_STATE:
 		rocket_manager.start()
 		steve_state = PLAYING_STATE
 		rocket_manager.visible = true

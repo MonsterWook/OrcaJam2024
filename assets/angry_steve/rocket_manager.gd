@@ -8,6 +8,7 @@ const bullet = preload("res://assets/angry_steve/bullet.tscn")
 @onready var scene_objects: Node2D = $SceneObjects
 @onready var scene_manager: Node = $"../SceneManager"
 @onready var scrap_amount: Label = $SceneObjects/ScrapAmount
+@onready var death_timer: Timer = $deathTimer
 
 @onready var reload = $sfx/reload
 @onready var shoot = $sfx/shoot
@@ -39,13 +40,13 @@ func _ready():
 	cam_shake = get_tree().get_first_node_in_group("camera_shake")
 	sfx_player = get_tree().get_first_node_in_group("sfx")
 	print("max speed: " + str(max_fuel))
+	can_shoot = false
 
 
 func _process(delta: float) -> void:
 	# if the shoot butten is pressed spawn bullet at the gun spawn point with the
 	# movement direction of the rotation of the rocket
 	if Input.is_action_just_pressed("boost") and can_shoot:
-		
 		var result = rocket_movement.get_bullet_stats()	
 		var instance = bullet.instantiate()
 		instance.position = result[0]
@@ -78,43 +79,42 @@ func _process(delta: float) -> void:
 	scrap_amount.text = "Scrap: " + str(SceneManager.scrap)
 	
 	if (fuel_amount < 0):
-		get_parent().steve_died()
-		rocket_movement.reset_steve()
-	
+		death()
 		
+func death():
+	get_parent().steve_died()
+	rocket_movement.reset_steve()
+	can_shoot = false
+	death_timer.start()
 func take_damage(damage):
 	fuel_amount -= damage*toughness_percent
 	rocket_movement.bounce_off(100)
 	fuel_bar.set_value(fuel_amount)
 	
-	
 
 func start():
-	#fuel amount
-	#speed
-	
-	#fuel_amount = SceneManager.fuel_max
+
 	magazine_size = 1 + SceneManager.shotgun_lvl
 	magazine_amount = magazine_size
-	#for rocket management
+	
 	fuel_amount = 100 + pow(2,SceneManager.fuel_lvl) * 20
-	#fuel_amount = max_fuel
 	print("fuel amount " + str(fuel_amount))
-	#print("fuel amount: " + str(SceneManager.fuel_max))
 	toughness_percent = 1 - (SceneManager.toughness_lvl / 10.0)*0.5
 	
 	# for rocket movemment
 	var linear_speed = 300 + SceneManager.fuel_lvl * 20
 	var angular_speed = 400 + SceneManager.tilt_lvl * 20
-
-	#toughness_percent = float(SceneManager.toughness_lvl)
-	#fuel_bar.max_value = fuel_amount
+	
+	can_shoot = true
+	
 	fuel_bar.set_value(fuel_amount)
 	rocket_movement.start_steve(linear_speed, angular_speed)
-
+	#rocket_movement.start_steve(300, 400)
 func _on_timer_timeout() -> void:
-	print("can shoot again")
+	
 	sfx_player.play_sound(reload)
 	shoot_timeout.stop()
 	bullets_count.text = "bullets: " + str(magazine_amount) + "/" + str(magazine_size)
 	can_shoot = true
+	
+	
