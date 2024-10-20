@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://r2qm4htbv8wr"]
+[gd_scene load_steps=8 format=3 uid="uid://r2qm4htbv8wr"]
 
 [ext_resource type="Theme" uid="uid://b5uam7d2vck2n" path="res://assets/ui/ui_theme.tres" id="1_ck4rl"]
 [ext_resource type="PackedScene" uid="uid://scbp50cflbwq" path="res://assets/ui/upgrade_buttons.tscn" id="1_egdjv"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" path="res://assets/ui/scrap_label_controller.gd" id="2_775my"]
 [ext_resource type="Script" path="res://assets/ui/shop_scrap_difference_label.gd" id="3_m7g5c"]
 [ext_resource type="Script" path="res://assets/ui/back_button.gd" id="4_1b6qm"]
+[ext_resource type="Texture2D" uid="uid://bf1dcrolohks" path="res://assets/ui/sprites/IMG_0435.PNG" id="7_aj0oe"]
 
 [node name="ShopUICanvas" type="CanvasLayer"]
 script = ExtResource("1_molcj")
@@ -124,3 +125,10 @@ theme = ExtResource("1_ck4rl")
 text = "Back
 "
 script = ExtResource("4_1b6qm")
+
+[node name="TextureRect" type="TextureRect" parent="ShopUI"]
+offset_left = -480.0
+offset_top = -176.0
+offset_right = 2520.0
+offset_bottom = 1024.0
+texture = ExtResource("7_aj0oe")

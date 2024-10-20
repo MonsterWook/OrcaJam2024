@@ -39,7 +39,10 @@ func update_purchasable_upgrades() -> void:
 		if(not buttons[i].disabled or not buttons[i].button_pressed):
 			if(not buttons[i].button_pressed):
 				total_cost+=buttons[i].cost
-			buttons[i].text = "%6s" % total_cost
+			if(int(total_cost != 0)):
+				buttons[i].text = "%7s" % total_cost
+			else:
+				buttons[i].text = "%9s" % ""
 			if total_cost > temp_scrap and not buttons[i].button_pressed:
 				buttons[i].disabled = true
 			else:
@@ -74,7 +77,7 @@ func on_upgrade_applied():
 	update_scrap.emit()
 	for i in range(len(buttons)):
 		if buttons[i].button_pressed == true:
-			buttons[i].text = "%7s" % ""
+			buttons[i].text = "%9s" % ""
 			buttons[i].disabled = true
 		else:
 			upgrade_level = i
