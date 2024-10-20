@@ -1,11 +1,11 @@
 extends RichTextLabel
-@onready var scene_manager = get_tree().get_nodes_in_group("scene_manager")[0]
+#@onready var scene_manager = get_tree().get_nodes_in_group("scene_manager")[0]
 @onready var upgrade_buttons: HBoxContainer = $".."
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	scene_manager.update_stats_text.connect(update_text)
+	SceneManager.update_stats_text.connect(update_text)
 	text = "%s: %s" % [upgrade_buttons.upgrade_type, upgrade_buttons.upgrade_level]
 
 

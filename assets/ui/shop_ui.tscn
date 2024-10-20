@@ -1,53 +1,119 @@
-[gd_scene load_steps=4 format=3 uid="uid://r2qm4htbv8wr"]
+[gd_scene load_steps=5 format=3 uid="uid://r2qm4htbv8wr"]
 
 [ext_resource type="PackedScene" uid="uid://scbp50cflbwq" path="res://assets/ui/upgrade_buttons.tscn" id="1_egdjv"]
 [ext_resource type="Script" path="res://assets/ui/scrap_label_controller.gd" id="2_775my"]
 [ext_resource type="Script" path="res://assets/ui/shop_scrap_difference_label.gd" id="3_m7g5c"]
+[ext_resource type="Script" path="res://assets/ui/back_button.gd" id="4_1b6qm"]
 
-[node name="ShopUI" type="CanvasGroup"]
+[node name="ShopUICanvas" type="CanvasLayer"]
 
-[node name="PanelContainer" type="PanelContainer" parent="."]
-offset_top = 250.0
-offset_right = 1144.0
-offset_bottom = 501.0
+[node name="ShopUI" type="CanvasGroup" parent="."]
 
-[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer"]
+[node name="MarginContainer2" type="MarginContainer" parent="ShopUI"]
+offset_right = 111.0
+offset_bottom = 91.0
+theme_override_constants/margin_left = 25
+theme_override_constants/margin_top = 25
+
+[node name="ScrapLabelContainer" type="PanelContainer" parent="ShopUI/MarginContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="ShopUI/MarginContainer2/ScrapLabelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ShopUI/MarginContainer2/ScrapLabelContainer/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="ShopScrapLabel" type="RichTextLabel" parent="ShopUI/MarginContainer2/ScrapLabelContainer/MarginContainer/VBoxContainer"]
+clip_contents = false
+layout_mode = 2
+size_flags_vertical = 3
+text = "1000"
+fit_content = true
+scroll_active = false
+script = ExtResource("2_775my")
+
+[node name="ShopScrapDifferenceLabel" type="RichTextLabel" parent="ShopUI/MarginContainer2/ScrapLabelContainer/MarginContainer/VBoxContainer"]
+clip_contents = false
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/default_color = Color(0.682373, 2.76752e-06, 4.81307e-07, 1)
+text = "-1000"
+fit_content = true
+scroll_active = false
+script = ExtResource("3_m7g5c")
+
+[node name="MarginContainer" type="MarginContainer" parent="ShopUI"]
+offset_top = 192.0
+offset_right = 1152.0
+offset_bottom = 648.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 25
+theme_override_constants/margin_bottom = 150
+
+[node name="PanelContainer" type="PanelContainer" parent="ShopUI/MarginContainer"]
 layout_mode = 2
 
-[node name="FuelUpgradeButtons" parent="PanelContainer/VBoxContainer" groups=["upgrades"] instance=ExtResource("1_egdjv")]
+[node name="MarginContainer" type="MarginContainer" parent="ShopUI/MarginContainer/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ShopUI/MarginContainer/PanelContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="FuelUpgradeButtons" parent="ShopUI/MarginContainer/PanelContainer/MarginContainer/VBoxContainer" groups=["upgrades"] instance=ExtResource("1_egdjv")]
 layout_mode = 2
 upgrade_type = "Fuel"
 
-[node name="TiltUpgradeButtons" parent="PanelContainer/VBoxContainer" groups=["upgrades"] instance=ExtResource("1_egdjv")]
+[node name="TiltUpgradeButtons" parent="ShopUI/MarginContainer/PanelContainer/MarginContainer/VBoxContainer" groups=["upgrades"] instance=ExtResource("1_egdjv")]
 layout_mode = 2
 upgrade_type = "Tilt"
 
-[node name="ShotgunUpgradeButtons" parent="PanelContainer/VBoxContainer" groups=["upgrades"] instance=ExtResource("1_egdjv")]
+[node name="ShotgunUpgradeButtons" parent="ShopUI/MarginContainer/PanelContainer/MarginContainer/VBoxContainer" groups=["upgrades"] instance=ExtResource("1_egdjv")]
 layout_mode = 2
 upgrade_type = "Shotgun"
 
-[node name="ToughnessUpgradeButtons" parent="PanelContainer/VBoxContainer" groups=["upgrades"] instance=ExtResource("1_egdjv")]
+[node name="ToughnessUpgradeButtons" parent="ShopUI/MarginContainer/PanelContainer/MarginContainer/VBoxContainer" groups=["upgrades"] instance=ExtResource("1_egdjv")]
 layout_mode = 2
 upgrade_type = "Toughness"
 
-[node name="ApplyButton" type="Button" parent="PanelContainer/VBoxContainer"]
+[node name="MarginContainer3" type="MarginContainer" parent="ShopUI"]
+offset_left = 792.0
+offset_top = 496.0
+offset_right = 1152.0
+offset_bottom = 648.0
+theme_override_constants/margin_top = 25
+theme_override_constants/margin_right = 25
+theme_override_constants/margin_bottom = 25
+
+[node name="ApplyButton" type="Button" parent="ShopUI/MarginContainer3"]
 custom_minimum_size = Vector2(0, 30)
 layout_mode = 2
 text = "Apply"
 
-[node name="ScrapLabelContainer" type="PanelContainer" parent="."]
-offset_right = 40.0
-offset_bottom = 40.0
+[node name="MarginContainer4" type="MarginContainer" parent="ShopUI"]
+offset_top = 496.0
+offset_right = 335.0
+offset_bottom = 648.0
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 25
+theme_override_constants/margin_bottom = 25
 
-[node name="VBoxContainer" type="VBoxContainer" parent="ScrapLabelContainer"]
+[node name="BackButton" type="Button" parent="ShopUI/MarginContainer4"]
 layout_mode = 2
-
-[node name="ShopScrapLabel" type="RichTextLabel" parent="ScrapLabelContainer/VBoxContainer"]
-layout_mode = 2
-script = ExtResource("2_775my")
-
-[node name="ShopScrapDifferenceLabel" type="RichTextLabel" parent="ScrapLabelContainer/VBoxContainer"]
-visible = false
-layout_mode = 2
-text = "100"
-script = ExtResource("3_m7g5c")
+text = "Back
+"
+script = ExtResource("4_1b6qm")

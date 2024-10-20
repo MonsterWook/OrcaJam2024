@@ -4,4 +4,6 @@
 
 [node name="UpgradeButton" type="CheckButton"]
 text = "      "
+icon_alignment = 2
+expand_icon = true
 script = ExtResource("1_pdak8")
