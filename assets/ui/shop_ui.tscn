@@ -162,6 +162,7 @@ theme_override_constants/margin_top = 25
 theme_override_constants/margin_bottom = 25
 
 [node name="BackButton" type="Button" parent="ShopUI/MarginContainer4"]
+visible = false
 layout_mode = 2
 theme_override_styles/focus = SubResource("StyleBoxEmpty_yjs7c")
 theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_kr2mv")
