@@ -55,8 +55,7 @@ func _ready():
 func _process(delta: float) -> void:
 	# if the shoot butten is pressed spawn bullet at the gun spawn point with the
 	# movement direction of the rotation of the rocket
-	
-	if Input.is_action_just_pressed("boost") and can_shoot:
+	if (Input.is_action_just_pressed("boost") && can_shoot):
 		var result = rocket_movement.get_bullet_stats()	
 		var instance = bullet.instantiate()
 		instance.position = result[0]
@@ -69,10 +68,9 @@ func _process(delta: float) -> void:
 		cam_shake.apply_shake(2)
 		
 		magazine_amount -= 1
-		bullets_count.text = "bullets: " + str(magazine_amount) + "/" + str(magazine_size)
+	bullets_count.text = "bullets: " + str(magazine_amount) + "/" + str(magazine_size)
 
-	if (magazine_amount < 1):
-			magazine_amount = magazine_size
+	if (magazine_amount < 1 && can_shoot):
 			can_shoot = false
 			shoot_timeout.start()
 		
@@ -135,11 +133,11 @@ func start():
 	#rocket_movement.start_steve(300, 400)
 	
 func _on_timer_timeout() -> void:
-	
-	sfx_player.play_sound(reload)
+	if(!should_die):
+		sfx_player.play_sound(reload)
+		can_shoot = true
+	magazine_amount = magazine_size
 	shoot_timeout.stop()
-	bullets_count.text = "bullets: " + str(magazine_amount) + "/" + str(magazine_size)
-	can_shoot = true
 
 func get_y_position():
 	return rocket_movement.vertical_position
