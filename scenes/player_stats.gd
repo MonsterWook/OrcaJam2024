@@ -13,17 +13,15 @@ var tilt_lvl: int = 0
 var shotgun_lvl: int = 0
 var toughness_lvl: int = 0
 
-@onready var upgrades = get_tree().get_nodes_in_group("upgrades")
+@onready var upgrades : Array
 
 signal update_stats_text
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
+func upgrade_connect():
+	upgrades = get_tree().get_nodes_in_group("upgrades")
 	for upgrade in upgrades:
 		upgrade.apply_upgrades.connect(apply_upgrade)
-	pass # Replace with function body.
-
-
+	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass

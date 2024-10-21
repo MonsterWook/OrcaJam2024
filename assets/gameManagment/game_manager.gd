@@ -24,6 +24,7 @@ func _init():
 func _ready():
 	start_button.pressed.connect(start_pressed)
 	rocket_manager.visible = false
+	SceneManager.upgrade_connect()
 	
 func _process(delta):
 	print("PLEASE2" + str(master_spawner.global_position.y))
