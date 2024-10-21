@@ -13,7 +13,7 @@
 [ext_resource type="AudioStream" uid="uid://bq3lrrs8am8e4" path="res://assets/sfx/sounds/explosion.wav" id="11_yasnw"]
 [ext_resource type="AudioStream" uid="uid://7tbfh7ju5wbu" path="res://assets/sfx/sounds/rage.wav" id="12_8ie5y"]
 [ext_resource type="AudioStream" uid="uid://dnr1on3w52nv7" path="res://assets/sfx/sounds/scream.wav" id="13_5psdx"]
-[ext_resource type="PackedScene" uid="uid://by7kugiy1d4ec" path="res://assets/obstacles/spawn_particle.tscn" id="14_kj4uj"]
+[ext_resource type="PackedScene" path="res://assets/obstacles/spawn_particle.tscn" id="14_kj4uj"]
 
 [sub_resource type="Animation" id="Animation_mlu26"]
 length = 0.001

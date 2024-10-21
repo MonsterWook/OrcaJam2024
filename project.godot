@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="OrcaJam2024"
-run/main_scene="res://assets/gameManagment/game_manager.tscn"
+run/main_scene="res://scenes/cutscene.tscn"
 config/features=PackedStringArray("4.3", "GL Compatibility")
 config/icon="res://icon.svg"
 
@@ -21,6 +21,7 @@ SceneManager="*res://assets/scene_manager.tscn"
 
 [display]
 
+window/size/mode=3
 window/stretch/mode="canvas_items"
 
 [global_group]
