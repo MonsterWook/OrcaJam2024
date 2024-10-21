@@ -66,14 +66,14 @@ cost = 2000
 [node name="UpgradeButton8" parent="." instance=ExtResource("2_k0v74")]
 layout_mode = 2
 index = 7
-cost = 2500
+cost = 3000
 
 [node name="UpgradeButton9" parent="." instance=ExtResource("2_k0v74")]
 layout_mode = 2
 index = 8
-cost = 2500
+cost = 4500
 
 [node name="UpgradeButton10" parent="." instance=ExtResource("2_k0v74")]
 layout_mode = 2
 index = 9
-cost = 2500
+cost = 7000

@@ -71,21 +71,14 @@ func on_button_toggle(button_index: int):
 	get_tree().call_group("upgrades","update_purchasable_upgrades")
 
 func on_upgrade_applied():
+	upgrade_level = 0
 	total_cost = 0
 	SceneManager.set_scrap(SceneManager.temp_scrap)
 	SceneManager.temp_scrap = SceneManager.get_scrap()
 	#temp_scrap = SceneManager.temp_scrap
 	update_scrap.emit()
+	
 	for i in range(len(buttons)):
 		if buttons[i].button_pressed == true:
-			buttons[i].text = "%9s" % ""
-			buttons[i].disabled = true
-		else:
-			upgrade_level = i
-	
-			update_purchasable_upgrades()
-			apply_upgrades.emit(upgrade_type, upgrade_level)
-			return
-	if upgrade_level == 0:
-		upgrade_level = 10
+			upgrade_level += 1
 	apply_upgrades.emit(upgrade_type, upgrade_level)
