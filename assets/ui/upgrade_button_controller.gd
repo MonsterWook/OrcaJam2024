@@ -80,5 +80,6 @@ func on_upgrade_applied():
 	
 	for i in range(len(buttons)):
 		if buttons[i].button_pressed == true:
+			buttons[i].disabled = true
 			upgrade_level += 1
 	apply_upgrades.emit(upgrade_type, upgrade_level)
