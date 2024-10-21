@@ -1,6 +1,5 @@
 extends Node2D
 
-@onready var collision_shape_2d: CollisionShape2D = $Rocket/RigidBody2D/CollisionShape2D
 @onready var sprite: AnimatedSprite2D = $Rocket/RigidBody2D/AnimatedSprite2D
 @onready var rigid_body_2d: RigidBody2D = $Rocket/RigidBody2D
 @onready var rocket: Node2D = $Rocket

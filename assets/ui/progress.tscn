@@ -1,0 +1,42 @@
+[gd_scene load_steps=6 format=3 uid="uid://citf6d1ty6ar3"]
+
+[ext_resource type="Texture2D" uid="uid://bxvhmd7te1w5v" path="res://assets/sprites/angrySeve/Angry steve/IMG_0428.png" id="1_lnwa1"]
+[ext_resource type="Script" path="res://assets/ui/texture_progress_bar.gd" id="1_u85kv"]
+[ext_resource type="Texture2D" uid="uid://rudsp12qqne" path="res://scenes/cutscene_art/moon.png" id="2_c2f4l"]
+
+[sub_resource type="Curve" id="Curve_a4j5n"]
+_data = [Vector2(0.561497, 1), 0.0, 0.0, 0, 0]
+point_count = 1
+
+[sub_resource type="CurveTexture" id="CurveTexture_5o23k"]
+width = 48
+curve = SubResource("Curve_a4j5n")
+
+[node name="Progress" type="CanvasLayer"]
+offset = Vector2(75, 600)
+scale = Vector2(10, 10)
+transform = Transform2D(10, 0, 0, 10, 75, 600)
+script = ExtResource("1_u85kv")
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="."]
+z_index = 9
+offset_right = 48.0
+offset_bottom = 1.0
+rotation = -1.5708
+size_flags_horizontal = 4
+size_flags_vertical = 0
+step = 0.0
+texture_under = SubResource("CurveTexture_5o23k")
+
+[node name="steve" type="Sprite2D" parent="TextureProgressBar"]
+z_index = 10
+position = Vector2(0, 0.75)
+rotation = 1.5708
+scale = Vector2(0.005, 0.005)
+texture = ExtResource("1_lnwa1")
+
+[node name="moon" type="Sprite2D" parent="TextureProgressBar"]
+z_index = 11
+position = Vector2(48, 0.5)
+scale = Vector2(0.005, 0.005)
+texture = ExtResource("2_c2f4l")

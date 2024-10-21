@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://dtcuy4kplj2cw" path="res://assets/obstacles/asteroids/meteor.png" id="2_dsefl"]
 [ext_resource type="PackedScene" uid="uid://bd2rrkiklhypo" path="res://assets/spawner/spawners/scrap_spawner.tscn" id="2_runwe"]
 [ext_resource type="PackedScene" uid="uid://dm0wvq7phgosy" path="res://assets/obstacles/despawn.tscn" id="3_d5jvp"]
-[ext_resource type="PackedScene" path="res://assets/obstacles/spawn_particle.tscn" id="5_7stgo"]
+[ext_resource type="PackedScene" uid="uid://by7kugiy1d4ec" path="res://assets/obstacles/spawn_particle.tscn" id="5_7stgo"]
 [ext_resource type="PackedScene" uid="uid://b5utcaw1nkqse" path="res://assets/Camera/cam_shake.tscn" id="6_28a3d"]
 [ext_resource type="AudioStream" uid="uid://bq3lrrs8am8e4" path="res://assets/sfx/sounds/explosion.wav" id="7_f1taa"]
 [ext_resource type="AudioStream" uid="uid://cxbwb3av8ccon" path="res://assets/sfx/sounds/Destroy Asteroid.wav" id="8_51g7d"]
@@ -15,7 +15,7 @@ height = 162.0
 
 [node name="Asteroid" type="CharacterBody2D"]
 script = ExtResource("1_oc7ca")
-damage = 100
+damage = 500
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(-5, 17)

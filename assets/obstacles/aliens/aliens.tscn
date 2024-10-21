@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://bd2rrkiklhypo" path="res://assets/spawner/spawners/scrap_spawner.tscn" id="2_nfjp6"]
 [ext_resource type="PackedScene" uid="uid://dm0wvq7phgosy" path="res://assets/obstacles/despawn.tscn" id="3_0x6vs"]
 [ext_resource type="Texture2D" uid="uid://duaau1ch08ks6" path="res://assets/obstacles/aliens/alien_art/IMG_0427.PNG" id="3_t0y6b"]
-[ext_resource type="PackedScene" path="res://assets/obstacles/spawn_particle.tscn" id="6_jeeca"]
+[ext_resource type="PackedScene" uid="uid://by7kugiy1d4ec" path="res://assets/obstacles/spawn_particle.tscn" id="6_jeeca"]
 [ext_resource type="PackedScene" uid="uid://b5utcaw1nkqse" path="res://assets/Camera/cam_shake.tscn" id="7_tpduj"]
 [ext_resource type="AudioStream" uid="uid://bq3lrrs8am8e4" path="res://assets/sfx/sounds/explosion.wav" id="8_fp6ip"]
 [ext_resource type="AudioStream" uid="uid://cs2r81qtg1ous" path="res://assets/sfx/sounds/Destroy Alien.wav" id="9_lfau5"]
@@ -30,7 +30,7 @@ height = 142.0
 
 [node name="Aliens" type="CharacterBody2D"]
 script = ExtResource("1_pdlj1")
-damage = 100
+damage = 350
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(6, -4)
