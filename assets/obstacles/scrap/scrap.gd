@@ -41,5 +41,5 @@ func _on_area_2d_area_entered(area : Area2D):
 	if(area.is_in_group("player")):
 		scrap_ui.increase_scrap_amount(value)
 		sfx.play_sound(pickup)
-		collision_shape_2d.disabled = true
+		collision_shape_2d.set_deferred("disabled", true)
 		visible = false

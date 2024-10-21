@@ -47,7 +47,7 @@ func death(killed : bool):
 	cam_shake.apply_shake(20)
 	sfx.play_sound(death_sfx)
 	area_2d.set_deferred("process_mode", PROCESS_MODE_DISABLED)
-	collision_shape_2d.set_disabled(true)
+	collision_shape_2d.set_deferred("disabled", true)
 	visible = false
 
 func get_sine():
