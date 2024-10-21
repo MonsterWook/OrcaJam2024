@@ -29,6 +29,7 @@ max_space = -12000
 vertical_speed = -150
 
 [node name="In_Game_UI" parent="." instance=ExtResource("5_4s414")]
+visible = false
 
 [node name="cam_shake" parent="." groups=["camera_shake"] instance=ExtResource("6_qfjl8")]
 
