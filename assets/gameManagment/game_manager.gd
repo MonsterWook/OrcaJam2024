@@ -32,7 +32,7 @@ func _process(delta):
 		#qte.start_anim()
 		get_tree().quit()
 		
-	if (is_start_pressed or Input.is_action_pressed("start")) and steve_state == MENU_STATE:
+	if is_start_pressed and steve_state == MENU_STATE:
 		is_start_pressed = false
 		rocket_manager.start()
 		steve_state = PLAYING_STATE
