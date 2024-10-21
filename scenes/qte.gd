@@ -9,7 +9,6 @@ extends Node2D
 @onready var progress_bar = $TextureProgressBar
 
 @onready var explosion = $sfx/Explosion
-@onready var rage = $sfx/Rage
 @onready var scream = $sfx/Scream
 
 @onready var camera_2d = $Camera2D
