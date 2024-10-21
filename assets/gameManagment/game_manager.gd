@@ -25,7 +25,7 @@ func reached_moon():
 	
 func _process(delta):
 	
-	if (master_spawner.global_position.y < -6100):
+	if (master_spawner.global_position.y < -13500):
 		qte_playing = true
 		qte.start_anim()
 		
