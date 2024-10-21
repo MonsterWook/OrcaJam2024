@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://rudsp12qqne" path="res://scenes/cutscene_art/moon.png" id="2_c2f4l"]
 
 [sub_resource type="Curve" id="Curve_a4j5n"]
-_data = [Vector2(0.561497, 1), 0.0, 0.0, 0, 0]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0]
 point_count = 1
 
 [sub_resource type="CurveTexture" id="CurveTexture_5o23k"]
