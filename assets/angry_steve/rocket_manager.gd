@@ -75,9 +75,6 @@ func _process(delta: float) -> void:
 			magazine_amount = magazine_size
 			can_shoot = false
 			shoot_timeout.start()
-			
-	if Input.is_action_just_pressed("bounce"):
-		take_damage(20)
 		
 	var rigid_body_position = rocket_movement.get_rigid_position()
 	scene_objects.position = rigid_body_position
@@ -134,6 +131,7 @@ func start():
 	rocket_movement.rigid_body_2d.visible=true
 	rocket_movement.area_2d.visible=true
 	#rocket_movement.start_steve(300, 400)
+	
 func _on_timer_timeout() -> void:
 	
 	sfx_player.play_sound(reload)
