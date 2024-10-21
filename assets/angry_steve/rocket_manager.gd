@@ -119,7 +119,7 @@ func start():
 	
 	sfx_player.play_sound(thruster)
 	sfx_player.play_sound(blast)
-	fuel_amount = 1000000 + pow(1.5,SceneManager.fuel_lvl) * 20
+	fuel_amount = 100 + pow(1.5,SceneManager.fuel_lvl) * 20
 	print("fuel amount " + str(fuel_amount))
 	toughness_percent = 1 - (SceneManager.toughness_lvl / 10.0)*0.5
 	
