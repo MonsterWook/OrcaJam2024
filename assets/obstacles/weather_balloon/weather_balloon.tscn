@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://bd2rrkiklhypo" path="res://assets/spawner/spawners/scrap_spawner.tscn" id="2_86r6s"]
 [ext_resource type="Texture2D" uid="uid://cfqwmt8xqgs3e" path="res://assets/obstacles/weather_balloon/balloon.png" id="2_dr8bu"]
 [ext_resource type="PackedScene" uid="uid://dm0wvq7phgosy" path="res://assets/obstacles/despawn.tscn" id="3_yr37u"]
-[ext_resource type="PackedScene" path="res://assets/obstacles/spawn_particle.tscn" id="5_ej6xo"]
+[ext_resource type="PackedScene" uid="uid://by7kugiy1d4ec" path="res://assets/obstacles/spawn_particle.tscn" id="5_ej6xo"]
 [ext_resource type="PackedScene" uid="uid://b5utcaw1nkqse" path="res://assets/Camera/cam_shake.tscn" id="6_35grh"]
 [ext_resource type="AudioStream" uid="uid://bq3lrrs8am8e4" path="res://assets/sfx/sounds/explosion.wav" id="7_jklgo"]
 [ext_resource type="AudioStream" uid="uid://6ogxlsrp3orv" path="res://assets/sfx/sounds/Destroy Balloon.wav" id="8_rydgi"]

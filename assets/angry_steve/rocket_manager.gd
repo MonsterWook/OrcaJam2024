@@ -7,7 +7,6 @@ const particle : PackedScene = preload("res://assets/obstacles/destroyed_particl
 @onready var bullets_count: Label = $SceneObjects/BulletsCount
 @onready var fuel_bar: ProgressBar = $SceneObjects/FuelBar
 @onready var scene_objects: Node2D = $SceneObjects
-@onready var scene_manager: Node = $"../SceneManager"
 @onready var scrap_amount: Label = $SceneObjects/ScrapAmount
 @onready var death_timer: Timer = $deathTimer
 
@@ -23,9 +22,9 @@ const particle : PackedScene = preload("res://assets/obstacles/destroyed_particl
 var cam_shake
 var can_shoot = true
 var reload_time = 1.0
-var magazine_size = 5
+var magazine_size = 1
 var fuel_amount = 100
-var max_fuel = (-12000/-100)*6
+var max_fuel = (-13600/-100)*6
 	
 var toughness_percent = 1
 var magazine_amount = magazine_size
@@ -39,6 +38,7 @@ var sfx_player
 var timer_state = 0
 
 var should_die = false
+var can_lose_fuel = false
 
 func _init():
 	pass
@@ -55,6 +55,7 @@ func _ready():
 func _process(delta: float) -> void:
 	# if the shoot butten is pressed spawn bullet at the gun spawn point with the
 	# movement direction of the rotation of the rocket
+	
 	if Input.is_action_just_pressed("boost") and can_shoot:
 		var result = rocket_movement.get_bullet_stats()	
 		var instance = bullet.instantiate()
@@ -69,7 +70,6 @@ func _process(delta: float) -> void:
 		
 		magazine_amount -= 1
 		bullets_count.text = "bullets: " + str(magazine_amount) + "/" + str(magazine_size)
-		
 
 	if (magazine_amount < 1):
 			magazine_amount = magazine_size
@@ -78,10 +78,9 @@ func _process(delta: float) -> void:
 		
 	var rigid_body_position = rocket_movement.get_rigid_position()
 	scene_objects.position = rigid_body_position
-	
-	fuel_amount -= delta*fuel_loss_rate
-	fuel_bar.set_value(fuel_amount)
-	
+	if(can_lose_fuel):
+		fuel_amount -= delta*fuel_loss_rate
+		fuel_bar.set_value(fuel_amount)
 	scrap_amount.text = "Scrap: " + str(SceneManager.scrap)
 	
 	if fuel_amount < 0 and !should_die:
@@ -93,6 +92,7 @@ func death():
 	thruster.stop()
 	death_timer.start()
 	var instance = particle.instantiate()
+	rocket_movement.collision_shape_2d.set_deferred("process", PROCESS_MODE_DISABLED) 
 	
 	sfx_player.play_sound(gameover)
 	instance.emitting = true
@@ -110,7 +110,8 @@ func take_damage(damage):
 	
 
 func start():
-
+	can_lose_fuel = true
+	rocket_movement.collision_shape_2d.set_deferred("process", PROCESS_MODE_ALWAYS) 
 	magazine_size = 1 + SceneManager.shotgun_lvl
 	magazine_amount = magazine_size
 	
@@ -141,12 +142,18 @@ func _on_timer_timeout() -> void:
 
 func get_y_position():
 	return rocket_movement.vertical_position
-	
-	
+
 func _on_death_timer_timeout():
 	get_parent().steve_died()
 	rocket_movement.reset_steve()
-	
-	
 	print("should_die")
+
+func in_qte():
+	can_shoot = false
+	can_lose_fuel = false
+	rocket_movement.collision_shape_2d.set_deferred("process", PROCESS_MODE_ALWAYS) 
+	rocket_movement.reset_steve()
+	thruster.stop()
+	
+	
 	

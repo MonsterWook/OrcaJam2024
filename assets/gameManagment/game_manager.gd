@@ -10,8 +10,8 @@ const PLAYING_STATE = 1
 @onready var start_button:Button = ui_manager.start_button
 
 @onready var qte: Node2D = $QTE
-var qte_playing = false
 
+var qte_playing = false
 var is_start_pressed: bool = false
 
 signal update_scrap
@@ -27,11 +27,10 @@ func _ready():
 	SceneManager.upgrade_connect()
 	
 func _process(delta):
-	print("PLEASE2" + str(master_spawner.global_position.y))
-	if (master_spawner.global_position.y < -13200):
-		#qte_playing = true
-		#qte.start_anim()
-		get_tree().quit()
+	if (master_spawner.global_position.y < -13600 && !qte_playing):
+		qte_playing = true
+		qte.start_anim()
+		rocket_manager.in_qte()
 		
 	if is_start_pressed and steve_state == MENU_STATE:
 		is_start_pressed = false
