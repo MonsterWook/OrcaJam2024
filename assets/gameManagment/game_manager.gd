@@ -3,11 +3,16 @@ extends Node
 const MENU_STATE = 0
 const PLAYING_STATE = 1
 @onready var rocket_manager: Node2D = $RocketManager
-@onready var shop_ui: CanvasLayer = $ShopUI
+
 @onready var master_spawner: Node2D = $master_spawner
+@onready var ui_manager: CanvasLayer = $UIManager
+@onready var shop_ui: CanvasLayer = ui_manager.shop_ui
+@onready var start_button:Button = ui_manager.start_button
 
 @onready var qte: Node2D = $QTE
 var qte_playing = false
+
+var is_start_pressed: bool = false
 
 signal update_scrap
 
@@ -17,6 +22,7 @@ func _init():
 	pass
 	
 func _ready():
+	start_button.pressed.connect(start_pressed)
 	rocket_manager.visible = false
 	
 func reached_moon():
@@ -29,18 +35,18 @@ func _process(delta):
 		qte_playing = true
 		qte.start_anim()
 		
-	if Input.is_action_pressed("start") and steve_state == MENU_STATE:
+	if (is_start_pressed or Input.is_action_pressed("start")) and steve_state == MENU_STATE:
+		is_start_pressed = false
 		rocket_manager.start()
 		steve_state = PLAYING_STATE
 		rocket_manager.visible = true
-		shop_ui.visible = false
 		master_spawner.start_spawner()
 		
 	
 func steve_died():
 	if (steve_state == PLAYING_STATE):
 		steve_state = MENU_STATE
-		shop_ui.visible = true
+		ui_manager.start_canvas_layer.visible = true
 	
 		rocket_manager.visible = false
 		master_spawner.reset_spawner()
@@ -48,7 +54,8 @@ func steve_died():
 		update_scrap.emit()
 	
 	
-	
+func start_pressed() -> void:
+	is_start_pressed = true
 
 	
 	

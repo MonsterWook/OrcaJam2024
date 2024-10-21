@@ -101,7 +101,7 @@ func death():
 	death_timer.start()
 	var instance = particle.instantiate()
 	
-	sfx_player.play(gameover)
+	sfx_player.play_sound(gameover)
 	instance.emitting = true
 	instance.position = Vector2(rocket_movement.area_2d.position.x, rocket_movement.vertical_position + 200)
 	rocket_movement.rigid_body_2d.visible=false
