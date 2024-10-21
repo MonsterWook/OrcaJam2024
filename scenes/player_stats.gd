@@ -2,7 +2,8 @@
 extends Node
 
 #@onready var stats_text_label: RichTextLabel = $MarginContainer/StatsTextLabel
-
+var fullscreen : bool = false
+var fc_timer : float = 0.5
 var fuel_max: int
 var fuel: int = fuel_max
 var scrap: int = 0
@@ -24,7 +25,15 @@ func upgrade_connect():
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	pass
+	if(fc_timer > 0):
+		fc_timer -= delta
+	elif Input.is_action_just_pressed("fullscreen"):
+		if(fullscreen):
+			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
+			fullscreen = false
+		else:
+			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
+			fullscreen = true
 
 func get_scrap() -> int:
 	return scrap

@@ -7,7 +7,6 @@ const particle : PackedScene = preload("res://assets/obstacles/destroyed_particl
 @onready var bullets_count: Label = $SceneObjects/BulletsCount
 @onready var fuel_bar: ProgressBar = $SceneObjects/FuelBar
 @onready var scene_objects: Node2D = $SceneObjects
-@onready var scene_manager: Node = $"../SceneManager"
 @onready var scrap_amount: Label = $SceneObjects/ScrapAmount
 @onready var death_timer: Timer = $deathTimer
 
