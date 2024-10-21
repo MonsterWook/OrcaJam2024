@@ -86,3 +86,6 @@ func on_upgrade_applied():
 			update_purchasable_upgrades()
 			apply_upgrades.emit(upgrade_type, upgrade_level)
 			return
+	if upgrade_level == 0:
+		upgrade_level = 10
+	apply_upgrades.emit(upgrade_type, upgrade_level)
