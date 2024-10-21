@@ -27,9 +27,10 @@ func _ready():
 	
 func _process(delta):
 	print("PLEASE2" + str(master_spawner.global_position.y))
-	if (master_spawner.global_position.y < -2000):
-		qte_playing = true
-		qte.start_anim()
+	if (master_spawner.global_position.y < -13200):
+		#qte_playing = true
+		#qte.start_anim()
+		get_tree().quit()
 		
 	if (is_start_pressed or Input.is_action_pressed("start")) and steve_state == MENU_STATE:
 		is_start_pressed = false

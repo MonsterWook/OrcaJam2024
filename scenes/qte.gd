@@ -23,7 +23,6 @@ func start_anim():
 	anim.play("before")
 
 func start_qte():
-	anim.stop()
 	scream.play()
 	qte_active = true
 	space_bar.visible = true
