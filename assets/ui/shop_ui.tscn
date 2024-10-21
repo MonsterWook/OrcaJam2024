@@ -180,6 +180,9 @@ text = "
 icon = ExtResource("8_rev32")
 script = ExtResource("4_1b6qm")
 
+[node name="MenuClick" type="AudioStreamPlayer" parent="ShopUI/MarginContainer4/BackButton"]
+stream = ExtResource("8_lu6sh")
+
 [node name="MarginContainer" type="MarginContainer" parent="ShopUI"]
 offset_top = 136.0
 offset_right = 1152.0

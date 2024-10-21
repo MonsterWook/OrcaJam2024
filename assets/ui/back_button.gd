@@ -1,4 +1,5 @@
 extends Button
+@onready var menu_click: AudioStreamPlayer = $MenuClick
 
 signal back_button_pressed()
 
@@ -12,4 +13,5 @@ func _process(delta: float) -> void:
 	pass
 	
 func _pressed() -> void:
+	menu_click.play()
 	back_button_pressed.emit()
