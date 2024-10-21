@@ -18,7 +18,7 @@ var qte_active : bool = false
 var mash_button : int = 0
 # Called when the node enters the scene tree for the first time.
 func start_anim():
-	get_tree().get_first_node_in_group("camera_shake").enabled = true
+	get_tree().get_first_node_in_group("camera").enabled = true
 	camera_2d.enabled = false
 	anim.play("before")
 func start_qte():
@@ -60,6 +60,6 @@ func quit_game():
 	get_tree().quit()
 
 func restart_game():
-	get_tree().get_first_node_in_group("camera_shake").enabled = false
+	get_tree().get_first_node_in_group("camera").enabled = false
 	camera_2d.enabled = true
 	get_tree().get_first_node_in_group("real_player").take_damage(1000000000)
