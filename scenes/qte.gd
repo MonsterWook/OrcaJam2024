@@ -2,7 +2,7 @@ extends Node2D
 
 @export var duration : float = 7
 @export var amount_needed : int = 20
-
+@export var manager : Node
 @onready var cutscene = $AnimatedSprite2D
 @onready var anim = $AnimationPlayer
 @onready var space_bar = $space_bar
@@ -16,11 +16,14 @@ extends Node2D
 
 var qte_active : bool = false
 var mash_button : int = 0
+var duration_start = duration
 # Called when the node enters the scene tree for the first time.
 func start_anim():
+	duration = duration_start
 	get_tree().get_first_node_in_group("camera").enabled = false
 	camera_2d.enabled = true
 	anim.play("before")
+	cutscene.play("scene_before_qte")
 
 func start_qte():
 	scream.play()
@@ -61,6 +64,9 @@ func quit_game():
 	get_tree().quit()
 
 func restart_game():
+	print("restart")
 	get_tree().get_first_node_in_group("camera").enabled = true
 	camera_2d.enabled = false
-	get_tree().get_first_node_in_group("real_player").take_damage(1000000000)
+	manager.qte_playing = false
+	manager.steve_died()
+	

@@ -22,7 +22,7 @@ script = ExtResource("3_jubqi")
 [node name="general_spawn" type="Area2D" parent="general_spawner"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="general_spawner/general_spawn"]
-position = Vector2(578, -164)
+position = Vector2(578, -281)
 shape = SubResource("RectangleShape2D_jobja")
 
 [node name="side_spawner" type="Node2D" parent="."]
@@ -41,12 +41,17 @@ position = Vector2(-109, -182)
 shape = SubResource("RectangleShape2D_g18pi")
 
 [node name="spawn_timer1" type="Timer" parent="."]
-wait_time = 7.0
+wait_time = 8.0
 autostart = true
 
 [node name="spawn_timer2" type="Timer" parent="."]
 wait_time = 5.0
 autostart = true
 
+[node name="background_spawner" type="Timer" parent="."]
+wait_time = 2.0
+autostart = true
+
 [connection signal="timeout" from="spawn_timer1" to="." method="_on_spawn_timer_timeout"]
 [connection signal="timeout" from="spawn_timer2" to="." method="_on_spawn_timer_timeout"]
+[connection signal="timeout" from="background_spawner" to="." method="background_spawn_timeout"]

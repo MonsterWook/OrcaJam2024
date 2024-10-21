@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://coxi02v0nhohf"]
+[gd_scene load_steps=27 format=3 uid="uid://coxi02v0nhohf"]
 
 [ext_resource type="Script" path="res://scenes/qte.gd" id="1_eq5md"]
 [ext_resource type="Texture2D" uid="uid://d31v2vxh2s8k6" path="res://scenes/cutscene_art/moon.jpg" id="2_kv46f"]
@@ -13,7 +13,8 @@
 [ext_resource type="AudioStream" uid="uid://bq3lrrs8am8e4" path="res://assets/sfx/sounds/explosion.wav" id="11_yasnw"]
 [ext_resource type="AudioStream" uid="uid://7tbfh7ju5wbu" path="res://assets/sfx/sounds/rage.wav" id="12_8ie5y"]
 [ext_resource type="AudioStream" uid="uid://dnr1on3w52nv7" path="res://assets/sfx/sounds/scream.wav" id="13_5psdx"]
-[ext_resource type="PackedScene" path="res://assets/obstacles/spawn_particle.tscn" id="14_kj4uj"]
+[ext_resource type="PackedScene" uid="uid://5m1x46ssg52" path="res://assets/obstacles/destroyed_moon_particle.tscn" id="14_1v34v"]
+[ext_resource type="AudioStream" uid="uid://gi3f180a6u3h" path="res://assets/sfx/sounds/fail.wav" id="14_glu7l"]
 
 [sub_resource type="Animation" id="Animation_mlu26"]
 length = 0.001
@@ -161,6 +162,30 @@ tracks/11/keys = {
 "update": 1,
 "values": [false]
 }
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("AnimatedSprite2D:scale")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.3, 0.3)]
+}
+tracks/13/type = "value"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("destroyed_particle:emitting")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_koh1f"]
 resource_name = "before"
@@ -201,7 +226,7 @@ tracks/2/keys = {
 "times": PackedFloat32Array(0, 4),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [Vector2(-467, -414), Vector2(-3, -84)]
+"values": [Vector2(-550, -550), Vector2(-3, -84)]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
@@ -225,7 +250,7 @@ tracks/4/keys = {
 "times": PackedFloat32Array(0, 4),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [Vector2(172, 225), Vector2(-3, -84)]
+"values": [Vector2(400, 100), Vector2(-3, -84)]
 }
 tracks/5/type = "value"
 tracks/5/imported = false
@@ -249,7 +274,7 @@ tracks/6/keys = {
 "times": PackedFloat32Array(0, 4),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [Vector2(3, 3), Vector2(0.2, 0.2)]
+"values": [Vector2(4.5, 4.5), Vector2(0.2, 0.2)]
 }
 tracks/7/type = "value"
 tracks/7/imported = false
@@ -282,6 +307,30 @@ tracks/9/path = NodePath(".:visible")
 tracks/9/interp = 1
 tracks/9/loop_wrap = true
 tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("AnimatedSprite2D:scale")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0, 4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [Vector2(0.5, 0.5), Vector2(0.3, 0.3)]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("ColorRect:visible")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
@@ -334,7 +383,7 @@ tracks/3/path = NodePath(".")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(4.96667),
+"times": PackedFloat32Array(2),
 "transitions": PackedFloat32Array(1),
 "values": [{
 "args": [],
@@ -348,10 +397,34 @@ tracks/4/path = NodePath(".:visible")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"times": PackedFloat32Array(4.96667),
+"times": PackedFloat32Array(2),
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [false]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("sfx/Fail:playing")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("AnimatedSprite2D:scale")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.15, 0.15)]
 }
 
 [sub_resource type="Animation" id="Animation_yygue"]
@@ -388,146 +461,102 @@ tracks/0/keys = {
 tracks/1/type = "method"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("spawn_particle")
+tracks/1/path = NodePath("sfx/Explosion")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0.333333, 1.56667, 2.3, 3.33333, 4.53333, 5.46667, 6.4, 7.13333, 8.23333, 9),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(1),
+"transitions": PackedFloat32Array(1),
 "values": [{
-"args": [Vector2(250, -300), null],
-"method": &"_on_destroyed"
-}, {
-"args": [Vector2(-150, 100), null],
-"method": &"_on_destroyed"
-}, {
-"args": [Vector2(90, 40), null],
-"method": &"_on_destroyed"
-}, {
-"args": [Vector2(300, -400), null],
-"method": &"_on_destroyed"
-}, {
-"args": [Vector2(0, 0), null],
-"method": &"_on_destroyed"
-}, {
-"args": [Vector2(-400, 100), null],
-"method": &"_on_destroyed"
-}, {
-"args": [Vector2(-350, -100), null],
-"method": &"_on_destroyed"
-}, {
-"args": [Vector2(250, -300), null],
-"method": &"_on_destroyed"
-}, {
-"args": [Vector2(250, 300), null],
-"method": &"_on_destroyed"
-}, {
-"args": [Vector2(0, 20), null],
-"method": &"_on_destroyed"
+"args": [0.0],
+"method": &"play"
 }]
 }
-tracks/2/type = "method"
+tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("sfx/Explosion")
+tracks/2/path = NodePath("moon:visible")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0.325033, 1.55833, 2.29167, 3.325, 4.525, 5.46667, 6.4, 7.13333, 8.23333, 9),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
-"values": [{
-"args": [0.0],
-"method": &"play"
-}, {
-"args": [0.0],
-"method": &"play"
-}, {
-"args": [0.0],
-"method": &"play"
-}, {
-"args": [0.0],
-"method": &"play"
-}, {
-"args": [0.0],
-"method": &"play"
-}, {
-"args": [0.0],
-"method": &"play"
-}, {
-"args": [0.0],
-"method": &"play"
-}, {
-"args": [0.0],
-"method": &"play"
-}, {
-"args": [0.0],
-"method": &"play"
-}, {
-"args": [0.0],
-"method": &"play"
-}]
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("moon:visible")
+tracks/3/path = NodePath("ColorRect:visible")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [true]
+"values": [false, true]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("ColorRect:visible")
+tracks/4/path = NodePath("moon:frame")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [false]
+"values": [0]
 }
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("moon:frame")
+tracks/5/path = NodePath("moon:z_index")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [0]
+"values": [10]
 }
-tracks/6/type = "value"
+tracks/6/type = "method"
 tracks/6/imported = false
 tracks/6/enabled = true
-tracks/6/path = NodePath("moon:z_index")
+tracks/6/path = NodePath(".")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
-}
-tracks/7/type = "method"
-tracks/7/imported = false
-tracks/7/enabled = true
-tracks/7/path = NodePath(".")
-tracks/7/interp = 1
-tracks/7/loop_wrap = true
-tracks/7/keys = {
-"times": PackedFloat32Array(10),
+"times": PackedFloat32Array(4),
 "transitions": PackedFloat32Array(1),
 "values": [{
 "args": [],
 "method": &"quit_game"
 }]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("destroyed_particle:emitting")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("ColorRect:color")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 1)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_vjwpe"]
@@ -637,7 +666,6 @@ position = Vector2(-2, 290)
 sprite_frames = SubResource("SpriteFrames_nv2xg")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-visible = false
 z_index = 11
 enabled = false
 zoom = Vector2(0.8, 0.8)
@@ -676,4 +704,15 @@ stream = ExtResource("12_8ie5y")
 [node name="Scream" type="AudioStreamPlayer" parent="sfx"]
 stream = ExtResource("13_5psdx")
 
-[node name="spawn_particle" parent="." instance=ExtResource("14_kj4uj")]
+[node name="Fail" type="AudioStreamPlayer" parent="sfx"]
+stream = ExtResource("14_glu7l")
+volume_db = -15.0
+
+[node name="destroyed_particle" parent="." instance=ExtResource("14_1v34v")]
+z_index = 13
+amount = 1000
+lifetime = 4.0
+initial_velocity_min = 5.0
+initial_velocity_max = 100.0
+scale_amount_min = 10.0
+scale_amount_max = 25.0

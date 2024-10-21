@@ -9,6 +9,7 @@ extends Node2D
 @onready var side_spawner = $side_spawner
 @onready var spawn_timer_1: Timer = $spawn_timer1
 @onready var spawn_timer_2: Timer = $spawn_timer2
+@onready var background_spawner: Timer = $background_spawner
 
 const obstacles_surface : Array[PackedScene] = [
 	preload("res://assets/obstacles/bird/bird.tscn"),
@@ -39,9 +40,9 @@ var start_pos : Vector2
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _ready() -> void:
 	start_pos = global_position
+	reset_spawner()
 
 func _process(delta: float) -> void:
-	print("PLEASE: " + str(global_position.y))
 	if(playing_game):
 		position.y += vertical_speed*delta
 
@@ -63,8 +64,6 @@ func current_location():
 		return obstacles_surface
 	elif (altitude > max_stratosphere):
 		return obstacles_stratosphere
-	elif ( altitude > max_space):
-		return obstacles_space
 	else:
 		return obstacles_space
 
@@ -81,10 +80,13 @@ func _on_spawn_timer_timeout():
 	for i in range(randi_range(0, 2)):
 		var scrap = obstacles[2]
 		spawn_obstacle(scrap, general_spawner)
-	if (obstacles == obstacles_surface):
+
+func background_spawn_timeout():
+	var obstacles = current_location()
+	if (obstacles == obstacles_surface || obstacles == obstacles_stratosphere):
 		var obstacle = background[0]
 		spawn_obstacle(obstacle, side_spawner)
-	elif(obstacles_surface == obstacles_space):
+	elif(obstacles == obstacles_space):
 		var obstacle = background[1]
 		spawn_obstacle(obstacle, general_spawner)
 		spawn_obstacle(obstacle, general_spawner)
@@ -95,6 +97,8 @@ func _on_spawn_timer_timeout():
 func stop_timers():
 	spawn_timer_1.stop()
 	spawn_timer_2.stop()
+	background_spawner.stop()
 func start_timers():
 	spawn_timer_1.start()
 	spawn_timer_2.start()
+	background_spawner.start()

@@ -1,5 +1,6 @@
 extends Node2D
 
+@onready var collision_shape_2d: CollisionShape2D = $Rocket/RigidBody2D/CollisionShape2D
 @onready var sprite: AnimatedSprite2D = $Rocket/RigidBody2D/AnimatedSprite2D
 @onready var rigid_body_2d: RigidBody2D = $Rocket/RigidBody2D
 @onready var rocket: Node2D = $Rocket
@@ -88,7 +89,7 @@ func _process(delta):
 	if (rigid_body_2d.position.x > 550 or rigid_body_2d.position.x < -550) and !impulse:
 		collision_timer.start()
 		impulse = true
-		bounce_off(120)
+		bounce_off(150)
 	
 	area_2d.position = rigid_body_2d.position
 	area_2d.rotation = rigid_body_2d.rotation 

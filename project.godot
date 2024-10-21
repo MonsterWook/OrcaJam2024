@@ -21,7 +21,6 @@ SceneManager="*res://assets/scene_manager.tscn"
 
 [display]
 
-window/size/mode=3
 window/stretch/mode="canvas_items"
 
 [global_group]
