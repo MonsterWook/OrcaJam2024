@@ -50,11 +50,11 @@ volume_db = 15.0
 
 [node name="thruster" type="AudioStreamPlayer" parent="sfx"]
 stream = ExtResource("5_7cklk")
-volume_db = -25.0
+volume_db = -10.0
 
 [node name="blast" type="AudioStreamPlayer" parent="sfx"]
 stream = ExtResource("9_xkycy")
-volume_db = -25.0
+volume_db = -20.0
 
 [node name="gameover" type="AudioStreamPlayer" parent="sfx"]
 stream = ExtResource("10_eguov")

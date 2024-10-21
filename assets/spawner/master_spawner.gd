@@ -10,6 +10,7 @@ extends Node2D
 @onready var spawn_timer_1: Timer = $spawn_timer1
 @onready var spawn_timer_2: Timer = $spawn_timer2
 @onready var background_spawner: Timer = $background_spawner
+@onready var layer_2: AudioStreamPlayer = $Layer2
 
 const obstacles_surface : Array[PackedScene] = [
 	preload("res://assets/obstacles/bird/bird.tscn"),
@@ -35,6 +36,7 @@ const background : Array[PackedScene] = [
 ]
 
 var playing_game : bool = false
+var playing_layer2 : bool = false
 var start_pos : Vector2
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -45,9 +47,14 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if(playing_game):
 		position.y += vertical_speed*delta
+	if ((current_location() == obstacles_stratosphere ||
+		current_location() == obstacles_space) &&
+		!playing_layer2):
+			fade_in_layer()
 
 func reset_spawner():
 	stop_timers()
+	stop_layer()
 	playing_game = false
 	global_position = start_pos
 
@@ -102,3 +109,12 @@ func start_timers():
 	spawn_timer_1.start()
 	spawn_timer_2.start()
 	background_spawner.start()
+
+func fade_in_layer():
+	playing_layer2 = true
+	var tween = get_tree().create_tween()
+	tween.tween_property(layer_2, "volume_db", -5, 2)
+func stop_layer():
+	playing_layer2 = false
+	layer_2.volume_db = -20
+	layer_2.stop()
