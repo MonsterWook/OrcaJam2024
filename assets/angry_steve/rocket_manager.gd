@@ -114,6 +114,7 @@ func start():
 	rocket_movement.collision_shape_2d.set_deferred("process", PROCESS_MODE_ALWAYS) 
 	magazine_size = 1 + SceneManager.shotgun_lvl
 	magazine_amount = magazine_size
+	bullets_count.text = "bullets: " + str(magazine_amount) + "/" + str(magazine_size)
 	
 	sfx_player.play_sound(thruster)
 	sfx_player.play_sound(blast)
