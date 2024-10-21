@@ -25,13 +25,9 @@ func _ready():
 	start_button.pressed.connect(start_pressed)
 	rocket_manager.visible = false
 	
-func reached_moon():
-	qte.start_anim()
-	print("we reached the moon")
-	
 func _process(delta):
-	
-	if (master_spawner.global_position.y < -13500):
+	print("PLEASE2" + str(master_spawner.global_position.y))
+	if (master_spawner.global_position.y < -2000):
 		qte_playing = true
 		qte.start_anim()
 		

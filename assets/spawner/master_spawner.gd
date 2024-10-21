@@ -41,6 +41,7 @@ func _ready() -> void:
 	start_pos = global_position
 
 func _process(delta: float) -> void:
+	print("PLEASE: " + str(global_position.y))
 	if(playing_game):
 		position.y += vertical_speed*delta
 
@@ -54,7 +55,6 @@ func start_spawner():
 	playing_game = true
 
 func spawn_obstacle(obstacle : PackedScene, spawner : Node2D):
-	print(global_position.y)
 	spawner.spawn(obstacle)
 
 func current_location():

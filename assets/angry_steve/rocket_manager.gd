@@ -91,10 +91,6 @@ func _process(delta: float) -> void:
 		should_die = true
 		death()
 		
-	if (rocket_movement.vertical_position < -8150):
-		get_parent().reached_moon()
-	print(rocket_movement.vertical_position)
-		
 func death():
 	can_shoot = false
 	thruster.stop()
