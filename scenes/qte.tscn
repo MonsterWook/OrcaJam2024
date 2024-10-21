@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://coxi02v0nhohf"]
+[gd_scene load_steps=26 format=3 uid="uid://coxi02v0nhohf"]
 
 [ext_resource type="Script" path="res://scenes/qte.gd" id="1_eq5md"]
 [ext_resource type="Texture2D" uid="uid://d31v2vxh2s8k6" path="res://scenes/cutscene_art/moon.jpg" id="2_kv46f"]
@@ -11,7 +11,6 @@
 [ext_resource type="Texture2D" uid="uid://bsvqibgrq38e0" path="res://scenes/qte_art/IMG_0473.png" id="6_ta1s3"]
 [ext_resource type="Texture2D" uid="uid://bul04ibr63o8q" path="res://scenes/qte_art/IMG_0474.png" id="7_72s75"]
 [ext_resource type="AudioStream" uid="uid://bq3lrrs8am8e4" path="res://assets/sfx/sounds/explosion.wav" id="11_yasnw"]
-[ext_resource type="AudioStream" uid="uid://7tbfh7ju5wbu" path="res://assets/sfx/sounds/rage.wav" id="12_8ie5y"]
 [ext_resource type="AudioStream" uid="uid://dnr1on3w52nv7" path="res://assets/sfx/sounds/scream.wav" id="13_5psdx"]
 [ext_resource type="PackedScene" uid="uid://5m1x46ssg52" path="res://assets/obstacles/destroyed_moon_particle.tscn" id="14_1v34v"]
 [ext_resource type="AudioStream" uid="uid://gi3f180a6u3h" path="res://assets/sfx/sounds/fail.wav" id="14_glu7l"]
@@ -697,9 +696,6 @@ script = ExtResource("6_ippqo")
 [node name="Explosion" type="AudioStreamPlayer" parent="sfx"]
 stream = ExtResource("11_yasnw")
 volume_db = -15.0
-
-[node name="Rage" type="AudioStreamPlayer" parent="sfx"]
-stream = ExtResource("12_8ie5y")
 
 [node name="Scream" type="AudioStreamPlayer" parent="sfx"]
 stream = ExtResource("13_5psdx")

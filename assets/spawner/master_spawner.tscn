@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://nfli7vysv23"]
+[gd_scene load_steps=7 format=3 uid="uid://nfli7vysv23"]
 
 [ext_resource type="Script" path="res://assets/spawner/master_spawner.gd" id="1_h3sq7"]
 [ext_resource type="Script" path="res://assets/spawner/spawners/side_spawner.gd" id="2_wyqy2"]
 [ext_resource type="Script" path="res://assets/spawner/spawners/general_spawner.gd" id="3_jubqi"]
+[ext_resource type="AudioStream" uid="uid://cjkdg3cu7j784" path="res://assets/sfx/music_final/layer2.wav" id="4_cbruf"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jobja"]
 size = Vector2(1087, 265.5)
@@ -51,6 +52,9 @@ autostart = true
 [node name="background_spawner" type="Timer" parent="."]
 wait_time = 2.0
 autostart = true
+
+[node name="Layer2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_cbruf")
 
 [connection signal="timeout" from="spawn_timer1" to="." method="_on_spawn_timer_timeout"]
 [connection signal="timeout" from="spawn_timer2" to="." method="_on_spawn_timer_timeout"]

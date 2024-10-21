@@ -1,8 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://do1ijepw3r661"]
+[gd_scene load_steps=4 format=3 uid="uid://do1ijepw3r661"]
 
 [ext_resource type="Script" path="res://assets/sfx/music/music.gd" id="1_mta1l"]
 [ext_resource type="AudioStream" uid="uid://dq5g4hrhtpbjx" path="res://assets/sfx/music_final/layer1.wav" id="2_fsnjo"]
-[ext_resource type="AudioStream" uid="uid://cjkdg3cu7j784" path="res://assets/sfx/music_final/layer2.wav" id="3_simjp"]
 [ext_resource type="AudioStream" uid="uid://bl6wpr00dw42a" path="res://assets/sfx/music/menu music.wav" id="4_ifve4"]
 
 [node name="Music" type="Node2D"]
@@ -10,10 +9,6 @@ script = ExtResource("1_mta1l")
 
 [node name="Layer1" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_fsnjo")
-volume_db = -5.0
-
-[node name="Layer2" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("3_simjp")
 volume_db = -5.0
 
 [node name="MenuMusic" type="AudioStreamPlayer" parent="."]

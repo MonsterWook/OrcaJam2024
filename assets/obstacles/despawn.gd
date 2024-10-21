@@ -8,7 +8,7 @@ func _process(delta):
 	time += delta
 	if (obstacle.global_position.x > 2000 ||
 		obstacle.global_position.x < -2000 ||
-		time > 15):
+		time > 10):
 			despawn()
 
 func despawn():
