@@ -90,7 +90,7 @@ func death():
 	thruster.stop()
 	death_timer.start()
 	var instance = particle.instantiate()
-	rocket_movement.rigid_body_2d.set_deferred("disabled_mode", PROCESS_MODE_DISABLED) 
+	rocket_movement.rigid_body_2d.set_deferred("freeze", true)
 	
 	sfx_player.play_sound(gameover)
 	instance.emitting = true
@@ -109,7 +109,7 @@ func take_damage(damage):
 
 func start():
 	can_lose_fuel = true
-	rocket_movement.rigid_body_2d.set_deferred("disabled_mode", PROCESS_MODE_ALWAYS) 
+	rocket_movement.rigid_body_2d.set_deferred("freeze", false)
 	magazine_size = 1 + SceneManager.shotgun_lvl
 	magazine_amount = magazine_size
 	bullets_count.text = "bullets: " + str(magazine_amount) + "/" + str(magazine_size)
@@ -148,9 +148,10 @@ func _on_death_timer_timeout():
 	print("should_die")
 
 func in_qte():
+	should_die = true
 	can_shoot = false
 	can_lose_fuel = false
-	rocket_movement.rigid_body_2d.set_deferred("disabled_mode", PROCESS_MODE_DISABLED) 
+	rocket_movement.rigid_body_2d.set_deferred("freeze", true)
 	rocket_movement.reset_steve()
 	thruster.stop()
 	

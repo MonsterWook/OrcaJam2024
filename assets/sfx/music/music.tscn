@@ -13,4 +13,4 @@ volume_db = -5.0
 
 [node name="MenuMusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_ifve4")
-volume_db = -5.0
+volume_db = -10.0

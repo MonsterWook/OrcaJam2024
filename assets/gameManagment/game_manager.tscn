@@ -30,7 +30,6 @@ visible = false
 position = Vector2(-583, -350)
 max_surface = -4500
 max_stratosphere = -8500
-max_space = -14000
 vertical_speed = -150
 
 [node name="In_Game_UI" parent="." instance=ExtResource("5_4s414")]

@@ -37,6 +37,6 @@ texture = ExtResource("1_lnwa1")
 
 [node name="moon" type="Sprite2D" parent="TextureProgressBar"]
 z_index = 11
-position = Vector2(48, 0.5)
+position = Vector2(50.75, 0.5)
 scale = Vector2(0.005, 0.005)
 texture = ExtResource("2_c2f4l")

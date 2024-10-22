@@ -36,13 +36,13 @@ func _process(delta):
 	var curr_prog = -(master_spawner.global_position.y - start_prog)
 	curr_prog = (curr_prog / max_prog) * 100
 	progress.texture_progress_bar.value = curr_prog
-	print("prog: " + str(curr_prog))
-	print("value: " + str(progress.texture_progress_bar.value))
 	
 	if (master_spawner.global_position.y < -13600 && !qte_playing):
 		qte_playing = true
 		qte.start_anim()
 		rocket_manager.in_qte()
+		progress.visible = false
+		master_spawner.layer_2.stop()
 		
 	if is_start_pressed and steve_state == MENU_STATE:
 		is_start_pressed = false

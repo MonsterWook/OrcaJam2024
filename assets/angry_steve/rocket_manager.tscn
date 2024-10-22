@@ -35,7 +35,7 @@ volume_db = -15.0
 
 [node name="reload" type="AudioStreamPlayer" parent="sfx"]
 stream = ExtResource("4_35oru")
-volume_db = -15.0
+volume_db = -12.0
 
 [node name="hurt1" type="AudioStreamPlayer" parent="sfx"]
 stream = ExtResource("6_8kt5m")
@@ -59,7 +59,7 @@ volume_db = -20.0
 
 [node name="gameover" type="AudioStreamPlayer" parent="sfx"]
 stream = ExtResource("10_eguov")
-volume_db = 5.0
+volume_db = 9.0
 
 [node name="SceneObjects" type="Node2D" parent="."]
 

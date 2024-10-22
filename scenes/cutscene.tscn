@@ -275,6 +275,7 @@ stream = ExtResource("11_acb63")
 
 [node name="MenuClick" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("12_jt1ui")
+volume_db = -2.0
 
 [node name="DestroyAsteroid" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("13_ft8h0")

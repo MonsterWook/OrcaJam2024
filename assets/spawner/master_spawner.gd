@@ -2,7 +2,6 @@ extends Node2D
 
 @export var max_surface = 5000
 @export var max_stratosphere = 15000
-@export var max_space : int = 30000
 @export var vertical_speed : int = -100
 
 @onready var general_spawner = $general_spawner
@@ -47,10 +46,8 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if(playing_game):
 		position.y += vertical_speed*delta
-	if ((current_location() == obstacles_stratosphere ||
-		current_location() == obstacles_space) &&
-		!playing_layer2):
-			fade_in_layer()
+	if ((global_position.y < max_surface) && !playing_layer2):
+		fade_in_layer()
 
 func reset_spawner():
 	stop_timers()
@@ -111,9 +108,10 @@ func start_timers():
 	background_spawner.start()
 
 func fade_in_layer():
+	layer_2.play()
 	playing_layer2 = true
 	var tween = get_tree().create_tween()
-	tween.tween_property(layer_2, "volume_db", -5, 2)
+	tween.tween_property(layer_2, "volume_db", -5, 5)
 func stop_layer():
 	playing_layer2 = false
 	layer_2.volume_db = -20
