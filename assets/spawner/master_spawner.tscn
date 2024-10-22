@@ -54,7 +54,7 @@ autostart = true
 
 [node name="Layer2" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_cbruf")
-volume_db = -20.0
+volume_db = -80.0
 
 [connection signal="timeout" from="spawn_timer1" to="." method="_on_spawn_timer_timeout"]
 [connection signal="timeout" from="spawn_timer2" to="." method="_on_spawn_timer_timeout"]

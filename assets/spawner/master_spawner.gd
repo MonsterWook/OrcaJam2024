@@ -56,6 +56,7 @@ func reset_spawner():
 	global_position = start_pos
 
 func start_spawner():
+	layer_2.play()
 	start_timers()
 	playing_game = true
 
@@ -108,11 +109,10 @@ func start_timers():
 	background_spawner.start()
 
 func fade_in_layer():
-	layer_2.play()
 	playing_layer2 = true
 	var tween = get_tree().create_tween()
-	tween.tween_property(layer_2, "volume_db", -5, 5)
+	tween.tween_property(layer_2, "volume_db", -5, 15)
 func stop_layer():
 	playing_layer2 = false
-	layer_2.volume_db = -20
+	layer_2.volume_db = -40
 	layer_2.stop()
