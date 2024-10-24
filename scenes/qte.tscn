@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://coxi02v0nhohf"]
+[gd_scene load_steps=27 format=3 uid="uid://coxi02v0nhohf"]
 
 [ext_resource type="Script" path="res://scenes/qte.gd" id="1_eq5md"]
 [ext_resource type="Texture2D" uid="uid://d31v2vxh2s8k6" path="res://scenes/cutscene_art/moon.jpg" id="2_kv46f"]
@@ -6,13 +6,15 @@
 [ext_resource type="Texture2D" uid="uid://vfjwfx8swuft" path="res://scenes/qte_art/IMG_0470.png" id="3_16uil"]
 [ext_resource type="Texture2D" uid="uid://bp7lgdeftu2lp" path="res://scenes/qte_art/IMG_0472.png" id="3_f56vw"]
 [ext_resource type="Texture2D" uid="uid://sxvavf50frmq" path="res://scenes/cutscene_art/moon-removebg-preview.png" id="3_pe2c0"]
-[ext_resource type="Texture2D" uid="uid://cv25hyr70owwd" path="res://assets/font/Mr. Breakfast's Free Prompts/png/space_dark.png" id="5_dsny6"]
+[ext_resource type="Texture2D" uid="uid://bde4o1woa2qvh" path="res://scenes/qte_art/grey_circle.png" id="6_3vtf4"]
 [ext_resource type="Script" path="res://scenes/qte_art/texture_progress_bar.gd" id="6_ippqo"]
 [ext_resource type="Texture2D" uid="uid://bsvqibgrq38e0" path="res://scenes/qte_art/IMG_0473.png" id="6_ta1s3"]
 [ext_resource type="Texture2D" uid="uid://bul04ibr63o8q" path="res://scenes/qte_art/IMG_0474.png" id="7_72s75"]
+[ext_resource type="Texture2D" uid="uid://brujigviv6jty" path="res://scenes/qte_art/IMG_0476.png" id="9_7mhhn"]
+[ext_resource type="Texture2D" uid="uid://d0ckew4m4lmgk" path="res://scenes/qte_art/IMG_0475.png" id="10_ymos5"]
 [ext_resource type="AudioStream" uid="uid://bq3lrrs8am8e4" path="res://assets/sfx/sounds/explosion.wav" id="11_yasnw"]
 [ext_resource type="AudioStream" uid="uid://dnr1on3w52nv7" path="res://assets/sfx/sounds/scream.wav" id="13_5psdx"]
-[ext_resource type="PackedScene" uid="uid://5m1x46ssg52" path="res://assets/obstacles/destroyed_moon_particle.tscn" id="14_1v34v"]
+[ext_resource type="PackedScene" path="res://assets/obstacles/destroyed_moon_particle.tscn" id="14_1v34v"]
 [ext_resource type="AudioStream" uid="uid://gi3f180a6u3h" path="res://assets/sfx/sounds/fail.wav" id="14_glu7l"]
 
 [sub_resource type="Animation" id="Animation_mlu26"]
@@ -20,103 +22,103 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("space_bar:scale")
+tracks/0/path = NodePath("moon:visible")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(1, 1)]
+"update": 1,
+"values": [true]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("moon:visible")
+tracks/1/path = NodePath("moon:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
+"update": 0,
+"values": [Vector2(-3, -84)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("moon:position")
+tracks/2/path = NodePath("moon:rotation")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(-3, -84)]
+"values": [0.0]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("moon:rotation")
+tracks/3/path = NodePath("AnimatedSprite2D:position")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [0.0]
+"values": [Vector2(-3, -84)]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("AnimatedSprite2D:position")
+tracks/4/path = NodePath("ColorRect:color")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(-3, -84)]
+"values": [Color(1, 1, 1, 1)]
 }
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("ColorRect:color")
+tracks/5/path = NodePath("moon:scale")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Color(1, 1, 1, 1)]
+"values": [Vector2(3, 3)]
 }
 tracks/6/type = "value"
 tracks/6/imported = false
 tracks/6/enabled = true
-tracks/6/path = NodePath("moon:scale")
+tracks/6/path = NodePath("moon:frame")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(3, 3)]
+"update": 1,
+"values": [0]
 }
 tracks/7/type = "value"
 tracks/7/imported = false
 tracks/7/enabled = true
-tracks/7/path = NodePath("moon:frame")
+tracks/7/path = NodePath("AnimatedSprite2D:visible")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [0]
+"values": [true]
 }
 tracks/8/type = "value"
 tracks/8/imported = false
 tracks/8/enabled = true
-tracks/8/path = NodePath("AnimatedSprite2D:visible")
+tracks/8/path = NodePath("ColorRect:visible")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/keys = {
@@ -128,58 +130,46 @@ tracks/8/keys = {
 tracks/9/type = "value"
 tracks/9/imported = false
 tracks/9/enabled = true
-tracks/9/path = NodePath("ColorRect:visible")
+tracks/9/path = NodePath("moon:z_index")
 tracks/9/interp = 1
 tracks/9/loop_wrap = true
 tracks/9/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [true]
+"values": [11]
 }
 tracks/10/type = "value"
 tracks/10/imported = false
 tracks/10/enabled = true
-tracks/10/path = NodePath("moon:z_index")
+tracks/10/path = NodePath(".:visible")
 tracks/10/interp = 1
 tracks/10/loop_wrap = true
 tracks/10/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [11]
+"values": [false]
 }
 tracks/11/type = "value"
 tracks/11/imported = false
 tracks/11/enabled = true
-tracks/11/path = NodePath(".:visible")
+tracks/11/path = NodePath("AnimatedSprite2D:scale")
 tracks/11/interp = 1
 tracks/11/loop_wrap = true
 tracks/11/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
+"update": 0,
+"values": [Vector2(0.3, 0.3)]
 }
 tracks/12/type = "value"
 tracks/12/imported = false
 tracks/12/enabled = true
-tracks/12/path = NodePath("AnimatedSprite2D:scale")
+tracks/12/path = NodePath("destroyed_particle:emitting")
 tracks/12/interp = 1
 tracks/12/loop_wrap = true
 tracks/12/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0.3, 0.3)]
-}
-tracks/13/type = "value"
-tracks/13/imported = false
-tracks/13/enabled = true
-tracks/13/path = NodePath("destroyed_particle:emitting")
-tracks/13/interp = 1
-tracks/13/loop_wrap = true
-tracks/13/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
@@ -426,22 +416,6 @@ tracks/6/keys = {
 "values": [Vector2(0.15, 0.15)]
 }
 
-[sub_resource type="Animation" id="Animation_yygue"]
-resource_name = "qte"
-length = 7.0
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("space_bar:scale")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.25, 0.5, 0.75, 1, 1.25, 1.5, 1.75, 2, 2.25, 2.5, 2.75, 3, 3.25, 3.5, 3.75, 4, 4.25, 4.5, 4.75, 5, 5.25, 5.5, 5.75, 6, 6.25, 6.5, 6.75, 7),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [Vector2(1, 1), Vector2(0.75, 0.75), Vector2(1, 1), Vector2(0.75, 0.75), Vector2(1, 1), Vector2(0.75, 0.75), Vector2(1, 1), Vector2(0.75, 0.75), Vector2(1, 1), Vector2(0.75, 0.75), Vector2(1, 1), Vector2(0.75, 0.75), Vector2(1, 1), Vector2(0.75, 0.75), Vector2(1, 1), Vector2(0.75, 0.75), Vector2(1, 1), Vector2(0.75, 0.75), Vector2(1, 1), Vector2(0.75, 0.75), Vector2(1, 1), Vector2(0.75, 0.75), Vector2(1, 1), Vector2(0.75, 0.75), Vector2(1, 1), Vector2(0.75, 0.75), Vector2(1, 1), Vector2(0.75, 0.75), Vector2(1, 1)]
-}
-
 [sub_resource type="Animation" id="Animation_t3om8"]
 resource_name = "win"
 length = 10.0
@@ -478,7 +452,7 @@ tracks/2/path = NodePath("moon:visible")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 1),
+"times": PackedFloat32Array(0, 1.05),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [true, false]
@@ -563,7 +537,6 @@ _data = {
 "RESET": SubResource("Animation_mlu26"),
 "before": SubResource("Animation_koh1f"),
 "fail": SubResource("Animation_3kdch"),
-"qte": SubResource("Animation_yygue"),
 "win": SubResource("Animation_t3om8")
 }
 
@@ -579,6 +552,20 @@ animations = [{
 "loop": true,
 "name": &"default",
 "speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_nv2xg"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_7mhhn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_ymos5")
+}],
+"loop": true,
+"name": &"default",
+"speed": 4.0
 }]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_gs4cy"]
@@ -619,17 +606,6 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_nv2xg"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("5_dsny6")
-}],
-"loop": true,
-"name": &"default",
-"speed": 4.0
-}]
-
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_nk3cc"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_na60f"]
@@ -650,19 +626,35 @@ scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_vlhnf")
 speed_scale = 0.0
 
+[node name="space_bar" type="AnimatedSprite2D" parent="."]
+visible = false
+z_index = 13
+position = Vector2(-504, 4)
+scale = Vector2(0.25, 0.25)
+sprite_frames = SubResource("SpriteFrames_nv2xg")
+frame_progress = 0.900611
+
+[node name="CLICK" type="TextureProgressBar" parent="space_bar"]
+z_index = -1
+offset_left = -500.0
+offset_top = -508.0
+offset_right = -345.0
+offset_bottom = -360.0
+scale = Vector2(6.61, 6.61)
+max_value = 20.0
+step = 0.0
+value = 20.0
+fill_mode = 4
+texture_progress = ExtResource("6_3vtf4")
+tint_progress = Color(1, 1, 1, 0.392157)
+
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 z_index = 12
 position = Vector2(-3, -84)
 scale = Vector2(0.3, 0.3)
 sprite_frames = SubResource("SpriteFrames_gs4cy")
-animation = &"scene_before_qte"
+animation = &"qte"
 autoplay = "scene_before_qte"
-
-[node name="space_bar" type="AnimatedSprite2D" parent="."]
-visible = false
-z_index = 11
-position = Vector2(-2, 290)
-sprite_frames = SubResource("SpriteFrames_nv2xg")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 z_index = 11
